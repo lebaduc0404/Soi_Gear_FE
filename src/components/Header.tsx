@@ -4,11 +4,12 @@ import { CartIcon, Logo, SearchIcon, UserIcon } from "./icons";
 import HeaderTest from "./HeaderTest";
 import { UserButton, useUser } from "@clerk/clerk-react";
 import useCart from "@/common/hooks/useCart";
-import Modal from "@/pages/(website)/home/_component/model";
+// Xóa dòng import Modal
+// import Modal from "@/pages/(website)/home/_component/model";
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(true); // State để điều khiển hiển thị modal
+  // const [isModalOpen, setIsModalOpen] = useState(true); // State để điều khiển hiển thị modal
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false); // State để điều khiển hiển thị menu người dùng
   const { data } = useCart();
   const navigate = useNavigate();
@@ -25,22 +26,15 @@ const Header = () => {
 
   const getTotalQuantity = () => {
     return (
-      data?.products.reduce((total : any, product: any) => total + product.quantity, 0) ||
-      0
+      data?.products.reduce(
+        (total: any, product: any) => total + product.quantity,
+        0
+      ) || 0
     );
   };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
-
-  // const handleLogout = async () => {
-  //   try {
-  //     await signOut(); // Thực hiện đăng xuất
-  //     setIsUserMenuOpen(false); // Đóng menu người dùng
-  //   } catch (error) {
-  //     console.error("Failed to sign out:", error);
-  //   }
+  // const handleCloseModal = () => {
+  //   setIsModalOpen(false);
   // };
 
   return (
@@ -100,12 +94,13 @@ const Header = () => {
             )}
           </Link>
         </div>
-       <div className="ml-6 ">
-       <UserButton />
-       </div>
+        <div className="ml-6 ">
+          <UserButton />
+        </div>
       </div>
-      
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal} />
+
+      {/* Xóa đoạn mã Modal */}
+      {/* <Modal isOpen={isModalOpen} onClose={handleCloseModal} /> */}
     </header>
   );
 };
