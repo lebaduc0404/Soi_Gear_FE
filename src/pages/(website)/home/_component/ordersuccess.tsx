@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const OrderConfirmationPage = () => {
-  const location = useLocation();
+  // const location = useLocation();
   const navigate = useNavigate();
-  const orderData = location.state?.orderData;
+  // const orderData = location.state?.orderData;
+  
 
   useEffect(() => {
     const timer = setTimeout(() => {

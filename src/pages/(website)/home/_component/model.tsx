@@ -1,7 +1,7 @@
 // import React from "react";
 
-const Modal = ({ isOpen, onClose }) => {
-  if (!isOpen) return null;
+const Modal = () => {
+  // if (!isOpen) return null;
 
   // const text = " GV HướngDẫn:ThầyNguyễnHoàng";
 

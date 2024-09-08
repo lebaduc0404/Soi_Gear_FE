@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSprings, animated, config } from "@react-spring/web";
 
 const images = [
@@ -13,12 +13,13 @@ const Banner = () => {
 
   const springs = useSprings(
     images.length,
-    images.map((image, i) => ({
+    images.map((_, i) => ({
       opacity: i === index ? 1 : 0,
       transform: i === index ? "translateX(0%)" : "translateX(50%)",
       config: config.stiff,
     }))
   );
+
 
   useEffect(() => {
     const interval = setInterval(() => {

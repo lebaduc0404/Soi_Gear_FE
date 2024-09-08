@@ -1,4 +1,4 @@
-import { IUsers } from "@/common/types/users";
+import { IUsers } from "@/common/types/user";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import instance from "@/config/axios";

@@ -27,7 +27,7 @@ import { Button } from "@/components/ui/button";
 type Checked = DropdownMenuCheckboxItemProps["checked"];
 
 export function DropdownMenuCheckboxes() {
-    const [showStatusBar, setShowStatusBar] = React.useState<Checked>(true);
+    // const [showStatusBar, setShowStatusBar] = React.useState<Checked>(true);
     const [showActivityBar, setShowActivityBar] =
         React.useState<Checked>(false);
     const [showPanel, setShowPanel] = React.useState<Checked>(false);

@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { Button } from "@/components/ui/button";
 import {
     Form,
@@ -15,7 +15,7 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import Joi from "joi";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom"; // Nhập hook useNavigate
+// import { useNavigate } from "react-router-dom"; // Nhập hook useNavigate
 
 const signupSchema = Joi.object({
     name: Joi.string().min(3).required(),
@@ -28,7 +28,7 @@ const signupSchema = Joi.object({
 });
 
 const SignUp = () => {
-    const navigate = useNavigate(); // Khởi tạo hook useNavigate
+    // const navigate = useNavigate(); // Khởi tạo hook useNavigate
     const form = useForm({
         resolver: joiResolver(signupSchema),
         defaultValues: {

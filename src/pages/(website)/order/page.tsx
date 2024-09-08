@@ -28,7 +28,7 @@ const OrderPage = () => {
     resolver: yupResolver(schema),
   });
 
-  const { data, isLoading, isError } = useCart();
+  const { isLoading, isError } = useCart();
   const navigate = useNavigate();
 
   const FORM_URL = `https://docs.google.com/forms/d/e/1FAIpQLScB_y56a0i9BAg7jsRMO-uU8_MLsZeV8KwF-8rxNg8la9LmjA/formResponse`;

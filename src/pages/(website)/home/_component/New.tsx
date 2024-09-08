@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import ProductList from "../../product/_component/ProductList";
 
 const New = () => {

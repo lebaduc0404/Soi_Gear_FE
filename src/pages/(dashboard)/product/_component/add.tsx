@@ -1,5 +1,5 @@
 import MutationQuery from "@/common/hooks/MutationQuery";
-import { IProduct } from "@/common/types/product";
+// import { IProduct } from "@/common/types/product";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {

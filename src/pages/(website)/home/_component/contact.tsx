@@ -64,7 +64,7 @@ const ContactPage: React.FC = () => {
           width="100%"
           height="450"
           style={{ border: 0 }}
-          allowFullScreen=""
+          allowFullScreen={true}
           loading="lazy"
         ></iframe>
       </div>

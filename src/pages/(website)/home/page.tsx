@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import AnimatedSection from './_component/AnimatedSection';
 import Banner from "./_component/Banner";
 import Blog from "./_component/Blog";

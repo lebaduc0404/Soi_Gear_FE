@@ -1,20 +1,35 @@
-import React from "react";
+// import React from "react";
 import { Logo } from "./icons"; // Ensure the Logo component or path is correctly imported
 
 const Footer = () => {
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const email = event.target.elements.email.value;
 
+    // Cast event.target to HTMLFormElement to access form elements
+    const form = event.target as HTMLFormElement;
+
+    // Access the email input value
+    const emailInput = form.elements.namedItem("email") as HTMLInputElement;
+
+    // Check if the email input is found to avoid runtime errors
+    if (!emailInput) {
+      console.error("Email input not found.");
+      return;
+    }
+
+    const email = emailInput.value;
+
+    // Prepare form data
     const formData = new URLSearchParams();
     formData.append("entry.873095472", email);
 
+    // Send data to the Google Form
     fetch(
       "https://docs.google.com/forms/d/e/1FAIpQLScPO7qu7vfekGcxPL2J3hgwU7XB3QQIfKW7y0hj0rPBbzG2Cw/formResponse",
       {
         method: "POST",
         body: formData,
-        mode: "no-cors",
+        mode: "no-cors", // This mode prevents you from seeing the response due to CORS restrictions
       }
     )
       .then(() => {
@@ -24,8 +39,10 @@ const Footer = () => {
         console.error("Lỗi gửi dữ liệu:", error);
       });
 
-    event.target.reset();
+    // Reset the form after submission
+    form.reset();
   };
+
 
   return (
     <footer className="bg-gray-900 text-white py-12 mt-20">
@@ -108,7 +125,7 @@ const Footer = () => {
           </div>
         </div>
         <p className="text-center text-gray-500 mt-8">
-          &copy; 2024 Nhóm 2 React, Made by Hoàng Anh 3cm.
+          &copy; 2024 Nhóm 2 React.
         </p>
       </div>
     </footer>

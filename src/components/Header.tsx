@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { CartIcon, Logo, SearchIcon, UserIcon } from "./icons";
 import HeaderTest from "./HeaderTest";
@@ -12,7 +12,7 @@ const Header = () => {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false); // State để điều khiển hiển thị menu người dùng
   const { data } = useCart();
   const navigate = useNavigate();
-  const { user, isSignedIn, signOut } = useUser(); // Lấy thông tin người dùng từ Clerk
+  const { user, isSignedIn } = useUser(); // Lấy thông tin người dùng từ Clerk
 
   console.log("User:", user);
   console.log("Is Signed In:", isSignedIn);
@@ -25,7 +25,7 @@ const Header = () => {
 
   const getTotalQuantity = () => {
     return (
-      data?.products.reduce((total, product) => total + product.quantity, 0) ||
+      data?.products.reduce((total : any, product: any) => total + product.quantity, 0) ||
       0
     );
   };

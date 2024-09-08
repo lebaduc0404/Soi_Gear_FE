@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ProductQuery from "@/common/hooks/ProductQuery";
 import { useLocalStorage } from "@/common/hooks/useStorage";
 import { IProduct } from "@/common/types/product";
