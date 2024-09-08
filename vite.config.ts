@@ -2,8 +2,14 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 
-// https://vitejs.dev/config/
+// Vite configuration
 export default defineConfig({
-    plugins: [tsconfigPaths(), react()],
-    base: '/'
+  plugins: [
+    // Plugin to resolve TypeScript path aliases
+    tsconfigPaths(),
+    // Plugin to support React features
+    react(),
+  ],
+  // Base URL for deployment
+  base: "/",
 });
