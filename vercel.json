@@ -11,8 +11,5 @@
         "distDir": "dist"
       }
     }
-  ],
-  "engines": {
-    "node": "20.x"
-  }
+  ]
 }
