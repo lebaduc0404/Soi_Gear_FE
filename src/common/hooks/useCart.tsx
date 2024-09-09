@@ -16,7 +16,7 @@ const useCart = () => {
         queryKey: ["CART", userId],
         queryFn: async () => {
             const { data } = await axios.get(
-                `http://localhost:8080/api/v1/carts/${userId}`
+              `https://soi-gear-be-3.onrender.com/api/v1/carts/${userId}`
             );
             return data;
         },
@@ -27,11 +27,11 @@ const useCart = () => {
             switch (action) {
                 case "INCREMENT": {
                     await axios.put(
-                        `http://localhost:8080/api/v1/carts/increase`,
-                        {
-                            userId,
-                            productId,
-                        }
+                      `https://soi-gear-be-3.onrender.com/api/v1/carts/increase`,
+                      {
+                        userId,
+                        productId,
+                      }
                     );
                     toast({
                         title: "Tăng số lượng thành công!",
@@ -42,11 +42,11 @@ const useCart = () => {
 
                 case "DECREMENT": {
                     await axios.put(
-                        `http://localhost:8080/api/v1/carts/decrease`,
-                        {
-                            userId,
-                            productId,
-                        }
+                      `https://soi-gear-be-3.onrender.com/api/v1/carts/decrease`,
+                      {
+                        userId,
+                        productId,
+                      }
                     );
                     toast({
                         title: "Giảm số lượng thành công!",
@@ -57,11 +57,11 @@ const useCart = () => {
 
                 case "REMOVE": {
                     await axios.post(
-                        `http://localhost:8080/api/v1/carts/remove-cart`,
-                        {
-                            userId,
-                            productId,
-                        }
+                      `https://soi-gear-be-3.onrender.com/api/v1/carts/remove-cart`,
+                      {
+                        userId,
+                        productId,
+                      }
                     );
                     toast({
                         title: "Xoá sản phẩm khỏi giỏ hàng thành công!",

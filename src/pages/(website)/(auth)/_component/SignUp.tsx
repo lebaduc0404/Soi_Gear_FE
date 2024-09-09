@@ -47,8 +47,8 @@ const SignUp = () => {
             confirmPassword: string;
         }) => {
             await axios.post(
-                `http://localhost:8080/api/v1/auth/signup`,
-                formData
+              `https://soi-gear-be-3.onrender.com/api/v1/auth/signup`,
+              formData
             );
         },
         onSuccess: (data) => {
