@@ -8,7 +8,7 @@ const RelatedProduct = ({ id }: { id: string | number }) => {
     queryKey: ["RELATED_PRODUCT", id],
     queryFn: async () => {
       const { data } = await axios.get(
-        `http://localhost:8080/api/v1/products/${id}/related`
+        `https://soi-gear-fe-3.onrender.com/products/${id}/related`
       );
       return data;
     },

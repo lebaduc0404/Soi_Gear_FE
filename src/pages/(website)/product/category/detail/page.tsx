@@ -11,7 +11,7 @@ const CategoryDetail = () => {
         queryKey: ["CATEGORY_DETAIL", id],
         queryFn: async () => {
             const { data } = await axios.get(
-                `http://localhost:8080/api/v1/categories/${id}`
+              `https://soi-gear-fe-3.onrender.com/categories/${id}`
             );
             return data;
         },
