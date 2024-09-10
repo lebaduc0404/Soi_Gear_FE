@@ -6,7 +6,7 @@ const Services = () => {
                     <div className="service-list">
                         <div className="service-item">
                             <img
-                                src="/src/assets/icons/10.svg"
+                                // src="/src/assets/icons/10.svg"
                                 alt=""
                                 className="service__image"
                             />
@@ -21,7 +21,7 @@ const Services = () => {
                         <div className="service-item">
                             <img
                                 alt=""
-                                src="/src/assets/icons/11.svg"
+                                // src="/src/assets/icons/11.svg"
                                 className="service__image"
                             />
                             <div className="service-info">
@@ -37,7 +37,7 @@ const Services = () => {
                         <div className="service-item">
                             <img
                                 alt=""
-                                src="/src/assets/icons/12.svg"
+                                // src="/src/assets/icons/12.svg"
                                 className="service__image"
                             />
                             <div className="service-info">
@@ -51,7 +51,7 @@ const Services = () => {
                         <div className="service-item">
                             <img
                                 alt=""
-                                src="/src/assets/icons/13.svg"
+                                // src="/src/assets/icons/13.svg"
                                 className="service__image"
                             />
                             <div className="service-info">

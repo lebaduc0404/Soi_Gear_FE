@@ -64,7 +64,7 @@ const Blog = () => {
                     className="post__readmore"
                   >
                     Chi tiết
-                    <img src="/src/assets/icons/icon-arrow-right.svg" alt="" />
+                    {/* <img src="/src/assets/icons/icon-arrow-right.svg" alt="" /> */}
                   </a>
                 </div>
               </div>
@@ -105,7 +105,7 @@ const Blog = () => {
                     className="post__readmore"
                   >
                     Chi tiết
-                    <img src="/src/assets/icons/icon-arrow-right.svg" alt="" />
+                    {/* <img src="/src/assets/icons/icon-arrow-right.svg" alt="" /> */}
                   </a>
                 </div>
               </div>
@@ -146,7 +146,7 @@ const Blog = () => {
                     className="post__readmore"
                   >
                     Chi Tiết
-                    <img src="/src/assets/icons/icon-arrow-right.svg" alt="" />
+                    {/* <img src="/src/assets/icons/icon-arrow-right.svg" alt="" /> */}
                   </a>
                 </div>
               </div>
