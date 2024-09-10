@@ -24,7 +24,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 // const productSchema = Joi.object({
 //     name: Joi.string().required().messages({
@@ -60,6 +60,7 @@ import { useParams } from "react-router-dom";
 // });
 
 const ProductEditPage = () => {
+    const nav = useNavigate();
     const { id } = useParams();
     const { data } = ProductQuery(id);
     const [gallery, setGallery] = useState<string[]>([]);
@@ -96,6 +97,7 @@ const ProductEditPage = () => {
             image: finalImage,
             gallery: finalGallery,
         });
+        nav('/admin')
     };
 
     console.log();

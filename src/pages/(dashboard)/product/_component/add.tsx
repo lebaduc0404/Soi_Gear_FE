@@ -27,6 +27,7 @@ import { useState } from "react";
 import { toast } from "@/components/ui/use-toast";
 import { uploadFileCloudinary } from "@/common/lib/utils";
 import { joiResolver } from "@hookform/resolvers/joi";
+import { useNavigate } from "react-router-dom";
 
 const productSchema = Joi.object({
   name: Joi.string().required().messages({
@@ -53,6 +54,7 @@ const productSchema = Joi.object({
 });
 
 const ProductAdd = () => {
+  const nav = useNavigate()
   const form = useForm({
     resolver: joiResolver(productSchema),
     defaultValues: {
@@ -96,6 +98,7 @@ const ProductAdd = () => {
     }
     // nếu không có lỗi thì gửi form
     onSubmit({ ...product, gallery, image });
+    nav('/admin')
   };
 
   return (

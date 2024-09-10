@@ -21,6 +21,8 @@ import Contact from "@/pages/(website)/home/_component/contact";
 import Thongtin from "@/pages/(website)/home/_component/thongtin";
 import OrderConfirmationPage from "@/pages/(website)/home/_component/ordersuccess";
 import SearchResults from "@/pages/(website)/home/_component/SearchResults";
+import CategoryEdit from "@/pages/(dashboard)/category/_component/list";
+// import PrivateRoute from "./PrivateRoute";
 
 const Router = () => {
   return (
@@ -57,6 +59,7 @@ const Router = () => {
           <Route path="products/add" element={<ProductAdd />} />
           <Route path="products/edit/:id" element={<ProductEditPage />} />
           <Route path="categories/add" element={<CategoryAdd />} />
+          <Route path="categories" element={<CategoryEdit />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
