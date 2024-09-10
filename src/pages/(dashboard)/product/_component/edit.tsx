@@ -78,7 +78,7 @@ const ProductEditPage = () => {
         queryKey: ["CATEGORY_LIST"],
         queryFn: async () => {
             const { data } = await axios.get(
-                `http://localhost:8080/api/v1/categories`
+              `https://soi-gear-be-3.onrender.com/api/v1/categories`
             );
             return data;
         },

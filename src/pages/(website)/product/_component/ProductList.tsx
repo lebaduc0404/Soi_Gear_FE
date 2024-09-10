@@ -26,7 +26,7 @@ const ProductList = ({ featured, data }: ProductListProps) => {
       quantity: number;
     }) => {
       const { data } = await axios.post(
-        `https://soi-gear-fe-3.onrender.com/carts/add-to-cart`,
+        `https://soi-gear-be-3.onrender.com/api/v1/carts/add-to-cart`,
         {
           userId,
           productId,

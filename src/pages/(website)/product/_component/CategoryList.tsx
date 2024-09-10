@@ -7,7 +7,7 @@ const Categories = () => {
         queryKey: ["CATEGORY_LIST"],
         queryFn: async () => {
             const { data } = await axios.get(
-              `https://soi-gear-fe-3.onrender.com/categories`
+              `https://soi-gear-be-3.onrender.com/api/v1/categories`
             );
             return data;
         },

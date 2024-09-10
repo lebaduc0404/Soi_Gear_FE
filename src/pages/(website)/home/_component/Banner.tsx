@@ -4,7 +4,6 @@ import { useSprings, animated, config } from "@react-spring/web";
 const images = [
   "https://bizweb.dktcdn.net/100/438/322/themes/837712/assets/slider_2.jpg?1720955587125",
   "https://bizweb.dktcdn.net/100/438/322/themes/837712/assets/slider_3.jpg?1720955587125",
-  "https://bizweb.dktcdn.net/100/438/322/themes/837712/assets/slider_1.jpg?1720955587125",
   "https://bizweb.dktcdn.net/100/438/322/themes/837712/assets/slider_4.jpg?1720955587125",
 ];
 
@@ -19,7 +18,6 @@ const Banner = () => {
       config: config.stiff,
     }))
   );
-
 
   useEffect(() => {
     const interval = setInterval(() => {

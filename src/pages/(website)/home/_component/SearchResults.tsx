@@ -33,7 +33,7 @@ const SearchPage: React.FC = () => {
         setLoading(true);
         setError(null);
         const response = await axios.get(
-          "https://soi-gear-fe-3.onrender.com/search",
+          "https://soi-gear-be-3.onrender.com/api/v1/search",
           {
             params: { searchTerm: query, sort },
           }
