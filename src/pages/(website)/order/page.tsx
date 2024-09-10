@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import useCart from "@/common/hooks/useCart";
 import { useNavigate } from "react-router-dom";
 // import qrImage from "../../../assets/qr.jpg";
-// import axios from "axios";
+import axios from "axios";
 
 const schema = yup.object().shape({
   firstname: yup.string().required("Họ là bắt buộc"),
@@ -31,52 +31,52 @@ const OrderPage = () => {
   const { isLoading, isError, clearCart } = useCart();
   const navigate = useNavigate();
 
-//  const FORM_URL = `https://docs.google.com/forms/d/e/1FAIpQLScB_y56a0i9BAg7jsRMO-uU8_MLsZeV8KwF-8rxNg8la9LmjA/formResponse`;
+ const FORM_URL = `https://docs.google.com/forms/d/e/1FAIpQLScB_y56a0i9BAg7jsRMO-uU8_MLsZeV8KwF-8rxNg8la9LmjA/formResponse`;
 
   const onSubmit = async (data: any) => {
-    const form = document.createElement("form");
-    form.action =
-      "https://docs.google.com/forms/d/e/1FAIpQLScB_y56a0i9BAg7jsRMO-uU8_MLsZeV8KwF-8rxNg8la9LmjA/formResponse";
-    form.method = "POST";
-    form.target = "_self";
+    // const form = document.createElement("form");
+    // form.action =
+    //   "https://docs.google.com/forms/d/e/1FAIpQLScB_y56a0i9BAg7jsRMO-uU8_MLsZeV8KwF-8rxNg8la9LmjA/formResponse";
+    // form.method = "POST";
+    // form.target = "_self";
 
-    // Tạo input và thêm vào form
-    form.innerHTML = `
-      <input type="hidden" name="entry.379756864" value="${data.firstname}">
-      <input type="hidden" name="entry.613105581" value="${data.lastname}">
-      <input type="hidden" name="entry.1496446561" value="${data.city}">
-      <input type="hidden" name="entry.126886844" value="${data.address}">
-      <input type="hidden" name="entry.1310817025" value="${data.phone}">
-      <input type="hidden" name="entry.2014948123" value="${data.email}">
-      <input type="hidden" name="entry.480433912" value="${data.paymentMethod}">
-    `;
+    // // Tạo input và thêm vào form
+    // form.innerHTML = `
+    //   <input type="hidden" name="entry.379756864" value="${data.firstname}">
+    //   <input type="hidden" name="entry.613105581" value="${data.lastname}">
+    //   <input type="hidden" name="entry.1496446561" value="${data.city}">
+    //   <input type="hidden" name="entry.126886844" value="${data.address}">
+    //   <input type="hidden" name="entry.1310817025" value="${data.phone}">
+    //   <input type="hidden" name="entry.2014948123" value="${data.email}">
+    //   <input type="hidden" name="entry.480433912" value="${data.paymentMethod}">
+    // `;
 
-    // Submit form
-    document.body.appendChild(form);
-    form.submit();
+    // // Submit form
+    // document.body.appendChild(form);
+    // form.submit();
 
-    // Xóa giỏ hàng và chuyển hướng sau khi gửi thành công
-      await clearCart();
-      navigate("/ordersucess");
-    //  try {
-    //    const formData = new URLSearchParams();
-    //    formData.append("entry.379756864", data.firstname);
-    //    formData.append("entry.613105581", data.lastname);
-    //    formData.append("entry.1496446561", data.city);
-    //    formData.append("entry.126886844", data.address);
-    //    formData.append("entry.1310817025", data.phone);
-    //    formData.append("entry.2014948123", data.email);
-    //    formData.append("entry.480433912", data.paymentMethod);
+    // // Xóa giỏ hàng và chuyển hướng sau khi gửi thành công
+    //   await clearCart();
+    //   navigate("/ordersucess");
+     try {
+       const formData = new URLSearchParams();
+       formData.append("entry.379756864", data.firstname);
+       formData.append("entry.613105581", data.lastname);
+       formData.append("entry.1496446561", data.city);
+       formData.append("entry.126886844", data.address);
+       formData.append("entry.1310817025", data.phone);
+       formData.append("entry.2014948123", data.email);
+       formData.append("entry.480433912", data.paymentMethod);
 
-    //    await axios.post(FORM_URL, formData);
+       await axios.post(FORM_URL, formData);
 
-    //    alert("");
-    //  } catch (error) {
-    //    alert("Cảm ơn bạn đã đặt hàng, chúng tôi sẽ sớm liên hệ lại bạn.");
-    //    await clearCart();
-    //  } finally {
-    //    navigate("/ordersucess");
-    //  }
+       alert("");
+     } catch (error) {
+       alert("Cảm ơn bạn đã đặt hàng, chúng tôi sẽ sớm liên hệ lại bạn.");
+       await clearCart();
+     } finally {
+       navigate("/ordersucess");
+     }
   }
 
   if (isLoading)
