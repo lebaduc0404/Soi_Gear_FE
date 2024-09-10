@@ -202,14 +202,14 @@ const ProductList = ({ featured, data }: ProductListProps) => {
                 </button>
                 <div className="product-actions-more">
                   <span className="product-action__share">
-                    <img src="/src/assets/icons/icon-share.svg" alt="" />
+                    {/* <img src="/src/assets/icons/icon-share.svg" alt="" /> */}
                     Chia sẻ
                   </span>
                   <span className="product-action__compare">
-                    <img src="/src/assets/icons/icon-compare.svg" alt="" />
+                    {/* <img src="/src/assets/icons/icon-compare.svg" alt="" /> */}
                   </span>
                   <span className="product-action__like">
-                    <img src="/src/assets/icons/icon-heart.svg" alt="" />
+                    {/* <img src="/src/assets/icons/icon-heart.svg" alt="" /> */}
                     Thích
                   </span>
                 </div>

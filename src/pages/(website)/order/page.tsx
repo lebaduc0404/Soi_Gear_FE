@@ -60,13 +60,13 @@ const OrderPage = () => {
     //   navigate("/ordersucess");
      try {
        const formData = new URLSearchParams();
-       formData.append("entry.81221352", data.firstname);
-       formData.append("entry.1561075600", data.lastname);
-       formData.append("entry.1646657796", data.city);
-       formData.append("entry.254951697", data.address);
-       formData.append("entry.845667114", data.phone);
-       formData.append("entry.1174320302", data.email);
-       formData.append("entry.1565494235", data.paymentMethod);
+       formData.append("entry.379756864", data.firstname);
+       formData.append("entry.613105581", data.lastname);
+       formData.append("entry.1496446561", data.city);
+       formData.append("entry.126886844", data.address);
+       formData.append("entry.1310817025", data.phone);
+       formData.append("entry.2014948123", data.email);
+       formData.append("entry.480433912", data.paymentMethod);
 
        await axios.post(FORM_URL, formData);
 
