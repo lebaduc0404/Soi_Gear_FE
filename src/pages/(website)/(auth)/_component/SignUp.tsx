@@ -56,7 +56,7 @@ const SignUp = () => {
                 title: "Đăng ký thành công!",
                 variant: "success",
             });
-            
+            // navigate("/auth-user");
             return data;
         },
         onError: (error) => {

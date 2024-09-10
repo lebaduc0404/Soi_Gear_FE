@@ -3,98 +3,121 @@ import { toast } from "@/components/ui/use-toast";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { reduce } from "lodash";
+
 type cartProps = {
-    action: "INCREMENT" | "DECREMENT" | "REMOVE";
-    productId?: string;
+  action: "INCREMENT" | "DECREMENT" | "REMOVE" | "CLEAR";
+  productId?: string;
 };
 
 const useCart = () => {
-    const queryClient = useQueryClient();
-    const [user] = useLocalStorage("user", {});
-    const userId = user?.user?._id;
-    const { data, ...restQuery } = useQuery({
-        queryKey: ["CART", userId],
-        queryFn: async () => {
-            const { data } = await axios.get(
-              `https://soi-gear-be-3.onrender.com/api/v1/carts/${userId}`
-            );
-            return data;
-        },
-    });
+  const queryClient = useQueryClient();
+  const [user] = useLocalStorage("user", {});
+  const userId = user?.user?._id;
+  // console.log(userId);
 
-    const { mutate } = useMutation({
-        mutationFn: async ({ action, productId }: cartProps) => {
-            switch (action) {
-                case "INCREMENT": {
-                    await axios.put(
-                      `https://soi-gear-be-3.onrender.com/api/v1/carts/increase`,
-                      {
-                        userId,
-                        productId,
-                      }
-                    );
-                    toast({
-                        title: "Tăng số lượng thành công!",
-                        variant: "success",
-                    });
-                    break;
-                }
+  const { data, ...restQuery } = useQuery({
+    queryKey: ["CART", userId],
+    queryFn: async () => {
+      const { data } = await axios.get(
+        `https://soi-gear-be-3.onrender.com/api/v1/carts/${userId}`
+      );
+      return data;
+    },
+  });
 
-                case "DECREMENT": {
-                    await axios.put(
-                      `https://soi-gear-be-3.onrender.com/api/v1/carts/decrease`,
-                      {
-                        userId,
-                        productId,
-                      }
-                    );
-                    toast({
-                        title: "Giảm số lượng thành công!",
-                        variant: "success",
-                    });
-                    break;
-                }
-
-                case "REMOVE": {
-                    await axios.post(
-                      `https://soi-gear-be-3.onrender.com/api/v1/carts/remove-cart`,
-                      {
-                        userId,
-                        productId,
-                      }
-                    );
-                    toast({
-                        title: "Xoá sản phẩm khỏi giỏ hàng thành công!",
-                        description: "Sản phẩm đã được xoá khỏi giỏ hàng",
-                        variant: "success",
-                    });
-                    break;
-                }
+  const { mutate } = useMutation({
+    mutationFn: async ({ action, productId }: cartProps) => {
+      switch (action) {
+        case "INCREMENT": {
+          await axios.put(
+            `https://soi-gear-be-3.onrender.com/api/v1/carts/increase`,
+            {
+              userId,
+              productId,
             }
-        },
-        onSuccess: () => {
-            queryClient.invalidateQueries({
-                queryKey: ["CART", userId],
-            });
-        },
-    });
+          );
+          toast({
+            title: "Tăng số lượng thành công!",
+            variant: "success",
+          });
+          break;
+        }
 
-    const total = () => {
-        if (!data || !data.products) return 0;
-        return reduce(
-            data.products,
-            (total, product) => {
-                return total + product.price * product.quantity;
-            },
-            0
-        );
-    };
-    return {
-        data,
-        mutate,
-        total,
-        ...restQuery,
-    };
+        case "DECREMENT": {
+          await axios.put(
+            `https://soi-gear-be-3.onrender.com/api/v1/carts/decrease`,
+            {
+              userId,
+              productId,
+            }
+          );
+          toast({
+            title: "Giảm số lượng thành công!",
+            variant: "success",
+          });
+          break;
+        }
+
+        case "REMOVE": {
+          await axios.post(
+            `https://soi-gear-be-3.onrender.com/api/v1/carts/remove-cart`,
+            {
+              userId,
+              productId,
+            }
+          );
+          toast({
+            title: "Xoá sản phẩm khỏi giỏ hàng thành công!",
+            description: "Sản phẩm đã được xoá khỏi giỏ hàng",
+            variant: "success",
+          });
+          break;
+        }
+        case "CLEAR": {
+          await axios.post(
+            `https://soi-gear-be-3.onrender.com/api/v1/carts/clearcart`,
+            {
+              userId,
+            }
+          );
+        //   toast({
+        //     title: "Giỏ hàng đã được xóa!",
+        //     description: "Tất cả sản phẩm đã được xóa khỏi giỏ hàng",
+        //     variant: "success",
+        //   });
+          break;
+        }
+      }
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["CART", userId],
+      });
+    },
+  });
+
+  const clearCart = async () => {
+    await mutate({ action: "CLEAR" });
+  };
+
+  const total = () => {
+    if (!data || !data.products) return 0;
+    return reduce(
+      data.products,
+      (total, product) => {
+        return total + product.price * product.quantity;
+      },
+      0
+    );
+  };
+
+  return {
+    data,
+    mutate,
+    clearCart, // Trả về clearCart
+    total,
+    ...restQuery,
+  };
 };
 
 export default useCart;

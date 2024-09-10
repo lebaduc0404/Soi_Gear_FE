@@ -15,8 +15,8 @@ const Header = () => {
   const navigate = useNavigate();
   const { user, isSignedIn } = useUser(); // Lấy thông tin người dùng từ Clerk
 
-  console.log("User:", user);
-  console.log("Is Signed In:", isSignedIn);
+  // console.log("User:", user);
+  // console.log("Is Signed In:", isSignedIn);
 
   const handleSearch = () => {
     if (searchTerm.trim()) {

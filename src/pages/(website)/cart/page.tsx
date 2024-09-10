@@ -16,6 +16,7 @@ import {
 
 const CartPage = () => {
   const { data, mutate, isLoading, isError, total } = useCart();
+
   if (isLoading) return <div className="container text-center">Loading...</div>;
   if (isError)
     return (

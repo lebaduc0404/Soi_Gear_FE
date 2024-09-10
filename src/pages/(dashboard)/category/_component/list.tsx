@@ -7,7 +7,7 @@ import { PlusCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const CategoryEdit = () => {
+const Category = () => {
   const [category, setCategory] = useState<ICategory[]>([]);
 
   useEffect(() => {
@@ -84,4 +84,4 @@ const CategoryEdit = () => {
   );
 };
 
-export default CategoryEdit;
+export default Category;

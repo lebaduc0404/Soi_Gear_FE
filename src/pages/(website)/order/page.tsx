@@ -3,7 +3,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import useCart from "@/common/hooks/useCart";
 import { useNavigate } from "react-router-dom";
-import qrImage from "../../../assets/qr.jpg";
+// import qrImage from "../../../assets/qr.jpg";
 import axios from "axios";
 
 const schema = yup.object().shape({
@@ -27,32 +27,57 @@ const OrderPage = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-
-  const { isLoading, isError } = useCart();
+// const { clearCart } = useCart();
+  const { isLoading, isError, clearCart } = useCart();
   const navigate = useNavigate();
 
-  const FORM_URL = `https://docs.google.com/forms/d/e/1FAIpQLScB_y56a0i9BAg7jsRMO-uU8_MLsZeV8KwF-8rxNg8la9LmjA/formResponse`;
+ const FORM_URL = `https://docs.google.com/forms/d/e/1FAIpQLScB_y56a0i9BAg7jsRMO-uU8_MLsZeV8KwF-8rxNg8la9LmjA/formResponse`;
 
   const onSubmit = async (data: any) => {
-    try {
-      const formData = new URLSearchParams();
-      formData.append("entry.379756864", data.firstname);
-      formData.append("entry.613105581", data.lastname);
-      formData.append("entry.1496446561", data.city);
-      formData.append("entry.126886844", data.address);
-      formData.append("entry.1310817025", data.phone);
-      formData.append("entry.2014948123", data.email);
-      formData.append("entry.480433912", data.paymentMethod);
+    // const form = document.createElement("form");
+    // form.action =
+    //   "https://docs.google.com/forms/d/e/1FAIpQLScB_y56a0i9BAg7jsRMO-uU8_MLsZeV8KwF-8rxNg8la9LmjA/formResponse";
+    // form.method = "POST";
+    // form.target = "_self";
 
-      await axios.post(FORM_URL, formData);
+    // // Tạo input và thêm vào form
+    // form.innerHTML = `
+    //   <input type="hidden" name="entry.379756864" value="${data.firstname}">
+    //   <input type="hidden" name="entry.613105581" value="${data.lastname}">
+    //   <input type="hidden" name="entry.1496446561" value="${data.city}">
+    //   <input type="hidden" name="entry.126886844" value="${data.address}">
+    //   <input type="hidden" name="entry.1310817025" value="${data.phone}">
+    //   <input type="hidden" name="entry.2014948123" value="${data.email}">
+    //   <input type="hidden" name="entry.480433912" value="${data.paymentMethod}">
+    // `;
 
-      alert("");
-    } catch (error) {
-      alert("Cảm ơn bạn đã đặt hàng, chúng tôi sẽ sớm liên hệ lại bạn.");
-    } finally {
-      navigate("/ordersucess");
-    }
-  };
+    // // Submit form
+    // document.body.appendChild(form);
+    // form.submit();
+
+    // // Xóa giỏ hàng và chuyển hướng sau khi gửi thành công
+    //   await clearCart();
+    //   navigate("/ordersucess");
+     try {
+       const formData = new URLSearchParams();
+       formData.append("entry.81221352", data.firstname);
+       formData.append("entry.1561075600", data.lastname);
+       formData.append("entry.1646657796", data.city);
+       formData.append("entry.254951697", data.address);
+       formData.append("entry.845667114", data.phone);
+       formData.append("entry.1174320302", data.email);
+       formData.append("entry.1565494235", data.paymentMethod);
+
+       await axios.post(FORM_URL, formData);
+
+       alert("");
+     } catch (error) {
+       alert("Cảm ơn bạn đã đặt hàng, chúng tôi sẽ sớm liên hệ lại bạn.");
+       await clearCart();
+     } finally {
+       navigate("/ordersucess");
+     }
+  }
 
   if (isLoading)
     return <div className="container text-center">Đang tải...</div>;
@@ -256,7 +281,7 @@ const OrderPage = () => {
           </div>
           <div className="mt-4 text-center">
             <img
-              src={qrImage}
+              // src={qrImage}
               alt="Ảnh QR"
               className="custom-img mb-4 mx-auto"
             />
