@@ -23,7 +23,7 @@ const OrderConfirmationPage = () => {
             className="w-32 h-32 text-green-200"
             fill="currentColor"
             viewBox="0 0 64 64"
-            xmlns="http://www.w3.org/2000/svg"
+            // xmlns="http://www.w3.org/2000/svg"
           >
             <circle cx="32" cy="32" r="32" />
           </svg>
