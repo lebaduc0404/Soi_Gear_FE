@@ -33,8 +33,8 @@ const CategoryAdd = () => {
     const { mutate } = useMutation({
         mutationFn: async (category: { name: string }) => {
             const { data } = await axios.post(
-                "http://localhost:8080/api/v1/categories",
-                category
+              "https://soi-gear-be-3.onrender.com/api/v1/categories",
+              category
             );
             return data;
         },
