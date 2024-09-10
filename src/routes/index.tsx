@@ -22,7 +22,7 @@ import Thongtin from "@/pages/(website)/home/_component/thongtin";
 import OrderConfirmationPage from "@/pages/(website)/home/_component/ordersuccess";
 import SearchResults from "@/pages/(website)/home/_component/SearchResults";
 import Category from "@/pages/(dashboard)/category/_component/list";
-import CategoryEdit from "@/pages/(dashboard)/category/_component/edit";
+// import CategoryEdit from "@/pages/(dashboard)/category/_component/edit";
 // import PrivateRoute from "./PrivateRoute";
 
 const Router = () => {
@@ -61,7 +61,7 @@ const Router = () => {
           <Route path="products/edit/:id" element={<ProductEditPage />} />
           <Route path="categories/add" element={<CategoryAdd />} />
           <Route path="categories" element={<Category />} />
-          <Route path="categories/edit/:id" element={<CategoryEdit />} />
+          {/* <Route path="categories/edit/:id" element={<CategoryEdit />} /> */}
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
