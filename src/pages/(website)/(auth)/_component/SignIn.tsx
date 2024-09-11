@@ -71,50 +71,50 @@ const SignIn = () => {
         mutate(data);
     };
     return (
-        <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel htmlFor="email">Email:</FormLabel>
-                            <FormControl>
-                                <Input
-                                    placeholder="Nhập email..."
-                                    type="email"
-                                    {...field}
-                                    id="email"
-                                ></Input>
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                ></FormField>
-                <FormField
-                    control={form.control}
-                    name="password"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel htmlFor="password">Mật khẩu:</FormLabel>
-                            <FormControl>
-                                <Input
-                                    placeholder="Nhập mật khẩu..."
-                                    type="password"
-                                    {...field}
-                                    id="password"
-                                ></Input>
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                ></FormField>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel htmlFor="email">Email:</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="Nhập email..."
+                    type="email"
+                    {...field}
+                    id="email"
+                  ></Input>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          ></FormField>
+          <FormField
+            control={form.control}
+            name="password"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel htmlFor="password">Mật khẩu:</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="Nhập mật khẩu..."
+                    type="password"
+                    {...field}
+                    id="password"
+                  ></Input>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          ></FormField>
 
-                <Button>Đăng nhập</Button>
-               
-               <Test/>
-            </form>
-        </Form>
+          <Button>Đăng nhập</Button>
+          <h1 style={{ display: "none" }}>{userId}</h1>
+          <Test />
+        </form>
+      </Form>
     );
 };
 
