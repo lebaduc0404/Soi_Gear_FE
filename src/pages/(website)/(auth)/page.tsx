@@ -10,6 +10,7 @@ import SignIn from "./_component/SignIn";
 import SignUp from "./_component/SignUp";
 import ForgotPassword from "./_component/Forgot";
 import { useState } from "react";
+// import { SignInButton } from "@clerk/clerk-react";
 
 const AuthPage = () => {
 
@@ -55,6 +56,7 @@ const AuthPage = () => {
           </CardHeader>
           <CardContent className="space-y-2">
             <SignUp onSignUpSuccess={handleSignUpSuccess} />
+            {/* <SignInButton /> */}
           </CardContent>
         </Card>
       </TabsContent>

@@ -2,18 +2,17 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { CartIcon, Logo, SearchIcon, UserIcon } from "./icons";
 import HeaderTest from "./HeaderTest";
-import { UserButton, useUser } from "@clerk/clerk-react";
+import { UserButton} from "@clerk/clerk-react";
 import useCart from "@/common/hooks/useCart";
-// Xóa dòng import Modal
-// import Modal from "@/pages/(website)/home/_component/model";
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  // const [isModalOpen, setIsModalOpen] = useState(true); // State để điều khiển hiển thị modal
-  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false); // State để điều khiển hiển thị menu người dùng
+  // const [isUserMenuOpen, setIsUserMenuOpen] = useState(false); // State để điều khiển hiển thị menu người dùng
   const { data } = useCart();
   const navigate = useNavigate();
-  const { user, isSignedIn } = useUser(); // Lấy thông tin người dùng từ Clerk
+  // const { user, isSignedIn } = useUser(); // Lấy thông tin người dùng từ Clerk
+  const userId = localStorage.getItem("userId"); // Ví dụ lấy từ localStorage
+  // const cleanedUserId = userId?.replace(/^"|"$/g, "");
 
   // console.log("User:", user);
   // console.log("Is Signed In:", isSignedIn);
@@ -62,27 +61,30 @@ const Header = () => {
               <img src={SearchIcon} alt="Search" className="w-8 h-8" />
             </button>
           </div>
-          {!isSignedIn ? (
+          {!userId ? (
             <Link to="/auth-user" className="p-2">
               <img src={UserIcon} alt="User" className="h-8" />
             </Link>
           ) : (
-            <div
-              className="relative p-2"
-              onMouseEnter={() => setIsUserMenuOpen(true)}
-              onMouseLeave={() => setIsUserMenuOpen(false)}
-            >
-              <span className="cursor-pointer text-gray-700 dark:text-gray-200 font-bold">
-                Xin chào: {user?.firstName || "Người dùng"}
-              </span>
-              {isUserMenuOpen && (
-                <div className="absolute top-full right-0 mt-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg">
-                  <button className="block w-full px-4 py-2 text-left text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-gray-700">
-                    Mua hàng đi
-                  </button>
-                </div>
-              )}
-            </div>
+            // <div
+            //   className="relative p-2"
+            //   onMouseEnter={() => setIsUserMenuOpen(true)}
+            //   onMouseLeave={() => setIsUserMenuOpen(false)}
+            // >
+            //   <span className="cursor-pointer text-gray-700 dark:text-gray-200 font-bold">
+            //     Xin chào
+            //   </span>
+            //   {isUserMenuOpen && (
+            //     <div className="absolute top-full right-0 mt-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg">
+            //       <button className="block w-full px-4 py-2 text-left text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-gray-700">
+            //         Mua hàng đi
+            //       </button>
+            //     </div>
+            //   )}
+            // </div>
+            <Link to="/profile" className="p-2">
+              <img src={UserIcon} alt="User" className="h-8" />
+            </Link>
           )}
           <Link to="/cart" className="relative p-2 flex items-center ">
             <img src={CartIcon} alt="Cart" className="h-8" />
@@ -99,8 +101,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Xóa đoạn mã Modal */}
-      {/* <Modal isOpen={isModalOpen} onClose={handleCloseModal} /> */}
     </header>
   );
 };

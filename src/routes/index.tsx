@@ -22,6 +22,8 @@ import Thongtin from "@/pages/(website)/home/_component/thongtin";
 import OrderConfirmationPage from "@/pages/(website)/home/_component/ordersuccess";
 import SearchResults from "@/pages/(website)/home/_component/SearchResults";
 import Category from "@/pages/(dashboard)/category/_component/list";
+import ProfilePage from "@/pages/(website)/product/detail/test2";
+import ForgotPassword from "@/pages/(website)/(auth)/_component/Forgot";
 // import CategoryEdit from "@/pages/(dashboard)/category/_component/edit";
 // import PrivateRoute from "./PrivateRoute";
 
@@ -38,10 +40,12 @@ const Router = () => {
           <Route path="cart" element={<CartPage />} />
           <Route path="order" element={<OrderPage />} />
           <Route path="auth-user" element={<AuthPage />} />
+          <Route path="forgot" element={<ForgotPassword />} />
           <Route path="warranty" element={<Baohanh />} />
           <Route path="contact" element={<Contact />} />
           <Route path="ordersucess" element={<OrderConfirmationPage />} />
           <Route path="info" element={<Thongtin />} />
+          <Route path="profile" element={<ProfilePage />} />
           <Route path="test" element={<TestDetail />} />
           <Route path="*" element={<NotFound />} />
         </Route>

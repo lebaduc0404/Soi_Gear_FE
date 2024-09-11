@@ -27,6 +27,9 @@ const signinSchema = Joi.object({
 });
 const SignIn = () => {
     const [, setUser] = useLocalStorage("user", {});
+    const [userId, setUserId] = useLocalStorage("userId", null);
+    // console.log(userId);
+    
     const navigate = useNavigate();
     const form = useForm({
         resolver: joiResolver(signinSchema),
@@ -45,6 +48,7 @@ const SignIn = () => {
         },
         onSuccess: async (data) => {
             await setUser(data);
+            setUserId(data.user._id);
             setTimeout(() => {
                 toast({
                     title: "Đăng nhập thành công!",

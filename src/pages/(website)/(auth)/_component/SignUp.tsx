@@ -68,13 +68,20 @@ const SignUp: React.FC<SignUpProps> = ({ onSignUpSuccess }) => {
       
       return data;
     },
-    onError: (error) => {
-      toast({
-        title: "Đăng ký thất bại!",
-        description: "Email đã trùng!",
-        variant: "destructive",
-      });
-      console.log(error);
+      onError: (error) => {
+        if (axios.isAxiosError(error)) {
+          // Access the response data safely
+          console.log("Error Response:", error.response?.data);
+          toast({
+            title: "Đăng ký thất bại!",
+            description: "Email đã trùng!",
+            variant: "destructive",
+          });
+          console.log(error);
+        } else {
+          // Handle non-Axios errors
+          console.error("An unexpected error occurred:", error);
+        }
     },
   });
 
