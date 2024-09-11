@@ -9,10 +9,24 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import SignIn from "./_component/SignIn";
 import SignUp from "./_component/SignUp";
 import ForgotPassword from "./_component/Forgot";
+import { useState } from "react";
 
 const AuthPage = () => {
+
+  const [activeTab, setActiveTab] = useState("signin"); // State for managing the active tab
+
+  // Function to handle switching to the Sign In tab
+  const handleSignUpSuccess = () => {
+    setActiveTab("signin");
+  };
+
   return (
-    <Tabs defaultValue="signin" className="w-[80%] container">
+    <Tabs
+      value={activeTab}
+      onValueChange={setActiveTab}
+      defaultValue="signin"
+      className="w-[80%] container"
+    >
       <TabsList className="grid w-full grid-cols-3">
         <TabsTrigger value="signin">Đăng nhập</TabsTrigger>
         <TabsTrigger value="signup">Đăng ký</TabsTrigger>
@@ -24,7 +38,6 @@ const AuthPage = () => {
             <CardTitle>Đăng nhập</CardTitle>
             <CardDescription>
               Đăng nhập để nhận các thông báo mới nhất từ website.
-             
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
@@ -41,7 +54,7 @@ const AuthPage = () => {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
-            <SignUp />
+            <SignUp onSignUpSuccess={handleSignUpSuccess} />
           </CardContent>
         </Card>
       </TabsContent>
@@ -59,7 +72,6 @@ const AuthPage = () => {
         </Card>
       </TabsContent>
     </Tabs>
-
   );
 };
 
