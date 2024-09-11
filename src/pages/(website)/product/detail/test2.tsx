@@ -53,7 +53,9 @@ import { Link, useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
   // State để lưu thông tin user
-  const [user, setUser] = useState<IUsers>([]);
+  //   const [user, setUser] = useState<IUsers>([]);
+  const [user, setUser] = useState<IUsers | null>(null); // Initialize with null
+
   const nav = useNavigate();
   // Lấy user ID từ token hoặc localStorage sau khi đăng nhập (cần điều chỉnh tùy vào cách bạn quản lý auth)
   const userId = localStorage.getItem("userId"); // Ví dụ lấy từ localStorage
@@ -89,10 +91,9 @@ const ProfilePage = () => {
     localStorage.removeItem("userToken");
     localStorage.removeItem("user");
     localStorage.removeItem("userId");
-      // Điều hướng đến trang đăng nhập hoặc trang chính
-      nav("/");
-      window.location.reload();
-      
+    // Điều hướng đến trang đăng nhập hoặc trang chính
+    nav("/");
+    window.location.reload();
   };
 
   if (loading) return <div>Loading...</div>;
@@ -101,18 +102,18 @@ const ProfilePage = () => {
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="max-w-md p-8 bg-white rounded-xl shadow-xl border border-gray-200">
         <div className="flex items-center space-x-6">
-          {user.avatar && (
+          {user?.avatar && (
             <img
               className="w-24 h-24 rounded-full border-4 border-blue-500"
-              src={user.avatar}
+              src={user?.avatar}
               alt="User Avatar"
             />
           )}
           <div className="space-y-2">
             <h2 className="text-3xl font-bold text-gray-900">
-              {user.name || "Unnamed User"}
+              {user?.name || "Unnamed User"}
             </h2>
-            <p className="text-lg text-gray-600">{user.email || "N/A"}</p>
+            <p className="text-lg text-gray-600">{user?.email || "N/A"}</p>
           </div>
         </div>
         <div className="mt-8">
