@@ -12,11 +12,12 @@ import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import { joiResolver } from "@hookform/resolvers/joi";
 import { useMutation } from "@tanstack/react-query";
-import axios from "axios";
+// import axios from "axios";
 import Joi from "joi";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Test from "../../product/detail/test";
+import instance from "@/config/axios";
 
 const signinSchema = Joi.object({
     email: Joi.string()
@@ -40,8 +41,8 @@ const SignIn = () => {
     });
     const { mutate } = useMutation({
         mutationFn: async (formData: { email: string; password: string }) => {
-            const { data } = await axios.post(
-              `https://soi-gear-be-3.onrender.com/api/v1/auth/signin`,
+            const { data } = await instance.post(
+              `/auth/signin`,
               formData
             );
             return data;

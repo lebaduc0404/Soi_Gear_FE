@@ -1,7 +1,8 @@
 import { useLocalStorage } from "@/common/hooks/useStorage";
 import { toast } from "@/components/ui/use-toast";
+import instance from "@/config/axios";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
+// import axios from "axios";
 import { reduce } from "lodash";
 
 type cartProps = {
@@ -18,19 +19,22 @@ const useCart = () => {
   const { data, ...restQuery } = useQuery({
     queryKey: ["CART", userId],
     queryFn: async () => {
-      const { data } = await axios.get(
-        `https://soi-gear-be-3.onrender.com/api/v1/carts/${userId}`
-      );
+      if (!userId) {
+        throw new Error("User ID is required");
+      }
+      const { data } = await instance.get(`/carts/${userId}`);
       return data;
     },
+    enabled: !!userId,
   });
+
 
   const { mutate } = useMutation({
     mutationFn: async ({ action, productId }: cartProps) => {
       switch (action) {
         case "INCREMENT": {
-          await axios.put(
-            `https://soi-gear-be-3.onrender.com/api/v1/carts/increase`,
+          await instance.put(
+            `/carts/increase`,
             {
               userId,
               productId,
@@ -44,8 +48,8 @@ const useCart = () => {
         }
 
         case "DECREMENT": {
-          await axios.put(
-            `https://soi-gear-be-3.onrender.com/api/v1/carts/decrease`,
+          await instance.put(
+            `/carts/decrease`,
             {
               userId,
               productId,
@@ -59,8 +63,8 @@ const useCart = () => {
         }
 
         case "REMOVE": {
-          await axios.post(
-            `https://soi-gear-be-3.onrender.com/api/v1/carts/remove-cart`,
+          await instance.post(
+            `/v1/carts/remove-cart`,
             {
               userId,
               productId,
@@ -74,8 +78,8 @@ const useCart = () => {
           break;
         }
         case "CLEAR": {
-          await axios.post(
-            `https://soi-gear-be-3.onrender.com/api/v1/carts/clearcart`,
+          await instance.post(
+            `/carts/clearcart`,
             {
               userId,
             }
