@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
+import instance from "@/config/axios";
 
 interface Product {
   _id: string;
@@ -32,8 +33,8 @@ const SearchPage: React.FC = () => {
       try {
         setLoading(true);
         setError(null);
-        const response = await axios.get(
-          "https://soi-gear-be-3.onrender.com/api/v1/search",
+        const response = await instance.get(
+          "/search",
           {
             params: { searchTerm: query, sort },
           }

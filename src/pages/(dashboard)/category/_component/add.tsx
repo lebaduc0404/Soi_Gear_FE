@@ -9,9 +9,10 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
+import instance from "@/config/axios";
 import { joiResolver } from "@hookform/resolvers/joi";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
+// import axios from "axios";
 import Joi from "joi";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -35,8 +36,8 @@ const CategoryAdd = () => {
   const queryClient = useQueryClient();
   const { mutate } = useMutation({
     mutationFn: async (category: { name: string }) => {
-      const { data } = await axios.post(
-        "https://soi-gear-be-3.onrender.com/api/v1/categories",
+      const { data } = await instance.post(
+        "/categories",
         category
       );
       return data;

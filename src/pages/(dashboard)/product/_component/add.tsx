@@ -19,7 +19,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+// import axios from "axios";
 import Joi from "joi";
 import { useForm } from "react-hook-form";
 import { Textarea } from "@/components/ui/textarea";
@@ -28,6 +28,7 @@ import { toast } from "@/components/ui/use-toast";
 import { uploadFileCloudinary } from "@/common/lib/utils";
 import { joiResolver } from "@hookform/resolvers/joi";
 import { useNavigate } from "react-router-dom";
+import instance from "@/config/axios";
 
 const productSchema = Joi.object({
   name: Joi.string().required().messages({
@@ -80,8 +81,8 @@ const ProductAdd = () => {
   const { data: categories } = useQuery({
     queryKey: ["CATEGORY_LIST"],
     queryFn: async () => {
-      const { data } = await axios.get(
-        `https://soi-gear-be-3.onrender.com/api/v1/categories`
+      const { data } = await instance.get(
+        `/categories`
       );
       return data;
     },

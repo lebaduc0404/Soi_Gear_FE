@@ -1,14 +1,15 @@
 import { IProduct } from "@/common/types/product";
+import instance from "@/config/axios";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+// import axios from "axios";
 import { Link } from "react-router-dom";
 
 const RelatedProduct = ({ id }: { id: string | number }) => {
   const { data: products, isLoading } = useQuery({
     queryKey: ["RELATED_PRODUCT", id],
     queryFn: async () => {
-      const { data } = await axios.get(
-        `https://soi-gear-be-3.onrender.com/api/v1/products/${id}/related`
+      const { data } = await instance.get(
+        `/products/${id}/related`
       );
       return data;
     },

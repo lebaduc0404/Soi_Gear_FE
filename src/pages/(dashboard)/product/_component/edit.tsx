@@ -21,8 +21,9 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import instance from "@/config/axios";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+// import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -78,8 +79,8 @@ const ProductEditPage = () => {
     const { data: category } = useQuery({
         queryKey: ["CATEGORY_LIST"],
         queryFn: async () => {
-            const { data } = await axios.get(
-              `https://soi-gear-be-3.onrender.com/api/v1/categories`
+            const { data } = await instance.get(
+              `/categories`
             );
             return data;
         },

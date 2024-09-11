@@ -1,17 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+// import axios from "axios";
 import { useParams } from "react-router-dom";
 import ProductList from "../../_component/ProductList";
 import Banner from "@/pages/(website)/home/_component/Banner";
 import Filter from "../../_component/Filter";
+import instance from "@/config/axios";
 
 const CategoryDetail = () => {
     const { id } = useParams();
     const { data, isLoading } = useQuery({
         queryKey: ["CATEGORY_DETAIL", id],
         queryFn: async () => {
-            const { data } = await axios.get(
-              `https://soi-gear-be-3.onrender.com/api/v1/categories/${id}`
+            const { data } = await instance.get(
+              `/categories/${id}`
             );
             return data;
         },

@@ -4,8 +4,9 @@ import { useLocalStorage } from "@/common/hooks/useStorage";
 import { IProduct } from "@/common/types/product";
 import { toast } from "@/components/ui/use-toast";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
+// import axios from "axios";
 import { Link } from "react-router-dom";
+import instance from "@/config/axios";
 
 type ProductListProps = {
   featured?: boolean;
@@ -25,8 +26,8 @@ const ProductList = ({ featured, data }: ProductListProps) => {
       productId: string | number;
       quantity: number;
     }) => {
-      const { data } = await axios.post(
-        `https://soi-gear-be-3.onrender.com/api/v1/carts/add-to-cart`,
+      const { data } = await instance.post(
+        `/carts/add-to-cart`,
         {
           userId,
           productId,

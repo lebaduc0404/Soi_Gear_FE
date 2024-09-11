@@ -9,15 +9,16 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+// import axios from "axios";
 import { Link } from "react-router-dom";
+import instance from "@/config/axios";
 
 const HeaderTest = () => {
   const { data } = useQuery({
     queryKey: ["CATEGORY_LIST"],
     queryFn: async () => {
-      const { data } = await axios.get(
-        `https://soi-gear-be-3.onrender.com/api/v1/categories`
+      const { data } = await instance.get(
+        `/categories`
       );
       return data;
     },

@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
+import instance from "@/config/axios";
 import { joiResolver } from "@hookform/resolvers/joi";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
@@ -51,8 +52,8 @@ const SignUp: React.FC<SignUpProps> = ({ onSignUpSuccess }) => {
       password: string;
       confirmPassword: string;
     }) => {
-      await axios.post(
-        `https://soi-gear-be-3.onrender.com/api/v1/auth/signup`,
+      await instance.post(
+        `/auth/signup`,
         formData
       );
     },

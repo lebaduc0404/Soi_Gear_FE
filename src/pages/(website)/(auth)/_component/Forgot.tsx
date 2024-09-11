@@ -9,9 +9,10 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
+import instance from "@/config/axios";
 import { joiResolver } from "@hookform/resolvers/joi";
 import { useMutation } from "@tanstack/react-query";
-import axios from "axios";
+// import axios from "axios";
 import Joi from "joi";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -34,8 +35,8 @@ const ForgotPassword = () => {
 
     const { mutate } = useMutation({
         mutationFn: async (formData: { email: string }) => {
-            const { data } = await axios.post(
-                `http://localhost:8080/api/v1/auth/forgot`,
+            const { data } = await instance.post(
+                `/auth/forgot`,
                 formData
             );
             return data;

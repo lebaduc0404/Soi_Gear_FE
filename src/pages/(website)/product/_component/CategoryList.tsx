@@ -1,13 +1,14 @@
+import instance from "@/config/axios";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+// import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Categories = () => {
     const { data: categories } = useQuery({
         queryKey: ["CATEGORY_LIST"],
         queryFn: async () => {
-            const { data } = await axios.get(
-              `https://soi-gear-be-3.onrender.com/api/v1/categories`
+            const { data } = await instance.get(
+              `/categories`
             );
             return data;
         },

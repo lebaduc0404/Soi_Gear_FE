@@ -119,9 +119,7 @@ const ProfilePage = () => {
         <div className="mt-8">
           <h3 className="text-xl font-semibold text-gray-800">About Me</h3>
           <p className="mt-3 text-gray-700">
-            I am a software developer specializing in building exceptional
-            digital experiences. Currently, I am focused on developing
-            responsive full-stack web applications.
+            ...
           </p>
         </div>
         <div className="mt-8 flex justify-center">
@@ -129,7 +127,15 @@ const ProfilePage = () => {
             onClick={handleLogout}
             className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
           >
-            Đăng xuất
+            Đăng Xuất
+          </button>
+        </div>
+        <div className="mt-8 flex justify-center">
+          <button
+            onClick={handleLogout}
+            className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+          >
+            Đổi Mật Khẩu
           </button>
         </div>
         <div className="mt-8 flex justify-center">
