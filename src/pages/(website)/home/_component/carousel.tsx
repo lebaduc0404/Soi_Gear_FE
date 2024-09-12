@@ -40,6 +40,7 @@ const images = [
 ];
 
 const Carousel = () => {
+  
   return (
     <div className="carousel-wrapper">
       <div className="carousel-container">

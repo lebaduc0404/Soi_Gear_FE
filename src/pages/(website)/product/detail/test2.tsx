@@ -130,14 +130,13 @@ const ProfilePage = () => {
             Đăng Xuất
           </button>
         </div>
-        <div className="mt-8 flex justify-center">
+        {/* <div className="mt-8 flex justify-center">
           <button
-            onClick={handleLogout}
             className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
           >
             Đổi Mật Khẩu
           </button>
-        </div>
+        </div> */}
         <div className="mt-8 flex justify-center">
           <Link to="/forgot">
             <button className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">

@@ -4,8 +4,9 @@ import RelatedProduct from "../_component/RelatedProduct";
 import { useLocalStorage } from "@/common/hooks/useStorage";
 import { toast } from "@/components/ui/use-toast";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
+// import axios from "axios";
 import { useEffect, useState } from "react";
+import instance from "@/config/axios";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -43,8 +44,8 @@ const ProductDetail = () => {
       productId: string | number;
       quantity: number;
     }) => {
-      const { data } = await axios.post(
-        `https://soi-gear-be-3.onrender.com/api/v1/carts/add-to-cart`,
+      const { data } = await instance.post(
+        `/carts/add-to-cart`,
         {
           userId,
           productId,

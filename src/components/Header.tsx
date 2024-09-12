@@ -86,6 +86,7 @@ const Header = () => {
               <img src={UserIcon} alt="User" className="h-8" />
             </Link>
           )}
+          
           <Link to="/cart" className="relative p-2 flex items-center ">
             <img src={CartIcon} alt="Cart" className="h-8" />
 
