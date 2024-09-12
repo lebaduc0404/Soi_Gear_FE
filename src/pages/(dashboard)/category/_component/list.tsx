@@ -17,6 +17,8 @@ const Category = () => {
     };
     Api();
   }, []);
+  console.log(category);
+  
 
 //   const handleDelete = async (id: string | number) => {
 //     try {
@@ -44,12 +46,20 @@ const Category = () => {
         </Button>
         <div className="flex font-semibold border-b pb-2">
           <div className="flex-1 px-4 text-center">Tên Danh Mục</div>
+          <div className="flex-1 px-4 text-center">Ảnh Danh Mục</div>
           <div className="flex-1 px-4 text-center">Ngày Đăng Kí</div>
           <div className="w-32 px-4 text-center">Chức Năng</div>
         </div>
 
         {category.map((user) => (
           <div key={user._id} className="flex items-center border p-4 rounded">
+            <div className="flex-1 px-4">
+              <Input
+                value={user.name}
+                readOnly
+                className="bg-gray-100 w-full text-center"
+              />
+            </div>
             <div className="flex-1 px-4">
               <Input
                 value={user.name}
