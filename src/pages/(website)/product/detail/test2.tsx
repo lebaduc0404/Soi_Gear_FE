@@ -1,49 +1,3 @@
-// // ProfilePage.js
-// import { useUser } from "@clerk/clerk-react";
-
-// const ProfilePage = () => {
-//   const { user, isSignedIn } = useUser();
-
-//   if (!isSignedIn) {
-//     return <p className="text-center mt-10">You are not signed in.</p>;
-//   }
-
-//   return (
-//     <div className="max-w-md mx-auto mt-10 p-4 bg-white rounded shadow-md">
-//       <h1 className="text-2xl font-bold mb-4">User Profile</h1>
-//       <div className="space-y-4">
-//         <div>
-//           <label className="block text-sm font-medium text-gray-700">
-//             Full Name:
-//           </label>
-//           <p className="mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm">
-//             {user?.firstName} {user?.lastName}
-//           </p>
-//         </div>
-//         <div>
-//           <label className="block text-sm font-medium text-gray-700">
-//             Email:
-//           </label>
-//           <p className="mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm">
-//             {user?.primaryEmailAddress?.emailAddress}
-//           </p>
-//         </div>
-//         <div>
-//           <label className="block text-sm font-medium text-gray-700">
-//             Username:
-//           </label>
-//           <p className="mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm">
-//             {user?.username || "N/A"}
-//           </p>
-//         </div>
-//         {/* Additional user details can be added here */}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ProfilePage;
-
 import { IUsers } from "@/common/types/user";
 
 import { useEffect, useState } from "react";
@@ -118,9 +72,7 @@ const ProfilePage = () => {
         </div>
         <div className="mt-8">
           <h3 className="text-xl font-semibold text-gray-800">About Me</h3>
-          <p className="mt-3 text-gray-700">
-            ...
-          </p>
+          <p className="mt-3 text-gray-700">...</p>
         </div>
         <div className="mt-8 flex justify-center">
           <button
@@ -130,13 +82,6 @@ const ProfilePage = () => {
             Đăng Xuất
           </button>
         </div>
-        {/* <div className="mt-8 flex justify-center">
-          <button
-            className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
-          >
-            Đổi Mật Khẩu
-          </button>
-        </div> */}
         <div className="mt-8 flex justify-center">
           <Link to="/forgot">
             <button className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">
@@ -144,6 +89,15 @@ const ProfilePage = () => {
             </button>
           </Link>
         </div>
+        {user?.role === "admin" && (
+          <div className="mt-8 flex justify-center">
+            <Link to="/admin">
+              <button className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">
+                Admin
+              </button>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

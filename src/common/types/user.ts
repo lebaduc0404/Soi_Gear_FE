@@ -4,5 +4,6 @@ export interface IUsers {
   email: string;
   password: string;
   avatar: string;
+  role: string;
   createdAt: string;
 }

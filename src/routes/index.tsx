@@ -25,7 +25,7 @@ import Category from "@/pages/(dashboard)/category/_component/list";
 import ProfilePage from "@/pages/(website)/product/detail/test2";
 import ForgotPassword from "@/pages/(website)/(auth)/_component/Forgot";
 // import CategoryEdit from "@/pages/(dashboard)/category/_component/edit";
-// import PrivateRoute from "./PrivateRoute";
+import PrivateRoute from "./PrivateRoute";
 
 const Router = () => {
   return (
@@ -53,9 +53,9 @@ const Router = () => {
         <Route
           path="admin"
           element={
-            // <PrivateRoute>
+            <PrivateRoute>
             <LayoutAdmin />
-            // </PrivateRoute>
+            </PrivateRoute>
           }
         >
           <Route index element={<ProductManagement />} />

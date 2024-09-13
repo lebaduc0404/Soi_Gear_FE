@@ -18,6 +18,84 @@ const ProductList = ({ featured, data }: ProductListProps) => {
   const userId = user?.user?._id;
   const queryClient = useQueryClient();
   const { data: products, isLoading } = ProductQuery();
+
+
+  //  const getGuestId = () => {
+  //    // Xác định tên của cookie mà chúng ta cần tìm
+  //    const name = "guestId=";
+
+  //    // Giải mã và chia chuỗi document.cookie thành mảng các cookie riêng lẻ
+  //    const decodedCookie = decodeURIComponent(document.cookie);
+  //    const cookieArray = decodedCookie.split(";");
+
+  //    // Lặp qua từng cookie trong mảng
+  //    for (let i = 0; i < cookieArray.length; i++) {
+  //      let cookie = cookieArray[i];
+
+  //      // Loại bỏ các khoảng trắng ở đầu chuỗi cookie
+  //      while (cookie.charAt(0) === " ") {
+  //        cookie = cookie.substring(1);
+  //      }
+
+  //      // Kiểm tra xem cookie có bắt đầu bằng tên chúng ta đang tìm không
+  //      if (cookie.indexOf(name) === 0) {
+  //        // Trả về giá trị của cookie, phần sau dấu "="
+  //        return cookie.substring(name.length, cookie.length);
+  //      }
+  //    }
+
+  //    // Nếu không tìm thấy cookie, trả về chuỗi rỗng
+  //    return "";
+  //  };
+
+  
+//   const { mutate } = useMutation({
+//     mutationFn: async ({
+//       productId,
+//       quantity,
+//     }: {
+//       productId: string | number;
+//       quantity: number;
+//     }) => {
+//       // Construct payload with either userId or guestId
+//       const payload: {
+//         userId?: string;
+//         guestId?: string;
+//         productId: string | number;
+//         quantity: number;
+//       } = {
+//         productId,
+//         quantity,
+//       };
+
+//       if (userId) {
+//         payload.userId = userId;
+//       } else {
+//         payload.userId = getGuestId();
+//       }
+// console.log(payload);
+
+//       const { data } = await instance.post(`/carts/add-to-cart`, payload);
+//       return data;
+//     },
+//     onSuccess: () => {
+//       toast({
+//         title: "Thêm vào giỏ hàng thành công!",
+//         variant: "success",
+//       });
+//       queryClient.invalidateQueries({
+//         queryKey: ["CART", userId || "guest"],
+//       });
+//     },
+//     onError: (error) => {
+//       toast({
+//         title: "Đã xảy ra lỗi khi thêm vào giỏ hàng!",
+//         description: error.message,
+//         // variant: "error",
+//       });
+//     },
+//   });
+
   const { mutate } = useMutation({
     mutationFn: async ({
       productId,
@@ -26,14 +104,11 @@ const ProductList = ({ featured, data }: ProductListProps) => {
       productId: string | number;
       quantity: number;
     }) => {
-      const { data } = await instance.post(
-        `/carts/add-to-cart`,
-        {
-          userId,
-          productId,
-          quantity,
-        }
-      );
+      const { data } = await instance.post(`/carts/add-to-cart`, {
+        userId,
+        productId,
+        quantity,
+      });
       return data;
     },
     onSuccess: () => {

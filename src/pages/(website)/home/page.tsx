@@ -14,7 +14,6 @@ const HomePage = () => {
     <div>
      
       <AnimatedSection delay={0.1}>
-    
         <Banner />
       </AnimatedSection>
 

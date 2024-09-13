@@ -3,7 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const schema = yup.object().shape({
   name: yup.string().required("Họ và tên là bắt buộc"),
@@ -20,7 +20,7 @@ type FormValues = {
 };
 
 const ContactPage: React.FC = () => {
-  const navigate = useNavigate(); // Khai báo useNavigate
+  // const navigate = useNavigate(); // Khai báo useNavigate
   const {
     register,
     handleSubmit,
@@ -36,21 +36,21 @@ const ContactPage: React.FC = () => {
     formData.append("entry.1344814193", data.phone); // Thay bằng ID trường số điện thoại trong Google Form
     formData.append("entry.162458856", data.message); // Thay bằng ID trường lời nhắn trong Google Form
 
-    fetch(
-      "https://docs.google.com/forms/d/e/1FAIpQLSfHhg7NKSJvLnyiLjprM2uAEMtgDrZOGan0oTpm8bHGHNGYTw/formResponse", // URL chính xác để gửi dữ liệu
-      {
-        method: "POST",
-        body: formData,
-        mode: "no-cors",
-      }
-    )
-      .then(() => {
-        alert("Gửi thành công, chúng tôi sẽ liên hệ với bạn sớm nhất");
-        navigate("/"); // Điều hướng về trang home sau khi gửi thành công
-      })
-      .catch((error) => {
-        console.error("Lỗi gửi dữ liệu:", error);
-      });
+    // fetch(
+    //   "https://docs.google.com/forms/d/e/1FAIpQLSfHhg7NKSJvLnyiLjprM2uAEMtgDrZOGan0oTpm8bHGHNGYTw/formResponse", // URL chính xác để gửi dữ liệu
+    //   {
+    //     method: "POST",
+    //     body: formData,
+    //     mode: "no-cors",
+    //   }
+    // )
+    //   .then(() => {
+    //     alert("Gửi thành công, chúng tôi sẽ liên hệ với bạn sớm nhất");
+    //     navigate("/"); // Điều hướng về trang home sau khi gửi thành công
+    //   })
+    //   .catch((error) => {
+    //     console.error("Lỗi gửi dữ liệu:", error);
+    //   });
   };
 
   return (

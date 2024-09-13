@@ -28,6 +28,31 @@ const useCart = () => {
     enabled: !!userId,
   });
 
+  // Truy xuất
+  // const guestId = document.cookie
+  //   .split("; ")
+  //   .find((row) => row.startsWith("guestId="))
+  //   ?.split("=")[1];
+  
+  // const cartIdentifier = userId || guestId;
+  // console.log(cartIdentifier);
+  
+
+  // const { data, ...restQuery } = useQuery({
+  //   queryKey: ["CART", cartIdentifier],
+  //   queryFn: async () => {
+  //     if (!cartIdentifier) {
+  //       throw new Error("User ID or Guest ID is required");
+  //     }
+
+  //     const endpoint = userId ? `/carts/${userId}` : `/carts/${guestId}`;
+
+  //     const { data } = await instance.get(endpoint);
+  //     return data;
+  //   },
+  //   enabled: !!cartIdentifier,
+  // });
+
 
   const { mutate } = useMutation({
     mutationFn: async ({ action, productId }: cartProps) => {
@@ -64,7 +89,7 @@ const useCart = () => {
 
         case "REMOVE": {
           await instance.post(
-            `/v1/carts/remove-cart`,
+            `/carts/remove-cart`,
             {
               userId,
               productId,
