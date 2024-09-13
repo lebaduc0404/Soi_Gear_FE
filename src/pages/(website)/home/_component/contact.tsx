@@ -171,14 +171,14 @@ const ContactPage: React.FC = () => {
             <FaPhoneAlt className="text-indigo-500 w-6 h-6" />
             <div>
               <h2 className="text-xl font-semibold">Số điện thoại</h2>
-              <p>0399926033</p>
+              <p>0383005327</p>
             </div>
           </div>
           <div className="flex items-start space-x-2">
             <FaEnvelope className="text-indigo-500 w-6 h-6" />
             <div>
               <h2 className="text-xl font-semibold">Email</h2>
-              <p>hoanganhfullstack@gmail.com</p>
+              <p>leduc090404@gmail.com</p>
             </div>
           </div>
           <div className="flex items-start space-x-2">

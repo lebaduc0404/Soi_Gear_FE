@@ -82,13 +82,14 @@ const Carousel = () => {
             justify-content: center;
             align-items: center;
             width: 100%;
-            height: 300px;
+            height: 129px;
+            margin-top: 44px;
             overflow: hidden;
           }
 
           .carousel-container {
             display: flex;
-            gap: 50px; /* Adjust gap as needed */
+            gap: 45px; /* Adjust gap as needed */
             flex-direction: row;
           }
 
@@ -104,8 +105,8 @@ const Carousel = () => {
           }
 
           .carousel-image {
-            width: 100px;
-            height: 100px;
+            width: 90px;
+            height: 90px;
             object-fit: cover;
             border-radius: 50%;
             border: 1px solid #999999;
