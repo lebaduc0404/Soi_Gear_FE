@@ -166,7 +166,7 @@ const WarrantyPolicy: React.FC = () => {
       </section>
       <style>{`
       .test{
-        background-color:#E6E6E6;
+        background-color:#FFFFFF;
         width: 1220px;
       }
       `}</style>

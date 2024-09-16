@@ -39,7 +39,8 @@ const CategoryDetail = () => {
         width: 1195px;
         min-height: 450px;
         height: auto;
-        background-color: #E6E6E6;
+        background-color: #FFFFFF;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
         margin-left: 162px;
         margin-top: 44px;
         border-radius: 10px;

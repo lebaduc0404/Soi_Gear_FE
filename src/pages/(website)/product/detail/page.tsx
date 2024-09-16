@@ -112,7 +112,6 @@ const ProductDetail = () => {
               </div>
               <div className="products-info">
                 <h2 className="products__name">{data.name}</h2>
-                <h4 className="products__price text-red-500">${data.price}</h4>
                 <div className="products-info__judge">
                   <div className="products__star">
                     <img src="/src/assets/icons/star.svg" alt="" />
@@ -128,34 +127,40 @@ const ProductDetail = () => {
                 <div className="products-description w-auto ">
                   <p>{data.description}</p>
                 </div>
-                <div className="products-btn mt-8 ">
-                  <button className="products-btn__count">
-                    <button className="minus" onClick={decreaseQuantity}>
-                      -
+                <h4 className="products__price text-red-500">${data.price}</h4>
+                  <div>
+                    <h2>Số lượng:</h2>
+                    <button className="products-btn__count">
+                      <button className="minus" onClick={decreaseQuantity}>
+                        -
+                      </button>
+                      <span>{quantity}</span>
+                      <button className="plus " onClick={increaseQuantity}>
+                        +
+                      </button>
                     </button>
-                    <span>{quantity}</span>
-                    <button className="plus " onClick={increaseQuantity}>
-                      +
+                  </div>
+                  <div>
+                    <button
+                      className="products__btn bg-blue-600 text-white w-[350px]"
+                      onClick={() =>
+                        mutate({
+                          productId: data._id,
+                          quantity: quantity,
+                        })
+                      }
+                    >
+                      Thêm Vào Giỏ
                     </button>
-                  </button>
-                  <button
-                    className="products__btn bg-blue-600 text-white"
-                    onClick={() =>
-                      mutate({
-                        productId: data._id,
-                        quantity: quantity,
-                      })
-                    }
-                  >
-                    Thêm Vào Giỏ
-                  </button>
-                  <button
-                    className="products__btn  bg-blue-600 text-white"
-                    onClick={handleBuyNow}
-                  >
-                    Mua Ngay
-                  </button>
-                </div>
+                  </div>
+                  <div>
+                    <button
+                      className="products__btn  bg-blue-600 text-white w-[350px]"
+                      onClick={handleBuyNow}
+                    >
+                      Mua Ngay
+                    </button>
+                  </div>
                 <hr className="hr" />
                 <div className="products-info__more">
                   <div className="products__group">
@@ -206,7 +211,6 @@ const ProductDetail = () => {
           <div className="container">
             <h1 className="related-product__title">Có Thể Bạn Quan Tâm</h1>
             <RelatedProduct id={data.category._id} />
-            
           </div>
         </section>
         <hr className="hr" />

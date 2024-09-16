@@ -55,10 +55,11 @@ const Shop = () => {
       .container-1{
         width: 1195px;
         height: 362px;
-        background-color: #E6E6E6;
+        background-color: #FFFFFF;
         margin-left: 162px;
         margin-top: 44px;
         border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
       }
         .shop__image {
           width: 250px;
