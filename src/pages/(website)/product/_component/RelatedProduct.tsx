@@ -32,8 +32,10 @@ const RelatedProduct = ({ id }: { id: string | number }) => {
                 <Link to={""} className="product__link">
                   {product.name}
                 </Link>
-              </h3>
-              <a href="" className="product__category"></a>
+              </h3><br />
+              {/* <a href="" className="product__category1">
+                {product.category.name}
+              </a> */}
               <div className="product-price">
                 {product?.discount ? (
                   <>
@@ -53,7 +55,7 @@ const RelatedProduct = ({ id }: { id: string | number }) => {
             <div className="product-actions">
               <Link
                 to={`/detail/${product._id}`}
-                className="product-action__quickview"
+                className="product-action__quickview1"
               >
                 Xem chi tiết
               </Link>
@@ -77,6 +79,34 @@ const RelatedProduct = ({ id }: { id: string | number }) => {
           </div>
         ))}
       </div>
+      <style>{`
+                    .product-list{
+                      margin-top: 50px;
+
+      }             
+                    .product-item{
+                      width: 210px;
+                      heigt: 278px;
+                    }
+                    .product__thumbnail {
+                      width: 210px;
+                      height: 161px;
+                      object-fit: cover; /* Giúp ảnh không bị méo */
+                    }
+
+                    .product-list{
+                      display: flex;
+                      justify-content: left;
+                      gap: 22px; 
+                    }
+                      .product__name{
+                        font-size:14px;
+                      }
+
+                      .product-price{
+                        font-size:14px;
+                      }
+      `}</style>
     </>
   );
 };

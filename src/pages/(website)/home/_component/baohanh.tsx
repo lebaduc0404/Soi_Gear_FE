@@ -167,7 +167,8 @@ const WarrantyPolicy: React.FC = () => {
       <style>{`
       .test{
         background-color:#FFFFFF;
-        width: 1220px;
+        width: 1200px;
+        margin-left: 162px;
       }
       `}</style>
     </>

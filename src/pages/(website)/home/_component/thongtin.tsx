@@ -54,7 +54,7 @@ const AboutPage: React.FC = () => {
                       alt="Chất lượng"
                       className="mx-auto"
                     />
-                    <div className="carousel-caption mt-2 text-lg">
+                    <div className="text2 carousel-caption mt-2 text-lg">
                       Chất lượng
                     </div>
                     <p className="text1">
@@ -67,7 +67,9 @@ const AboutPage: React.FC = () => {
                       alt="Uy tín"
                       className="mx-auto"
                     />
-                    <div className="carousel-caption mt-2 text-lg">Uy tín</div>
+                    <div className="text2 carousel-caption mt-2 text-lg">
+                      Uy tín
+                    </div>
                     <p className="text1">
                       Luôn đặt chữ tín lên hàng đầu trong mọi hoạt động.
                     </p>
@@ -78,7 +80,7 @@ const AboutPage: React.FC = () => {
                       alt="Khách hàng"
                       className="mx-auto"
                     />
-                    <div className="carousel-caption mt-2 text-lg">
+                    <div className="text2 carousel-caption mt-2 text-lg">
                       Khách hàng
                     </div>
                     <p className="text1">
@@ -91,7 +93,9 @@ const AboutPage: React.FC = () => {
                       alt="Đổi mới"
                       className="mx-auto"
                     />
-                    <div className="carousel-caption mt-2 text-lg">Đổi mới</div>
+                    <div className="text2 carousel-caption mt-2 text-lg">
+                      Đổi mới
+                    </div>
                     <p className="text1">
                       Không ngừng cải tiến và sáng tạo để phát triển.
                     </p>
@@ -187,6 +191,9 @@ const AboutPage: React.FC = () => {
               .text1{
                 font-size: 16px
               }
+                .text2{
+                  font-size: 20px
+                }
       `}</style>
     </>
   );

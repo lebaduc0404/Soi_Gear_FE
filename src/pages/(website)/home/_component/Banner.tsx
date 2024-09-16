@@ -99,14 +99,14 @@ const Banner = () => {
         onClick={handlePrev}
         style={{ cursor: "pointer" }}
       >
-        Back
+        
       </button>
       <button
         className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-10"
         onClick={handleNext}
         style={{ cursor: "pointer" }}
       >
-        Next
+        
       </button>
     </div>
   );
