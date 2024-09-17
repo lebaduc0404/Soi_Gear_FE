@@ -49,7 +49,7 @@ const Shop = () => {
       </section>
 
       <style>{`
-      .container{
+      .container-1{
       width: 1200px;
       }
       .container-1{
