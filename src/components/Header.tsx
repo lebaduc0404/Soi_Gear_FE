@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { CartIcon, Logo, SearchIcon, UserIcon } from "./icons";
 import HeaderTest from "./HeaderTest";
-import { UserButton} from "@clerk/clerk-react";
+import { UserButton } from "@clerk/clerk-react";
 import useCart from "@/common/hooks/useCart";
 import instance from "@/config/axios";
 import { IUsers } from "@/common/types/user";
@@ -114,7 +114,7 @@ const Header = () => {
                   alt="User"
                   className="h-8 cursor-pointer rounded-full"
                 />
-                <div className="absolute right-0 mt-3 p-4 w-60 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto">
+                <div className="absolute right-0 mt-2 p-4 w-60 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto">
                   <div className="flex items-center space-x-4">
                     <img
                       className="w-12 h-12 rounded-full border-2 border-blue-500"
