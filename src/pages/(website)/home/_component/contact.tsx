@@ -3,6 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import Test from "@/pages/test/test";
 // import { useNavigate } from "react-router-dom";
 
 const schema = yup.object().shape({
@@ -56,6 +57,7 @@ const ContactPage: React.FC = () => {
   return (
     <>
       <div className="container-5">
+        <Test />
         <div className="container mx-auto p-8 shadow-md mt-5 mb-5">
           <h1 className="text-4xl font-bold mb-8 text-indigo-600">Liên Hệ</h1>
 
@@ -73,18 +75,18 @@ const ContactPage: React.FC = () => {
 
           <div className="flex flex-col lg:flex-row lg:space-x-8">
             {/* Contact Form */}
-            <div className="w-full lg:w-1/2">
+            <div className="bg-[black] w-[504px] h-[482px] lg:w-1/2 rounded-[10px]">
               <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">
-                    Họ và Tên
-                  </label>
+                <div className="text-white text-[24px] w-[318px] text-center ml-[108px] mt-[44px] mb-[57px]">
+                  <h1>Liên hệ với chúng tôi ngay để nhận được tư vấn</h1>
+                </div>
+                <div className="ml-[47px]">
                   <input
                     type="text"
-                    className={`mt-1 block w-full px-4 py-2 border ${
+                    className={`mt-1 block w-full px-4 py-2 border w-[444px] h-[55px] ${
                       errors.name ? "border-red-500" : "border-gray-300"
-                    } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
-                    placeholder="Nhập họ và tên của bạn"
+                    } bg-[black] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
+                    placeholder="Nhập họ và tên"
                     {...register("name")}
                   />
                   {errors.name && (
@@ -94,53 +96,46 @@ const ContactPage: React.FC = () => {
                   )}
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    className={`mt-1 block w-full px-4 py-2 border ${
-                      errors.email ? "border-red-500" : "border-gray-300"
-                    } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
-                    placeholder="Nhập email của bạn"
-                    {...register("email")}
-                  />
-                  {errors.email && (
-                    <p className="mt-1 text-red-500 text-sm">
-                      {errors.email.message}
-                    </p>
-                  )}
+                <div className="flex space-x-[-41px] ml-[47px]">
+                  <div className="flex-1">
+                    <input
+                      type="email"
+                      className={`block w-[211px] px-4 py-2 border h-[55px] ${
+                        errors.email ? "border-red-500" : "border-gray-300"
+                      } bg-[black] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
+                      placeholder="Nhập email"
+                      {...register("email")}
+                    />
+                    {errors.email && (
+                      <p className="mt-1 text-red-500 text-sm">
+                        {errors.email.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="flex-1">
+                    <input
+                      type="tel"
+                      className={`block w-[211px] px-4 py-2 border h-[55px] ${
+                        errors.phone ? "border-red-500" : "border-gray-300"
+                      } bg-[black] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
+                      placeholder="Nhập số điện thoại"
+                      {...register("phone")}
+                    />
+                    {errors.phone && (
+                      <p className="mt-1 text-red-500 text-sm">
+                        {errors.phone.message}
+                      </p>
+                    )}
+                  </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">
-                    Số điện thoại
-                  </label>
-                  <input
-                    type="tel"
-                    className={`mt-1 block w-full px-4 py-2 border ${
-                      errors.phone ? "border-red-500" : "border-gray-300"
-                    } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
-                    placeholder="Nhập số điện thoại của bạn"
-                    {...register("phone")}
-                  />
-                  {errors.phone && (
-                    <p className="mt-1 text-red-500 text-sm">
-                      {errors.phone.message}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">
-                    Lời nhắn
-                  </label>
+                <div className="ml-[47px]">
                   <textarea
-                    className={`mt-1 block w-full px-4 py-2 border ${
+                    className={`mt-1 block w-full px-4 py-2 border w-[444px] h-[55px] ${
                       errors.message ? "border-red-500" : "border-gray-300"
-                    } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
-                    placeholder="Nhập lời nhắn của bạn"
+                    } bg-[black] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
+                    placeholder="Nhập lời nhắn"
                     {...register("message")}
                   ></textarea>
                   {errors.message && (
@@ -150,11 +145,8 @@ const ContactPage: React.FC = () => {
                   )}
                 </div>
 
-                <div>
-                  <button
-                    type="submit"
-                    className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  >
+                <div className="ml-[47px] ">
+                  <button className="flex items-center justify-center w-[444px] h-[55px] bg-white hover:bg-blue-200 text-black font-semibold rounded-md shadow-sm">
                     Gửi lời nhắn
                   </button>
                 </div>

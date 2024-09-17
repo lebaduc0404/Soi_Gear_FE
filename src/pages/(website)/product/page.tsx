@@ -1,3 +1,4 @@
+import Test from "@/pages/test/test";
 import Banner from "../home/_component/Banner";
 import Services from "../home/_component/Services";
 import Filter from "./_component/Filter";
@@ -10,6 +11,7 @@ const ShopPage = () => {
     };
     return (
       <>
+        <Test/>
         <Banner />
         <Filter />
         {/* <Categories /> */}

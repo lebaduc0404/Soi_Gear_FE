@@ -140,11 +140,11 @@ const Blog = () => {
       <style>{`
 
       .container-2{
-        width: 1195px;
+        width: 1155px;
         height: 399px;
         background-color: #FFFFFF;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
-        margin-left: 162px;
+        margin-left: 180px;
         margin-top: 44px;
         border-radius: 10px;
       }
@@ -154,12 +154,12 @@ const Blog = () => {
           align-items: center; /* Căn giữa theo chiều dọc nếu cần */
         }
         .left {
-          width: 600px;
+          width: 630px;
           height: 274px;
           object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
         }
         .right {
-          width: 413px;
+          width: 393px;
           height: 274px;
           object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
         }

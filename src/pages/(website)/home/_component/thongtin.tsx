@@ -1,14 +1,17 @@
+import Test from "@/pages/test/test";
 import React from "react";
 
 const AboutPage: React.FC = () => {
   return (
     <>
       <div className="container6">
+        <Test/>
         <div className="container mx-auto p-8">
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h1 className="text text-4xl font-bold mb-8 text-indigo-600">
               Về Chúng Tôi
             </h1>
+            <hr className="hr" />
             <div className="ab flex items-start space-x-6">
               <div className="img">
                 <img
@@ -102,7 +105,7 @@ const AboutPage: React.FC = () => {
                   </div>
                 </div>
               </section>
-              <section>
+              {/* <section>
                 <h2 className="text text-2xl font-semibold mb-4 text-gray-800">
                   Liên Hệ
                 </h2>
@@ -117,7 +120,7 @@ const AboutPage: React.FC = () => {
                   <li className="text1">Điện thoại: 0383005327</li>
                   <li className="text1">Email: leduc090404@gmail.com</li>
                 </ul>
-              </section>
+              </section> */}
             </div>
           </div>
         </div>
@@ -194,6 +197,14 @@ const AboutPage: React.FC = () => {
                 .text2{
                   font-size: 20px
                 }
+                  .hr {
+                    width: 100%;
+                    height: 1.5px;
+                    border: none;
+                    background-color: black;
+                    margin: 20px 0px;
+                  }
+
       `}</style>
     </>
   );

@@ -1,4 +1,5 @@
 // import React from 'react';
+import Test from "@/pages/test/test";
 import AnimatedSection from "./_component/AnimatedSection";
 import Banner from "./_component/Banner";
 import Blog from "./_component/Blog";
@@ -10,6 +11,7 @@ import Shop from "./_component/Shop";
 const HomePage = () => {
   return (
     <div>
+      <Test/>
       <AnimatedSection delay={0.1}>
         <Banner />
       </AnimatedSection>

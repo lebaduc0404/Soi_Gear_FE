@@ -7,6 +7,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 // import axios from "axios";
 import { useEffect, useState } from "react";
 import instance from "@/config/axios";
+import Test from "@/pages/test/test";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -66,6 +67,7 @@ const ProductDetail = () => {
 
   return (
     <>
+      <Test/>
       <div className="btn_0">
         <section className="filters">
           <div className="container">

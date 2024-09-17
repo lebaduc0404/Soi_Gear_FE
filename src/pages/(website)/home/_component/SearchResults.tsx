@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 // import axios from "axios";
 import instance from "@/config/axios";
+import Test from "@/pages/test/test";
 
 interface Product {
   _id: string;
@@ -57,6 +58,7 @@ const SearchPage: React.FC = () => {
 
   return (
     <>
+      <Test/>
       <div className="container mx-auto px-4 py-6">
         <h1 className="text-2xl font-bold text-gray-900 mb-6">
           Kết quả tìm kiếm cho: "{query}"

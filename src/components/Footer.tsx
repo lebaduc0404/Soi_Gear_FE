@@ -2,6 +2,7 @@
 // import Services from "@/pages/(website)/home/_component/Services";
 import Services from "@/pages/(website)/home/_component/Services";
 import { Logo } from "./icons"; // Ensure the Logo component or path is correctly imported
+import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 
 const Footer = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -48,14 +49,37 @@ const Footer = () => {
 
   return (
     <div>
-      <Services/>
-      <footer className="bg-gray-900 text-white py-12 mt-20 h-[303px]">
+      <Services />
+      <footer className="bg-gray-900 text-white py-12 mt-20 h-[375px]">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="flex flex-col items-center md:items-start">
+            <div className="flex flex-col items-center md:items-start w-[1000px]">
               <a href="/">
-                <img src={Logo} alt="Logo" className="mb-4 w-60 h-auto" />
+                <img src={Logo} alt="Logo" className="mb-4 w-85 h-[85px]" />
               </a>
+              <div className="w-full lg:w-1/2 mt-8 lg:mt-0 space-y-6">
+                <div className="flex items-start space-x-2">
+                  <FaMapMarkerAlt className="text-indigo-500 w-6 h-6" />
+                  <div>
+                    <h2 className="text-12 font-semibold">Địa chỉ</h2>
+                    <p>Số 1 Trịnh Văn Bô, Nam Từ Liêm, Hà Nội</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <FaPhoneAlt className="text-indigo-500 w-6 h-6" />
+                  <div>
+                    <h2 className="text-12 font-semibold">Số điện thoại</h2>
+                    <p>0383005327</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <FaEnvelope className="text-indigo-500 w-6 h-6" />
+                  <div>
+                    <h2 className="text-12 font-semibold">Email</h2>
+                    <p>leduc090404@gmail.com</p>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>

@@ -211,7 +211,7 @@ const ProductList = ({ featured, data }: ProductListProps) => {
   return (
     <>
       <div className="section-body">
-        <div className="product-list grid grid-cols-5 gap-x-0 gap-y-6">
+        <div className="product-list grid grid-cols-5 gap-x-[0px] gap-y-[32px]">
           {currentProducts?.map((product: any, index: number) => (
             <div key={index} className="product-item">
               <div className="product-image">

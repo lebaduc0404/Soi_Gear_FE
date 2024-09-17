@@ -1,3 +1,4 @@
+import Test from "@/pages/test/test";
 import React from "react";
 import {
   FaBox,
@@ -11,9 +12,11 @@ const WarrantyPolicy: React.FC = () => {
   return (
     <>
       <section className="test bg-while p-8  rounded-lg ml-36 shadow-md mt-5 mb-5">
+        <Test/>
         <h2 className="text-3xl font-bold mb-6  text-indigo-600">
           Chính Sách Bảo Hành
         </h2>
+        <hr className="hr" />
         <div className="space-y-6">
           <h3 className="text-2xl font-semibold">
             QUY TRÌNH GỬI BẢO HÀNH CÁC SẢN PHẨM MUA BỞI SÓI GEAR
@@ -67,7 +70,7 @@ const WarrantyPolicy: React.FC = () => {
             <li>
               Đối với những đơn hàng mua hàng từ xa, quý khách vui lòng gọi
               điện, nhắn tin qua Fanpage, Shopee, Lazada, Zalo để được Sói Gear
-              hỗ trợ xác định tình trạng sản phẩm.
+              hỗ trợ.
             </li>
             <li>
               Với các trường hợp bảo hành từ xa, quy trình bảo hành thực hiện
@@ -150,19 +153,6 @@ const WarrantyPolicy: React.FC = () => {
             </li>
           </ul>
         </div>
-        <p className="mt-8 text-gray-600 text-center">
-          Nếu bạn có bất kỳ câu hỏi nào về chế độ bảo hành, vui lòng liên hệ
-          chúng tôi qua số điện thoại hoặc email hỗ trợ.
-        </p>
-        <div className="mt-6 flex justify-center">
-          <a
-            href="tel:0123456789"
-            className="flex items-center space-x-2 text-indigo-600 hover:text-indigo-800 transition duration-300"
-          >
-            <FaPhoneAlt className="w-5 h-5" />
-            <span>0399926033</span>
-          </a>
-        </div>
       </section>
       <style>{`
       .test{
@@ -170,6 +160,14 @@ const WarrantyPolicy: React.FC = () => {
         width: 1200px;
         margin-left: 162px;
       }
+        .hr {
+          width: 100%;
+          height: 1.5px;
+          border: none;
+          background-color: black;
+          margin-bottom: 30px;
+          margin-top: -5px;
+        }
       `}</style>
     </>
   );

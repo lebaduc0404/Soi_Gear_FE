@@ -3,7 +3,7 @@ const Services = () => {
       <>
         <section className="services">
           <div className="container-fluid">
-            <div className="service-list h-[108px]">
+            <div className="service-list">
               <div className="service-item -mt-12 -mr-12 -ml-10">
                 <img
                   // src="/src/assets/icons/10.svg"
@@ -11,8 +11,8 @@ const Services = () => {
                   className="service__image"
                 />
                 <div className="service-info">
-                  <h4 className="service__name">Chất Lượng Cao</h4>
-                  <p className="service__description">
+                  <h4 className="service__name text-white">Chất lượng cao</h4>
+                  <p className="service__description text-white">
                     Được gia công từ vật liệu chất lượng
                   </p>
                 </div>
@@ -25,7 +25,7 @@ const Services = () => {
                   className="service__image"
                 />
                 <div className="service-info">
-                  <h4 className="service__name">Bảo Hành</h4>
+                  <h4 className="service__name">Bảo hành</h4>
                   <p className="service__description">
                     Bảo hành lên đến 24 tháng
                   </p>
@@ -39,7 +39,7 @@ const Services = () => {
                   className="service__image"
                 />
                 <div className="service-info">
-                  <h4 className="service__name">Miễn Phí Vận Chuyển</h4>
+                  <h4 className="service__name">Miễn phí vận chuyển</h4>
                   <p className="service__description">Từ sản phẩm 550$</p>
                 </div>
               </div>
@@ -51,7 +51,7 @@ const Services = () => {
                   className="service__image"
                 />
                 <div className="service-info">
-                  <h4 className="service__name">24 / 7 Hỗ Trợ</h4>
+                  <h4 className="service__name">24/7 Hỗ trợ</h4>
                   <p className="service__description">Hỗ Trợ Chuyên Dụng</p>
                 </div>
               </div>
@@ -62,6 +62,14 @@ const Services = () => {
           .services{
             margin-bottom: -78px;
           }
+              .service-list{
+                background-color: #6C7B8B;
+                height: 108px;
+              }
+                .service__name,
+                .service__description {
+                  color: white !important;
+                }
         `}</style>
       </>
     );

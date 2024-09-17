@@ -141,7 +141,6 @@ const CartPage = () => {
           </Link>
         </div>
       </div>
-      <Services />
     </div>
   );
 };

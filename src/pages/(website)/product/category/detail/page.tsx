@@ -5,6 +5,7 @@ import ProductList from "../../_component/ProductList";
 import Banner from "@/pages/(website)/home/_component/Banner";
 import Filter from "../../_component/Filter";
 import instance from "@/config/axios";
+import Test from "@/pages/test/test";
 
 const CategoryDetail = () => {
     const { id } = useParams();
@@ -20,6 +21,7 @@ const CategoryDetail = () => {
     if (isLoading) return <div>Loading...</div>;
     return (
       <>
+        <Test/>
         <Banner />
         <Filter />
         <section className="news">

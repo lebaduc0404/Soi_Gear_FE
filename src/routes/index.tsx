@@ -26,6 +26,7 @@ import ProfilePage from "@/pages/(website)/product/detail/test2";
 import ForgotPassword from "@/pages/(website)/(auth)/_component/Forgot";
 // import CategoryEdit from "@/pages/(dashboard)/category/_component/edit";
 import PrivateRoute from "./PrivateRoute";
+import Test from "@/pages/test/test";
 
 const Router = () => {
   return (
@@ -47,6 +48,7 @@ const Router = () => {
           <Route path="info" element={<Thongtin />} />
           <Route path="profile" element={<ProfilePage />} />
           <Route path="test" element={<TestDetail />} />
+          <Route path="test1" element={<Test />} />
           <Route path="*" element={<NotFound />} />
         </Route>
 
@@ -54,7 +56,7 @@ const Router = () => {
           path="admin"
           element={
             <PrivateRoute>
-            <LayoutAdmin />
+              <LayoutAdmin />
             </PrivateRoute>
           }
         >
