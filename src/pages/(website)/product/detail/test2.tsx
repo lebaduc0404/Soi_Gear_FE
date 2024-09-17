@@ -54,7 +54,7 @@ const ProfilePage = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="max-w-md p-8 bg-white rounded-xl shadow-xl border border-gray-200">
+      <div className="max-w-md p-8 bg-transparent rounded-xl shadow-xl border border-gray-200">
         <div className="flex items-center space-x-6">
           {user?.avatar && (
             <img
@@ -70,34 +70,42 @@ const ProfilePage = () => {
             <p className="text-lg text-gray-600">{user?.email || "N/A"}</p>
           </div>
         </div>
-        <div className="mt-8">
+
+        {/* Section 1: User Information */}
+        <div className="mt-8 p-4 bg-white bg-opacity-50 rounded-lg">
           <h3 className="text-xl font-semibold text-gray-800">About Me</h3>
           <p className="mt-3 text-gray-700">...</p>
         </div>
-        <div className="mt-8 flex justify-center">
-          <button
-            onClick={handleLogout}
-            className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
-          >
-            Đăng Xuất
-          </button>
-        </div>
-        <div className="mt-8 flex justify-center">
-          <Link to="/forgot">
-            <button className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">
-              Quên Mật Khẩu
-            </button>
-          </Link>
-        </div>
-        {user?.role === "admin" && (
-          <div className="mt-8 flex justify-center">
-            <Link to="/admin">
-              <button className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">
-                Admin
+
+        {/* Section 2: User Actions */}
+        <nav className="mt-8 p-4 bg-white bg-opacity-50 rounded-lg">
+          <ul className="space-y-4">
+            <li>
+              <button
+                onClick={handleLogout}
+                className="px-4 py-2 w-full text-left bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+              >
+                Đăng Xuất
               </button>
-            </Link>
-          </div>
-        )}
+            </li>
+            <li>
+              <Link to="/forgot">
+                <button className="px-4 py-2 w-full text-left bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">
+                  Quên Mật Khẩu
+                </button>
+              </Link>
+            </li>
+            {user?.role === "admin" && (
+              <li>
+                <Link to="/admin">
+                  <button className="px-4 py-2 w-full text-left bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">
+                    Admin
+                  </button>
+                </Link>
+              </li>
+            )}
+          </ul>
+        </nav>
       </div>
     </div>
   );

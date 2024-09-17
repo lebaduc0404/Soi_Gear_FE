@@ -4,7 +4,7 @@ import Banner from "./_component/Banner";
 import Blog from "./_component/Blog";
 import Carousel from "./_component/carousel";
 import New from "./_component/New";
-import Services from "./_component/Services";
+// import Services from "./_component/Services";
 import Shop from "./_component/Shop";
 
 const HomePage = () => {
@@ -30,9 +30,9 @@ const HomePage = () => {
         <Blog />
       </AnimatedSection>
 
-      <AnimatedSection delay={0.2}>
+      {/* <AnimatedSection delay={0.2}>
         <Services />
-      </AnimatedSection>
+      </AnimatedSection> */}
     </div>
   );
 };

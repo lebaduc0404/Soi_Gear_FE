@@ -73,22 +73,18 @@ const ContactPage: React.FC = () => {
 
           <div className="flex flex-col lg:flex-row lg:space-x-8">
             {/* Contact Form */}
-            <div className="form w-full lg:w-1/2">
-              <h2 className="text text-center">
-                Liên hệ với chúng tôi ngay để nhận được tư vấn
-              </h2>
-              <br />
-              <form
-                className="form-1 space-y-6"
-                onSubmit={handleSubmit(onSubmit)}
-              >
+            <div className="w-full lg:w-1/2">
+              <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
                 <div>
+                  <label className="block text-sm font-medium text-gray-700">
+                    Họ và Tên
+                  </label>
                   <input
                     type="text"
-                    className={`mt-1 block w-full px-4 py-2 border w-[444px] ${
+                    className={`mt-1 block w-full px-4 py-2 border ${
                       errors.name ? "border-red-500" : "border-gray-300"
                     } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
-                    placeholder="Nhập họ và tên"
+                    placeholder="Nhập họ và tên của bạn"
                     {...register("name")}
                   />
                   {errors.name && (
@@ -98,45 +94,53 @@ const ContactPage: React.FC = () => {
                   )}
                 </div>
 
-                <div className="flex space-x-4">
-                  <div className="w-1/2">
-                    <input
-                      type="email"
-                      className={`mt-1 block w-full px-4 py-2 border w-[207px] ${
-                        errors.email ? "border-red-500" : "border-gray-300"
-                      } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
-                      placeholder="Nhập email"
-                      {...register("email")}
-                    />
-                    {errors.email && (
-                      <p className="mt-1 text-red-500 text-sm">
-                        {errors.email.message}
-                      </p>
-                    )}
-                  </div>
-                  <div className="w-1/2">
-                    <input
-                      type="tel"
-                      className={`tel mt-1 block w-full px-4 py-2 border w-[207px] ${
-                        errors.phone ? "border-red-500" : "border-gray-300"
-                      } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
-                      placeholder="Nhập số điện thoại"
-                      {...register("phone")}
-                    />
-                    {errors.phone && (
-                      <p className="mt-1 text-red-500 text-sm">
-                        {errors.phone.message}
-                      </p>
-                    )}
-                  </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    className={`mt-1 block w-full px-4 py-2 border ${
+                      errors.email ? "border-red-500" : "border-gray-300"
+                    } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
+                    placeholder="Nhập email của bạn"
+                    {...register("email")}
+                  />
+                  {errors.email && (
+                    <p className="mt-1 text-red-500 text-sm">
+                      {errors.email.message}
+                    </p>
+                  )}
                 </div>
 
                 <div>
+                  <label className="block text-sm font-medium text-gray-700">
+                    Số điện thoại
+                  </label>
+                  <input
+                    type="tel"
+                    className={`mt-1 block w-full px-4 py-2 border ${
+                      errors.phone ? "border-red-500" : "border-gray-300"
+                    } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
+                    placeholder="Nhập số điện thoại của bạn"
+                    {...register("phone")}
+                  />
+                  {errors.phone && (
+                    <p className="mt-1 text-red-500 text-sm">
+                      {errors.phone.message}
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">
+                    Lời nhắn
+                  </label>
                   <textarea
-                    className={`mt-1 block w-full px-4 py-2 border w-[444px] ${
+                    className={`mt-1 block w-full px-4 py-2 border ${
                       errors.message ? "border-red-500" : "border-gray-300"
                     } rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
-                    placeholder="Nhập lời nhắn"
+                    placeholder="Nhập lời nhắn của bạn"
                     {...register("message")}
                   ></textarea>
                   {errors.message && (
@@ -149,7 +153,7 @@ const ContactPage: React.FC = () => {
                 <div>
                   <button
                     type="submit"
-                    className="button w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-[444px]"
+                    className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
                     Gửi lời nhắn
                   </button>

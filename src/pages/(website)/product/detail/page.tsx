@@ -124,7 +124,9 @@ const ProductDetail = () => {
                     <span>Sản phẩm có đánh giá tốt</span>
                   </div>
                 </div>
-                <h4 className="products__price text-red-500">Giá ưu đãi: ${data.price}</h4>
+                <h4 className="products__price text-red-500">
+                  Giá ưu đãi: ${data.price}
+                </h4>
                 <div className="btn_1">
                   <div className="quantity-container">
                     <h2>Số lượng:</h2>

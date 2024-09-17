@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { CartIcon, Logo, SearchIcon, UserIcon } from "./icons";
 import HeaderTest from "./HeaderTest";
 import { UserButton} from "@clerk/clerk-react";
 import useCart from "@/common/hooks/useCart";
+import instance from "@/config/axios";
+import { IUsers } from "@/common/types/user";
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -12,6 +14,7 @@ const Header = () => {
   const navigate = useNavigate();
   // const { user, isSignedIn } = useUser(); // Lấy thông tin người dùng từ Clerk
   const userId = localStorage.getItem("userId"); // Ví dụ lấy từ localStorage
+  const [user, setUser] = useState<IUsers | null>(null);
   // const cleanedUserId = userId?.replace(/^"|"$/g, "");
 
   // console.log("User:", user);
@@ -31,6 +34,44 @@ const Header = () => {
       ) || 0
     );
   };
+
+  const cleanedUserId = userId?.replace(/^"|"$/g, "");
+
+  // console.log(cleanedUserId);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch dữ liệu user theo userId
+  const fetchUserData = async () => {
+    try {
+      if (cleanedUserId) {
+        const { data } = await instance.get(`users/${cleanedUserId}`);
+        setUser(data);
+      } else {
+        console.error("No user ID found");
+      }
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchUserData();
+  }, [cleanedUserId]);
+  // console.log(userId);
+
+  const handleLogout = () => {
+    // Xóa token và userId khỏi localStorage
+    localStorage.removeItem("userToken");
+    localStorage.removeItem("user");
+    localStorage.removeItem("userId");
+    // Điều hướng đến trang đăng nhập hoặc trang chính
+    navigate("/");
+    window.location.reload();
+  };
+
+  if (loading) return <div>Loading...</div>;
 
   // const handleCloseModal = () => {
   //   setIsModalOpen(false);
@@ -61,32 +102,50 @@ const Header = () => {
               <img src={SearchIcon} alt="Search" className="w-8 h-8" />
             </button>
           </div>
-          {!userId ? (
-            <Link to="/auth-user" className="p-2">
-              <img src={UserIcon} alt="User" className="h-8" />
-            </Link>
-          ) : (
-            // <div
-            //   className="relative p-2"
-            //   onMouseEnter={() => setIsUserMenuOpen(true)}
-            //   onMouseLeave={() => setIsUserMenuOpen(false)}
-            // >
-            //   <span className="cursor-pointer text-gray-700 dark:text-gray-200 font-bold">
-            //     Xin chào
-            //   </span>
-            //   {isUserMenuOpen && (
-            //     <div className="absolute top-full right-0 mt-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg">
-            //       <button className="block w-full px-4 py-2 text-left text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-gray-700">
-            //         Mua hàng đi
-            //       </button>
-            //     </div>
-            //   )}
-            // </div>
-            <Link to="/profile" className="p-2">
-              <img src={UserIcon} alt="User" className="h-8" />
-            </Link>
-          )}
-          
+          <div className="relative group">
+            {!userId ? (
+              <Link to="/auth-user" className="p-2">
+                <img src={UserIcon} alt="User" className="h-8" />
+              </Link>
+            ) : (
+              <div className="p-2">
+                <img
+                  src={user?.avatar}
+                  alt="User"
+                  className="h-8 cursor-pointer rounded-full"
+                />
+                <div className="absolute right-0 mt-3 p-4 w-60 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto">
+                  <div className="flex items-center space-x-4">
+                    <img
+                      className="w-12 h-12 rounded-full border-2 border-blue-500"
+                      src={user?.avatar}
+                      alt="User Avatar"
+                    />
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900">
+                        {user?.name || "Unnamed User"}
+                      </h4>
+                      <p className="text-sm text-gray-600">{user?.email}</p>
+                    </div>
+                  </div>
+                  <hr className="my-2" />
+                  <Link
+                    to="/profile"
+                    className="block text-blue-500 hover:underline"
+                  >
+                    Xem hồ sơ
+                  </Link>
+                  <button
+                    onClick={handleLogout}
+                    className="mt-2 w-full text-left text-red-500 hover:text-red-600"
+                  >
+                    Đăng Xuất
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+
           <Link to="/cart" className="relative p-2 flex items-center ">
             <img src={CartIcon} alt="Cart" className="h-8" />
 
@@ -101,7 +160,6 @@ const Header = () => {
           <UserButton />
         </div>
       </div>
-
     </header>
   );
 };

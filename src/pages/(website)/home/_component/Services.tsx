@@ -58,6 +58,11 @@ const Services = () => {
             </div>
           </div>
         </section>
+        <style>{`
+          .services{
+            margin-bottom: -78px;
+          }
+        `}</style>
       </>
     );
 };

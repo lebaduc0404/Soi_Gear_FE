@@ -211,7 +211,7 @@ const ProductList = ({ featured, data }: ProductListProps) => {
   return (
     <>
       <div className="section-body">
-        <div className="product-list grid grid-cols-5 gap-4">
+        <div className="product-list grid grid-cols-5 gap-x-0 gap-y-6">
           {currentProducts?.map((product: any, index: number) => (
             <div key={index} className="product-item">
               <div className="product-image">
@@ -347,6 +347,7 @@ const ProductList = ({ featured, data }: ProductListProps) => {
                     .product-item{
                       width: 190px;
                       heigt: 278px;
+                      margin-left: 10px
                     }
                     .product-action__quickview1{
                       width: 150px;
@@ -354,7 +355,7 @@ const ProductList = ({ featured, data }: ProductListProps) => {
                       text-align: center;
                       background-color: white;
                       color: rgb(241, 196, 142);
-                      border-radius: 15px 15px;
+                      border-radius: 15px;
                     }
                     .product__thumbnail {
                       width: 190px;
