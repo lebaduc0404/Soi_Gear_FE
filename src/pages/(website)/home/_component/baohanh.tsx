@@ -4,7 +4,6 @@ import {
   FaBox,
   FaShippingFast,
   FaMapMarkerAlt,
-  FaPhoneAlt,
   FaTimesCircle,
 } from "react-icons/fa";
 
