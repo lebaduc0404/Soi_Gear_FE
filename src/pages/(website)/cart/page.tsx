@@ -1,7 +1,6 @@
 import useCart from "@/common/hooks/useCart";
 import { TrashIcon } from "@/components/icons";
 import { Link } from "react-router-dom";
-import Services from "../home/_component/Services";
 import {
   AlertDialog,
   AlertDialogAction,
