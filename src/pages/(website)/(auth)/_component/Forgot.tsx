@@ -1,3 +1,4 @@
+import { Logo } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import {
     Form,
@@ -66,30 +67,54 @@ const ForgotPassword = () => {
     };
 
     return (
+      <>
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel htmlFor="email">Email:</FormLabel>
-                            <FormControl>
-                                <Input
-                                    placeholder="Nhập email của bạn..."
-                                    type="email"
-                                    {...field}
-                                    id="email"
-                                ></Input>
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                ></FormField>
+          <div className="space-y-8 w-[546px] h-[auto] bg-white p-[20px] ml-[347px]">
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="space-y-8 ml-[-20px]"
+            >
+              <div className="">
+                <img
+                  className="w-[200px] h-[81px] ml-[172px]"
+                  src={Logo}
+                  alt=""
+                />
+                <h1 className="font-bold mt-[24px] ml-[190px] mb-[10px] text-[20px]">
+                  QUÊN MẬT KHẨU
+                </h1>
+                <hr className="w-[356px] ml-[95px] h-[1px] bg-black rounded-t-[50px]" />
+              </div>
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem className="w-[356px] h-[66px] ml-[95px]">
+                    <FormLabel htmlFor="email" className="text-[15px]">
+                      Email:
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Nhập email của bạn..."
+                        type="email"
+                        {...field}
+                        id="email"
+                      ></Input>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              ></FormField>
 
-                <Button type="submit">Gửi yêu cầu đặt lại mật khẩu</Button>
+              <Button
+                type="submit"
+                className="w-[356px] h-[56px] ml-[95px] text-[20px]">
+                Gửi yêu cầu đặt lại mật khẩu
+              </Button>
             </form>
+          </div>
         </Form>
+      </>
     );
 };
 

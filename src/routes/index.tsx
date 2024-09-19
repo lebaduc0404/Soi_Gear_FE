@@ -28,7 +28,7 @@ import ForgotPassword from "@/pages/(website)/(auth)/_component/Forgot";
 import PrivateRoute from "./PrivateRoute";
 import Test from "@/pages/test/test";
 import SignIn from "@/pages/(website)/(auth)/_component/SignIn";
-import SignUp from "@/pages/(website)/(auth)/_component/SignUp";
+// import SignUp from "@/pages/(website)/(auth)/_component/SignUp";
 
 const Router = () => {
   return (
@@ -45,7 +45,7 @@ const Router = () => {
           <Route path="auth-user" element={<AuthPage />} />
           <Route path="forgot" element={<ForgotPassword />} />
           <Route path="signin" element={<SignIn />} />
-          <Route path="signup" element={<SignUp />} />
+          {/* <Route path="signup" element={<SignUp/>} /> */}
           <Route path="warranty" element={<Baohanh />} />
           <Route path="contact" element={<Contact />} />
           <Route path="ordersucess" element={<OrderConfirmationPage />} />

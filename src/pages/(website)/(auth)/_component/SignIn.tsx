@@ -20,6 +20,7 @@ import Test from "../../product/detail/test";
 import instance from "@/config/axios";
 import { CiFacebook } from "react-icons/ci";
 import { ImGoogle3 } from "react-icons/im";
+import { Logo } from "@/components/icons";
 // import { TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const signinSchema = Joi.object({
@@ -85,11 +86,7 @@ const SignIn = () => {
             className="space-y-8 ml-[-20px]"
           >
             <div className="">
-              <img
-                className="w-[81px] h-[81px] ml-[233px]"
-                src="/Soi_Gear_FE/src/components/icons/logo.webp"
-                alt=""
-              />
+              <img className="w-[200px] h-[81px] ml-[172px]" src={Logo} alt="" />
               <h1 className="font-bold mt-[24px] ml-[218px] mb-[10px] text-[20px]">
                 ĐĂNG NHẬP
               </h1>
