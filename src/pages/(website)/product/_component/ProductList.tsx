@@ -171,7 +171,7 @@ const ProductList = ({ featured, data }: ProductListProps) => {
                             top: 0;
                             left: 0;
                             width: 100%;
-                            height: 1200px;
+                            height: 72.65625vw;
                             background: rgba(0, 0, 0, 0.5);
                             display: flex;
                             align-items: center;
@@ -181,7 +181,7 @@ const ProductList = ({ featured, data }: ProductListProps) => {
 
                         .modal-content {
                             background: #fff;
-                            padding: 20px;
+                            padding: 2.71vh 1.302vw;
                             border-radius: 10px;
                             position: relative;
                         }
@@ -193,12 +193,12 @@ const ProductList = ({ featured, data }: ProductListProps) => {
 
                         .modal-close {
                             position: absolute;
-                            top: 10px;
-                            right: 10px;
+                            top: 1.355vh;
+                            right: 0.651vw;
                             background: #333;
                             color: #fff;
                             border: none;
-                            padding: 10px;
+                            padding: 1.355vh 0.651vw;
                             cursor: pointer;
                             border-radius: 5px;
                         }
@@ -211,7 +211,7 @@ const ProductList = ({ featured, data }: ProductListProps) => {
   return (
     <>
       <div className="section-body">
-        <div className="product-list grid grid-cols-5 gap-x-[0px] gap-y-[32px]">
+        <div className="product-list grid grid-cols-5 gap-x-[0.065vw] gap-y-[4.336vh]">
           {currentProducts?.map((product: any, index: number) => (
             <div key={index} className="product-item">
               <div className="product-image">
@@ -236,7 +236,9 @@ const ProductList = ({ featured, data }: ProductListProps) => {
                 </p>
                 <a href="" className="product__category1">
                   {product.category.name}
+                  <span className="hidden-period">.</span>
                 </a>
+
                 <div className="product-price1">
                   {product?.discount ? (
                     <>
@@ -295,7 +297,7 @@ const ProductList = ({ featured, data }: ProductListProps) => {
           {Array.from({ length: numPages }, (_, i) => (
             <button
               key={i}
-              className={`pagination-button ${
+              className={`pagination-button w-[32px] h-[32px] ${
                 i === currentPage ? "active" : ""
               }`}
               onClick={() => goToPage(i)}
@@ -310,71 +312,120 @@ const ProductList = ({ featured, data }: ProductListProps) => {
       )}
       <style>
         {`
-                    .pagination {
-                        // width: 190px;
-                        // heigt: 278px;
-                        display: flex;
-                        justify-content: center;
-                        margin-top: 16px;
-                        gap: 8px;
-                    }
-                    .product-list{
-                      margin-top: -20px;
-                    }
+.product-list {
+  margin-top: 4.336vh;
+  margin-left: -0.976vw;
+}
 
-                    .pagination-button {
-                        background: #ddd;
-                        border: none;
-                        padding: 8px 12px;
-                        cursor: pointer;
-                        font-size: 16px;
-                        border-radius: 5px;
-                        transition: background 0.3s;
-                    }
+.product-item {
+  width: 12.369vw; /* Tỉ lệ theo chiều rộng viewport */
+  height: 37.669vh; /* Tỉ lệ theo chiều cao viewport */
+  margin-left: 0.651vw;
+}
 
-                    .pagination-button.active {
-                        background: #333;
-                        color: #fff;
-                    }
+.product-actions {
+  width: 12.369vw; /* Điều chỉnh chiều rộng theo viewport */
+  height: 37.669vh; /* Điều chỉnh chiều cao theo viewport */
+}
 
-                    .pagination-button:hover {
-                        background: #ccc;
-                    }
-                    .product-actions{
-                      width: 190px;
-                      heigt: 278px;
-                    }
-                    .product-item{
-                      width: 190px;
-                      heigt: 278px;
-                      margin-left: 10px
-                    }
-                    .product-action__quickview1{
-                      width: 150px;
-                      // heigt: 50px;
-                      text-align: center;
-                      background-color: white;
-                      color: rgb(241, 196, 142);
-                      border-radius: 15px;
-                    }
-                    .product__thumbnail {
-                      width: 190px;
-                      height: 161px;
-                      object-fit: cover; /* Giúp ảnh không bị méo */
-                    }
+.product-action__quickview1 {
+  width: 9.765vw;
+  text-align: center;
+  background-color: white;
+  color: rgb(241, 196, 142);
+  border-radius: 15px;
+}
 
-                    .product__name1{
-                      font-size: 13px;
-                    }
-                      .product__category1{
-                        font-size: 10px;
-                      }
-                        .product-price1{
-                          font-size: 13px;
-                        }
-                          .section-body{
-                            padding-left: 10px;
-                          }
+.product__thumbnail {
+  width: 12.369vw;
+  height: 21.815vh;
+  object-fit: cover; /* Đảm bảo ảnh không bị méo */
+}
+
+.product__name1 {
+  font-size: 1.897vh;
+}
+
+.product__category1 {
+  font-size: 1.355vh;
+}
+
+.product-price1 {
+  font-size: 1.761vh;
+}
+
+.section-body {
+  height: 88.075vh;
+  padding-left: 0.651vw;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.168vh;
+  gap: 0.52vw;
+}
+
+.pagination-button {
+  background: #ddd;
+  border: none;
+  padding: 1.626vh 0.78125vw;
+  cursor: pointer;
+  font-size: 2.439vh;
+  border-radius: 5px;
+  transition: background 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination-button.active {
+  background: #333;
+  color: #fff;
+}
+
+.pagination-button:hover {
+  background: #ccc;
+}
+  @media (max-width: 1024px) {
+  .product-item {
+    width: 20vw;
+    height: 30vh;
+  }
+
+  .product__thumbnail {
+    width: 20vw;
+    height: 15vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-item {
+    width: 25vw;
+    height: 35vh;
+  }
+
+  .product__thumbnail {
+    width: 25vw;
+    height: 20vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-item {
+    width: 40vw;
+    height: 50vh;
+  }
+
+  .product__thumbnail {
+    width: 40vw;
+    height: 25vh;
+  }
+}
+
+.hidden-period {
+  visibility: hidden;
+}
                 `}
       </style>
     </>

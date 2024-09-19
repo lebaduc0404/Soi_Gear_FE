@@ -56,23 +56,14 @@ const Banner = () => {
   };
 
   return (
-    <div className="banner-container relative overflow-hidden w-[1200px] h-[457px] ml-[162px] mt-[10px]">
+    <div className="relative overflow-hidden w-[72.65625vw] h-[50vh] mx-auto mt-2 flex items-center justify-center">
       <div
-        className="banner-wrapper"
+        className="flex w-full overflow-x-hidden overflow-y-hidden h-full whitespace-nowrap"
         ref={containerRef}
-        style={{
-          display: "flex",
-          width: "100%",
-          overflowX: "hidden",
-          overflowY: "hidden",
-          height: "100%",
-          whiteSpace: "nowrap",
-        }}
       >
         <div
-          className="banner-inner"
+          className="flex"
           style={{
-            display: "flex",
             width: `${images.length * (imageWidth + gap)}px`, // Tổng chiều rộng của tất cả các ảnh với khoảng cách
             marginRight: `-${gap}px`, // Đẩy ảnh đầu tiên về phía trái để chúng tiếp tục chạy liền mạch
           }}
@@ -82,32 +73,25 @@ const Banner = () => {
               key={i}
               src={src}
               alt={`Banner ${i}`}
+              className="w-[imageWidth] h-full object-cover object-center mr-[gap]"
               style={{
                 width: `${imageWidth}px`,
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: "center",
-                marginRight: `${gap}px`, // Khoảng cách giữa các ảnh
+                marginRight: `${gap}px`,
               }}
             />
           ))}
         </div>
       </div>
-      {/* Nút Back và Next */}
       <button
         className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-10"
         onClick={handlePrev}
         style={{ cursor: "pointer" }}
-      >
-        
-      </button>
+      ></button>
       <button
         className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-10"
         onClick={handleNext}
         style={{ cursor: "pointer" }}
-      >
-        
-      </button>
+      ></button>
     </div>
   );
 };

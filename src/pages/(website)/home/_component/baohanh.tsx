@@ -10,14 +10,14 @@ import {
 const WarrantyPolicy: React.FC = () => {
   return (
     <>
-      <section className="test bg-while p-8  rounded-lg ml-36 shadow-md mt-5 mb-5">
-        <Test/>
-        <h2 className="text-3xl font-bold mb-6  text-indigo-600">
+      <section className="test bg-while p-8  rounded-lg ml-36 mt-5 mb-5">
+        <Test />
+        <h2 className="text-[24px] font-bold mb-6  text-indigo-600">
           Chính Sách Bảo Hành
         </h2>
         <hr className="hr" />
         <div className="space-y-6">
-          <h3 className="text-2xl font-semibold">
+          <h3 className="text-[24px] text-2xl font-semibold">
             QUY TRÌNH GỬI BẢO HÀNH CÁC SẢN PHẨM MUA BỞI SÓI GEAR
           </h3>
           <ol className="list-decimal list-inside space-y-4">
@@ -60,7 +60,9 @@ const WarrantyPolicy: React.FC = () => {
             </li>
           </ol>
 
-          <h3 className="text-2xl font-semibold mt-8">A. Địa điểm bảo hành:</h3>
+          <h3 className="text-2xl font-semibold mt-8 text-[24px]">
+            A. Địa điểm bảo hành:
+          </h3>
           <ul className="list-disc list-inside space-y-4">
             <li>
               Toàn bộ sản phẩm được phân phối và bán lẻ bởi Sói Gear đều được
@@ -97,7 +99,7 @@ const WarrantyPolicy: React.FC = () => {
             </li>
           </ul>
 
-          <h3 className="text-2xl font-semibold mt-8">
+          <h3 className="text-2xl font-semibold mt-8 text-[24px]">
             B. Những trường hợp sau không được bảo hành:
           </h3>
           <ul className="list-disc list-inside space-y-4">
@@ -136,7 +138,7 @@ const WarrantyPolicy: React.FC = () => {
             </li>
           </ul>
 
-          <h3 className="text-2xl font-semibold mt-8">
+          <h3 className="text-2xl font-semibold mt-8 text-[24px]">
             C. Các trường hợp khác sẽ được bảo hành theo tiêu chuẩn của nhà sản
             xuất:
           </h3>
@@ -156,8 +158,8 @@ const WarrantyPolicy: React.FC = () => {
       <style>{`
       .test{
         background-color:#FFFFFF;
-        width: 1200px;
-        margin-left: 162px;
+        width: 1116px;
+        margin-left: 196px;
       }
         .hr {
           width: 100%;

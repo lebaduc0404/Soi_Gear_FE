@@ -26,21 +26,21 @@ const HeaderTest = () => {
 
   return (
     <>
-      <NavigationMenu>
-        <NavigationMenuList>
+      <NavigationMenu className="">
+        <NavigationMenuList className="gap-[10px]">
           <NavigationMenuItem>
             <Link
               to="/"
               className={cn(
                 navigationMenuTriggerStyle(),
-                "font-semibold text-sm p-3 uppercase"
+                "font-semibold text-sm p-3 uppercase text-[15px]"
               )}
             >
               Trang Chủ
             </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="font-semibold text-sm p-3 uppercase">
+            <NavigationMenuTrigger className="font-semibold text-sm p-3 uppercase text-[15px]">
               Danh Mục
             </NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -61,7 +61,7 @@ const HeaderTest = () => {
               to="/info"
               className={cn(
                 navigationMenuTriggerStyle(),
-                "font-semibold text-sm p-3 uppercase"
+                "font-semibold text-sm p-3 uppercase text-[15px]"
               )}
             >
               Thông Tin
@@ -70,7 +70,7 @@ const HeaderTest = () => {
               to="/warranty"
               className={cn(
                 navigationMenuTriggerStyle(),
-                "font-semibold text-sm p-3 uppercase"
+                "font-semibold text-sm p-3 uppercase text-[15px]"
               )}
             >
               Bảo Hành
@@ -81,7 +81,7 @@ const HeaderTest = () => {
               to="/contact"
               className={cn(
                 navigationMenuTriggerStyle(),
-                "font-semibold text-sm p-3 uppercase"
+                "font-semibold text-sm p-3 uppercase text-[15px]"
               )}
             >
               Liên Hệ

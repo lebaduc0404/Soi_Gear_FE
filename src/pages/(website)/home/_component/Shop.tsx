@@ -14,14 +14,14 @@ const Shop = () => {
       <style>{keyframes}</style>
       <section className="shop">
         <div className="container-1">
-          <div className="container">
+          <div className="">
             <div className="section-heading">
               <h2 className="section-heading__title" style={rainbowTextStyle}>
                 HOT TRONG TUẦN
               </h2>
             </div>
             <div className="section-body">
-              <div className="shops grid grid-cols-4 gap-4">
+              <div className="shops grid grid-cols-4">
                 <div className="shop-item">
                   <a href="#" className="shop__link">
                     <img src={ShopImg1} alt="" className="shop__image" />
@@ -50,25 +50,32 @@ const Shop = () => {
 
       <style>{`
       .container-1{
-      width: 1200px;
-      }
-      .container-1{
-        width: 1155px;
-        height: 362px;
+        width: 72.65625vw;
+        height: 49vh;
         background-color: #FFFFFF;
-        margin-left: 180px;
-        margin-top: 44px;
+        margin-left: 13.286vw;
+        margin-top: 5.962vh;
         border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+        // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
       }
+        .shops{
+          width: 67.578125vw;
+          hieght: 28.18vh
+        }
+
         .shop__image {
-          width: 250px;
-          height: 208px;
-          margin-left: 10px;
+          width: 15.625vw;
+          height: 28.184vh;
+          margin-left: 2.6vw;
           object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
         }
+          .shop-item{
+            width: 16.28vw;
+            height: 28.18vh;
+            gap: 1px;
+          }
           .section-body{
-          margin-top: -30px;
+          margin-top: 4vh;
           }
       `}</style>
     </>

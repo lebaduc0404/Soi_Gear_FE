@@ -132,9 +132,9 @@ const ContactPage: React.FC = () => {
 
                 <div className="ml-[47px]">
                   <textarea
-                    className={`mt-1 block w-full px-4 py-2 border w-[444px] h-[55px] ${
+                    className={`mt-1 block w-full px-4 py-2 border ${
                       errors.message ? "border-red-500" : "border-gray-300"
-                    } bg-[black] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
+                    } w-[444px] h-[55px] bg-[black] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
                     placeholder="Nhập lời nhắn"
                     {...register("message")}
                   ></textarea>
@@ -192,15 +192,15 @@ const ContactPage: React.FC = () => {
       <style>{`
       .container-5{
         background-color:#FFFFFF;
-        width: 1200px;
-        margin-left: 158px;
+        width: 1116px;
+        margin-left: 196px;
       }
         .form{
         background-color: #111827;
           width: 506px;
           height: 460px;
           padding-top: 44px;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+          // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
         }
           .form{
             border-radius: 10px;

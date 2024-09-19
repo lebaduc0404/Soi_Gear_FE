@@ -92,12 +92,12 @@ const Header = () => {
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="border border-gray-300 rounded-lg px-9 py-3 text-lg w-full focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              className="border border-gray-300 rounded-lg px-9 py-3 text-[13px] w-[258px] h-[40px] focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               placeholder="Tìm kiếm sản phẩm..."
             />
             <button
               onClick={handleSearch}
-              className="absolute right-0 top-0 mt-3 mr-3 text-gray-500"
+              className="absolute right-0 top-0 mt-1 mr-3 text-gray-500 w-[16px] h-[16px]"
             >
               <img src={SearchIcon} alt="Search" className="w-8 h-8" />
             </button>
@@ -105,7 +105,7 @@ const Header = () => {
           <div className="relative group">
             {!userId ? (
               <Link to="/auth-user" className="p-2">
-                <img src={UserIcon} alt="User" className="h-8" />
+                <img src={UserIcon} alt="User" className="h-[32px] w-[32px]" />
               </Link>
             ) : (
               <div className="p-2">
@@ -117,7 +117,7 @@ const Header = () => {
                 <div className="absolute right-0 mt-2 p-4 w-60 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto">
                   <div className="flex items-center space-x-4">
                     <img
-                      className="w-12 h-12 rounded-full border-2 border-blue-500"
+                      className="h-[32px] w-[32px] rounded-full border-2 border-blue-500"
                       src={user?.avatar}
                       alt="User Avatar"
                     />
@@ -147,10 +147,10 @@ const Header = () => {
           </div>
 
           <Link to="/cart" className="relative p-2 flex items-center ">
-            <img src={CartIcon} alt="Cart" className="h-8" />
+            <img src={CartIcon} alt="Cart" className="h-[32px] w-[32px]" />
 
             {getTotalQuantity() > 0 && (
-              <span className="absolute -top-2 -right-2 bg-yellow-400 text-white rounded-full text-xs px-2 py-1 w-6 h-6 flex items-center justify-center">
+              <span className="absolute -top-2 -right-2 bg-yellow-400 text-white rounded-full text-xs px-2 py-1 h-[20px] w-[20px] flex items-center justify-center">
                 {getTotalQuantity()}
               </span>
             )}

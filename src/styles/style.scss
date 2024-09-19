@@ -12,10 +12,10 @@ img {
 }
 
 .container {
-    max-width: 1268px;
+    max-width: 93.75vw;
     margin: auto;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 2vh;
+    padding-right: 2vh;
 }
 
 .header {
@@ -91,10 +91,12 @@ img {
 // SECTION
 .section-heading {
     border-bottom: 1px solid #000;
-    padding: 17px 0 20px 0;
-    margin-bottom: 57px;
+    padding: 2.3vh 0 2.7vh 0;
+    margin-bottom: 1.043vh;
+    margin-left: 3.255vw;
+    margin-right: 3.255vw;
     &__title {
-        font-size: 40px;
+        font-size: 5.4vh;
         font-weight: 500;
         margin: 0;
         padding: 0;
@@ -710,15 +712,15 @@ img {
 }
 
 .shop {
-    margin-top: 60px;
-    margin-bottom: 54px;
+    margin-top: 8.13vh;
+    margin-bottom: 7.317vh;
     &__image {
         border-radius: 12px;
     }
 }
-.shops {
-    @include m.grid(2, 30px);
-}
+// .shops {
+//     @include m.grid(2, 0px);
+// }
 .post-item {
     @include m.grid(1, 30px);
     align-items: center;  // Moved above the media query
@@ -1100,6 +1102,14 @@ img {
     @include m.breakpoint(lg) {
         @include m.grid(4, 30px);
         padding: 107px 5% 93px 11%;
+    }
+
+    .ax{
+        @include m.grid(2, 30px);
+    @include m.breakpoint(lg) {
+        @include m.grid(4, 30px);
+        padding: 107px 5% 93px 11%;
+    }
     }
     .service-item {
         display: block;

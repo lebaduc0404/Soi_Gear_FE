@@ -54,8 +54,8 @@ const Footer = () => {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex flex-col items-center md:items-start w-[1000px]">
-              <a href="/">
-                <img src={Logo} alt="Logo" className="mb-4 w-85 h-[85px]" />
+              <a href="/" className="ml-[-70px]">
+                <img src={Logo} alt="Logo" className="mb-4 w-[auto] h-[99px]" />
               </a>
               <div className="w-full lg:w-1/2 mt-8 lg:mt-0 space-y-6">
                 <div className="flex items-start space-x-2">
@@ -83,71 +83,71 @@ const Footer = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h2 className="text-lg font-bold mb-4">Liên Kết</h2>
+                <h2 className="text-lg font-bold mb-4 text-[18]">Liên Kết</h2>
                 <ul>
                   <li className="mb-2">
-                    <a href="/" className="hover:underline">
-                      Trang Chủ
+                    <a href="/" className="hover:underline text-[15px]">
+                      Trang chủ
                     </a>
                   </li>
                   <li className="mb-2">
-                    <a href="#" className="hover:underline">
-                      Sản Phẩm
+                    <a href="#" className="hover:underline text-[15px]">
+                      Sản phẩm
                     </a>
                   </li>
                   <li className="mb-2">
-                    <a href="#" className="hover:underline">
+                    <a href="#" className="hover:underline text-[15px]">
                       Blog
                     </a>
                   </li>
                   <li className="mb-2">
-                    <a href="#" className="hover:underline">
-                      Liên Hệ
+                    <a href="#" className="hover:underline text-[15px]">
+                      Liên hệ
                     </a>
                   </li>
                 </ul>
               </div>
               <div>
-                <h2 className="text-lg font-bold mb-4">Hỗ Trợ</h2>
+                <h2 className="text-lg font-bold mb-4 text-[18]">Hỗ trợ</h2>
                 <ul>
                   <li className="mb-2">
-                    <a href="#" className="hover:underline">
-                      Thanh Toán
+                    <a href="#" className="hover:underline text-[15px]">
+                      Thanh toán
                     </a>
                   </li>
                   <li className="mb-2">
-                    <a href="#" className="hover:underline">
-                      Đổi Trả
+                    <a href="#" className="hover:underline text-[15px]">
+                      Đổi trả
                     </a>
                   </li>
                   <li className="mb-2">
-                    <a href="#" className="hover:underline">
-                      Bảo Hành
+                    <a href="#" className="hover:underline text-[15px]">
+                      Bảo hành
                     </a>
                   </li>
                   <li className="mb-2">
-                    <a href="#" className="hover:underline">
-                      Tuyển Dụng
+                    <a href="#" className="hover:underline text-[15px]">
+                      Tuyển dụng
                     </a>
                   </li>
                 </ul>
               </div>
             </div>
             <div className="flex flex-col items-center md:items-start">
-              <h2 className="text-lg font-bold mb-4">Tin Tức</h2>
-              <form className="w-full flex" onSubmit={handleSubmit}>
+              <h2 className="text-lg font-bold mb-4 text-[18px]">Tin tức</h2>
+              <form className="w-[322px] flex" onSubmit={handleSubmit}>
                 <input
                   type="email"
                   name="email"
-                  className="p-2 rounded-l-md w-full focus:outline-none text-black"
+                  className="p-2 rounded-l-md w-full focus:outline-none text-black text-[13.5px] "
                   placeholder="Nhập email của bạn"
                   required
                 />
                 <button
                   type="submit"
-                  className="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-r-md w-32"
+                  className="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-r-md w-32 text-[13.5px]"
                 >
-                  Đăng Kí
+                  Đăng kí
                 </button>
               </form>
             </div>

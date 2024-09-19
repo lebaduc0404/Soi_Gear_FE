@@ -78,57 +78,59 @@ const Carousel = () => {
       <style>
         {`
           .carousel-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 129px;
-            margin-top: 44px;
-            overflow: hidden;
-          }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80vw; /* Chiếm 80% chiều rộng của viewport */
+  height: 27vh; /* Chiều cao của carousel dựa trên viewport height */
+  margin: 0 auto; /* Căn giữa theo chiều ngang */
+  margin-top: 44px; /* Khoảng cách phía trên */
+  overflow: hidden;
+}
 
-          .carousel-container {
-            display: flex;
-            gap: 45px; /* Adjust gap as needed */
-            flex-direction: row;
-          }
+.carousel-container {
+  display: flex;
+  gap: 10vw; /* Khoảng cách giữa các phần tử */
+  flex-direction: row;
+}
 
-          .carousel-item {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 100px;
-            height: 150px;
-            position: relative;
-            overflow: hidden;
-          }
+.carousel-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 150px; /* Chiều rộng của phần tử chứa */
+  height: 200px; /* Chiều cao của phần tử chứa (bao gồm cả khoảng cách cho caption) */
+  position: relative;
+  overflow: hidden;
+}
 
-          .carousel-image {
-            width: 90px;
-            height: 90px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 1px solid #999999;
-            animation: rotate 10s linear infinite;
-          }
+.carousel-image {
+  width: 80%; /* Chiếm 80% chiều rộng của phần tử chứa */
+  height: 60%; /* Đảm bảo tỷ lệ hình ảnh không bị thay đổi */
+  object-fit: cover; /* Cắt ảnh sao cho vừa khung hình tròn */
+  border-radius: 50%; /* Tạo hình tròn cho ảnh */
+  border: 1px solid #999999;
+  margin-bottom: 1rem; /* Khoảng cách giữa ảnh và tên (kích thước tương đối) */
+  margin-top: 2rem; /* Khoảng cách từ phần trên của phần tử chứa đến ảnh (kích thước tương đối) */
+  animation: rotate 10s linear infinite;
+}
 
-          .carousel-caption {
-            margin-top: 17px;
-            text-align: center;
-            font-weight: 600; 
-            font-size: 14px; 
-            color: #333;
-          }
+.carousel-caption {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem; /* Kích thước chữ (có thể thay đổi tùy thuộc vào yêu cầu) */
+  color: #333;
+}
 
-          @keyframes rotate {
-            0% {
-              transform: rotate(0deg);
-            }
-            100% {
-              transform: rotate(360deg);
-            }
-          }
+// @keyframes rotate {
+//   0% {
+//     transform: rotate(0deg);
+//   }
+//   100% {
+//     transform: rotate(360deg);
+//   }
+// }
         `}
       </style>
     </div>

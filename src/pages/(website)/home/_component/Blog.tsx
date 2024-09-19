@@ -12,14 +12,15 @@ const Blog = () => {
       <style>{keyframes}</style>
       <section className="blog">
         <div className="container-2">
-          <div className="container">
-            <div className="section-heading section-blog-heading">
+          <div className="">
+            <div className="section-heading">
               <h2 className="section-heading__title" style={rainbowTextStyle}>
                 KIẾN THỨC & PHẦN MỀM
               </h2>
             </div>
-            <div className="section-body">
-              <div className="section-body1">
+
+            <div className="section-body w-[72.65625vw] h-[52.574vh]">
+              <div className="section-body1 w-[72.65625vw] h-[52.574vh]">
                 <div className="post-list">
                   <div className="container1">
                     <div className="left">
@@ -31,20 +32,20 @@ const Blog = () => {
                               alt=""
                               className="post__thumbnail"
                               style={{
-                                width: "581px",
+                                width: "17.838vw",
                                 borderRadius: "10px",
-                                height: "274px",
+                                height: "37.127vh",
                               }}
                             />
                           </a>
                         </div>
-                        <div className="post-info">
+                        <div className="">
                           <h3 className="post__title">
-                            <a href="" className="post__link">
+                            <a href="" className="post__link text-[2.439vh]">
                               Hướng dẫn sử dụng Chilkey ND75
                             </a>
                           </h3>
-                          <p className="post__excerpt">
+                          <p className="post__excerpt text-[2.0325vh]">
                             Điều chỉnh kết nối & hiệu ứng LED Kết nối bàn phím
                             (Hỗ trợ tối đa 3 thiết bị Bluetooth và 1 thiết bị
                             kết nối 2.4 GHz) + Kết nối Bluetooth: Nhấn giữ tổ
@@ -52,7 +53,7 @@ const Blog = () => {
                           </p>
                           <a
                             href="https://soigear.vn/huong-dan-su-dung-chilkey-nd75"
-                            className="post__readmore"
+                            className="post__readmore text-[2.439vh]"
                           >
                             Chi tiết
                             {/* <img src="/src/assets/icons/icon-arrow-right.svg" alt="" /> */}
@@ -71,22 +72,22 @@ const Blog = () => {
                                 alt=""
                                 className=""
                                 style={{
-                                  width: "130px",
+                                  width: "8.463vw",
                                   borderRadius: "10px",
-                                  height: "130px",
+                                  height: "17.615vh",
                                 }}
                               />
                             </a>
                           </div>
                           <div className="post-1">
                             <h3 className="post__title">
-                              <a href="" className="">
+                              <a href="" className="text-[2.439vh]">
                                 Hướng dẫn sử dụng FL-Esports OG89
                               </a>
                             </h3>
                             <a
                               href="https://soigear.vn/huong-dan-su-dung-monka-a75"
-                              className="post__readmore"
+                              className="post__readmore text-[2.439vh]"
                             >
                               Chi tiết
                               {/* <img src="/src/assets/icons/icon-arrow-right.svg" alt="" /> */}
@@ -104,22 +105,22 @@ const Blog = () => {
                                 alt=""
                                 className="post__thumbnail"
                                 style={{
-                                  width: "130px",
+                                  width: "8.463vw",
                                   borderRadius: "10px",
-                                  height: "130px",
+                                  height: "17.615vh",
                                 }}
                               />
                             </a>
                           </div>
                           <div className="post-1">
                             <h3 className="post__title">
-                              <a href="" className="">
+                              <a href="" className="text-[2.439vh]">
                                 Hướng dẫn sử dụng FL-Esports OG88
                               </a>
                             </h3>
                             <a
                               href="https://soigear.vn/huong-dan-su-dung-fl-esports-og87"
-                              className="post__readmore"
+                              className="post__readmore text-[2.439vh]"
                             >
                               Chi Tiết
                               {/* <img src="/src/assets/icons/icon-arrow-right.svg" alt="" /> */}
@@ -140,41 +141,46 @@ const Blog = () => {
       <style>{`
 
       .container-2{
-        width: 1155px;
-        height: 399px;
+        width: 72.65625vw;
+        height: 52.57vh;
         background-color: #FFFFFF;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
-        margin-left: 180px;
-        margin-top: 44px;
+        // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+        margin-left: 13.286vw;
+        margin-top: -0.962vh;
         border-radius: 10px;
       }
         .container1 {
           display: flex; /* Đặt flexbox cho container */
           justify-content: space-between; /* Giãn đều hai div */
           align-items: center; /* Căn giữa theo chiều dọc nếu cần */
+          margin-top: -5.42vh;
+          margin-left: 2.6vw;
         }
+          .post-list{
+            margin-top: 9.42vh;
+            width: 67.578vw;
+            height: 37.127vh;
+          }
         .left {
-          width: 630px;
-          height: 274px;
+          width: 37.825vw;
+          height: 37.127vh;
           object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
         }
         .right {
-          width: 393px;
-          height: 274px;
+          width: 26.888vw;
+          height: 37.127vh;
+          margin-left: 10.84vh;
           object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
         }
-          .section-body1{
-            height: 348px
-          }
             .post-1{
-              margin-left: -90px;
-              margin-right: -20px
+              margin-left: -2.90625vw;
+              margin-right:  -1.65vw;
             }
-              .right1{
-                margin-left: -50px
-              }
+              // .right1{
+              //   margin-left: px
+              // }
                 .post__readmore{
-                 margin-left: 200px
+                 margin-left: 9.765625vw;
                 }
       `}</style>
     </>

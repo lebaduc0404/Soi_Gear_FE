@@ -34,31 +34,10 @@ const AuthPage = () => {
         <TabsTrigger value="forgot">Quên mật khẩu</TabsTrigger>
       </TabsList>
       <TabsContent value="signin">
-        <Card>
-          <CardHeader>
-            <CardTitle>Đăng nhập</CardTitle>
-            <CardDescription>
-              Đăng nhập để nhận các thông báo mới nhất từ website.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
             <SignIn />
-          </CardContent>
-        </Card>
       </TabsContent>
       <TabsContent value="signup">
-        <Card>
-          <CardHeader>
-            <CardTitle>Đăng ký</CardTitle>
-            <CardDescription>
-              Đăng ký để nhận các thông báo mới nhất từ website.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
             <SignUp onSignUpSuccess={handleSignUpSuccess} />
-            {/* <SignInButton /> */}
-          </CardContent>
-        </Card>
       </TabsContent>
       <TabsContent value="forgot">
         <Card>

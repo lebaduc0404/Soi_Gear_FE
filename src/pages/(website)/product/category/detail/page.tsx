@@ -15,19 +15,20 @@ const CategoryDetail = () => {
             const { data } = await instance.get(
               `/categories/${id}`
             );
+          // console.log(data);
             return data;
         },
     });
     if (isLoading) return <div>Loading...</div>;
     return (
       <>
-        <Test/>
+        <Test />
         <Banner />
         <Filter />
         <section className="news">
-          <div className="container-3">
-            <div className="container">
-              <div className="section-heading">
+          <div className="container-3 flex justify-center items-center">
+            <div className="">
+              <div className="section-heading w-[100%] ml-[-5px]">
                 <h2 className="section-heading__title">{data.category.name}</h2>
               </div>
               <ProductList data={data.product} />
@@ -38,15 +39,17 @@ const CategoryDetail = () => {
         <style>{`
 
       .container-3{
-        width: 1195px;
-        min-height: 450px;
-        height: auto;
+        width: 72.65625vw;
+        height:  103.831vh;
         background-color: #FFFFFF;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
-        margin-left: 162px;
-        margin-top: 44px;
+        // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+        margin-left: 13.151vw;
+        margin-top: 5.962vh;
         border-radius: 10px;
       }
+        .section-heading__title{
+          font-size: 3.252vh;
+        }
       `}</style>
       </>
     );

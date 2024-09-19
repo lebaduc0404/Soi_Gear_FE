@@ -67,21 +67,23 @@ const ProductDetail = () => {
 
   return (
     <>
-      <Test/>
+      <Test />
       <div className="btn_0">
-        <section className="filters">
+        <section className="filters w-[1116px] h-[40px] ml-[30px]">
           <div className="container">
             <div className="filters-around">
-              <div className="filters-choose">
+              <div className="filters-choose mt-[-43px]">
                 <div className="filters-choose__action">
-                  <span className="filters__text">Trang Chủ</span>
+                  <span className="filters__text text-[15px]">Trang Chủ</span>
                   <img src="/src/assets/icons/next.svg" alt="" />
-                  <span className="filters__text">Sản Phẩm</span>
+                  <span className="filters__text text-[15px]">Sản Phẩm</span>
                   <img src="/src/assets/icons/next.svg" alt="" />
                 </div>
 
                 <div className="filters-show">
-                  <span className="filters-show__text">{data.name}</span>
+                  <span className="filters-show__text text-[15px]">
+                    {data.name}
+                  </span>
                 </div>
               </div>
             </div>
@@ -89,8 +91,8 @@ const ProductDetail = () => {
         </section>
         <section className="products">
           <div className="container">
-            <div className="products-around">
-              <div className="products-img">
+            <div className="products-around w-[1116px] h-[468px] mt-[-30px] bg-white rounded-[10px]">
+              <div className="products-img mt-[18px] ml-[38px]">
                 <div className="products-img__thumbnail">
                   <img src={avatar} alt="" />
                 </div>
@@ -126,13 +128,13 @@ const ProductDetail = () => {
                     <span>Sản phẩm có đánh giá tốt</span>
                   </div>
                 </div>
-                <h4 className="products__price text-red-500">
+                <h4 className="products__price text-red-500 text-[32px] mt-[-18px]">
                   Giá ưu đãi: ${data.price}
                 </h4>
                 <div className="btn_1">
                   <div className="quantity-container">
                     <h2>Số lượng:</h2>
-                    <div className="products-btn__count">
+                    <div className="products-btn__count h-[42px] w-[125px]">
                       <button className="minus" onClick={decreaseQuantity}>
                         -
                       </button>
@@ -192,12 +194,12 @@ const ProductDetail = () => {
         <hr className="hr" />
         <section className="description">
           <div className="container">
-            <div className="description-header-container">
-              <div className="description-header">
-                <div className="">
+            <div className="description-header-container w-[1116px]">
+              <div className="description-header w-[736px] h-[560px] mt-[24px] bg-white rounded-[10px]">
+                <div className="ml-[40px]">
                   <h2 className="description__title active">Mô tả sản phẩm</h2>
                 </div>
-                <div className="products-info__more">
+                <div className="products-info__more ml-[40px] mt-[24px]">
                   <div className="products__group">
                     <span className="products__title">Tên Sản Phẩm</span>
                     <span className="products__colons">:</span>
@@ -211,18 +213,18 @@ const ProductDetail = () => {
                     </span>
                   </div>
                 </div>
-                <div className="image">
+                <div className="image ml-[40px]">
                   <img src={data.gallery[0]} alt="" />
                 </div>
               </div>
 
-              <div className="description-header_1">
-                <div className="">
+              <div className="description-header_1 bg-white w-[356px] h-[289px] mt-[24px] ml-[20px] rounded-[10px]">
+                <div className="ml-[30px]">
                   <h2 className="description__title active">
                     Thông số kỹ thuật
                   </h2>
                 </div>
-                <div className="products-info__more">
+                <div className="products-info__more mt-[5px] ml-[30px]">
                   <div className="products__group1">
                     <span className="products__title">Hãng sản xuất</span>
                     <span className="products__colons">:</span>
@@ -262,9 +264,13 @@ const ProductDetail = () => {
         </section>
         <hr className="hr" />
         <section className="product">
-          <div className="container_01">
+          <div className="container_01 w-[1116px] h-[430px] bg-white mt-[24px] ml-[30px] rounded-[10px]">
             <div className="container">
-              <h1 className="related-product__title">Có Thể Bạn Quan Tâm</h1>
+              <div className="section-heading w-[100%] ml-[-5px]">
+                <h2 className="section-heading__title text-[24px]">
+                  BẠN CÓ THỂ QUAN TÂM
+                </h2>
+              </div>
               <RelatedProduct id={data.category._id} />
             </div>
           </div>
@@ -272,9 +278,8 @@ const ProductDetail = () => {
         <hr className="hr" />
       </div>
       <style>{`
-
 .btn_0{
-  width: 1200px;
+  width: 1116px;
   margin-left: 162px;
 }
 .products-img {
@@ -282,7 +287,7 @@ const ProductDetail = () => {
   flex-direction: column; /* Sắp xếp các phần tử theo chiều dọc */
   align-items: center; /* Canh giữa theo chiều ngang nếu cần */
   width: 428px;
-  height: 458px;
+  height: 428px;
 }
 
 .products-img__thumbnail {
@@ -315,7 +320,8 @@ const ProductDetail = () => {
 .products-info{
    width: 568px;
    height: 428px;
-   margin-top: -23px;
+   margin-top: -8px;
+   margin-left: -150px;
 }
 
 .products-btn__count {
@@ -324,8 +330,8 @@ const ProductDetail = () => {
 }
 
 .products-btn__count button {
-  width: 30px;
-  height: 30px;
+  width: 7px;
+  height: 19px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -334,6 +340,7 @@ const ProductDetail = () => {
 .quantity-container {
   display: flex;
   align-items: center;
+  hieght: 42px;
   gap: 32px;
 }
 
@@ -376,10 +383,6 @@ background-color: #DEDEDE;
 .products__btn:hover {
   background-color: #2563eb;
 }
-// .description-header{
-//   width:736px;
-//   height:560px;
-// }
 
 .description-header-container {
   display: flex;

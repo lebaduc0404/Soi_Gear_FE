@@ -89,14 +89,98 @@ const OrderPage = () => {
     );
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
-      <h2 className="text-2xl font-bold mb-6">Chi Tiết Thanh Toán</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+    <div className="p-6 max-w-7xl w-[736px] mt-[15px] mx-auto bg-white">
+      <h2 className="text-[24px] font-bold mb-[5px] ml-[80px]">THANH TOÁN</h2>
+      <hr className="w-[550px] mb-[32px] h-[1.2px] ml-[72px] bg-black rounded-t-[50px]" />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ml-[72px] w-[545px] h-[124px]">
+        <div className="flex items-center justify-between w-[450px] ml-[15px]">
+          <div>
+            <img
+              className="w-[140px] h-[100px] rounded-[4px]"
+              src="https://seve7.vn/wp-content/uploads/2023/06/3-7.jpg"
+              alt="Product Image"
+            />
+          </div>
+
+          <div className="ml-4 flex-1">
+            <h2 className="font-semibold text-[18px]">
+              Bàn phím cơ Rainbow Gear K205
+            </h2>
+            <div className="products__group flex">
+              <span className="products__title text-[16px]">Phân loại</span>
+              <span className="products__colons mx-1">:</span>
+              <span className="products__description text-[16px]">
+                Bàn phím cơ
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="relative">
+          <div className="absolute bottom-0 right-0">
+            <span className="products__description ml-[-100px] text-red-500 font-bold text-[16px]">
+              800000 đ
+            </span>
+          </div>
+        </div>
+      </div>
+      <hr className="w-[550px] ml-[72px] bg-black rounded-t-[50px]" />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ml-[72px] w-[545px] h-[124px]">
+        <div className="flex items-center justify-between w-[450px] ml-[15px]">
+          <div>
+            <img
+              className="w-[140px] h-[100px] rounded-[4px]"
+              src="https://seve7.vn/wp-content/uploads/2023/06/3-7.jpg"
+              alt="Product Image"
+            />
+          </div>
+
+          <div className="ml-4 flex-1">
+            <h2 className="font-semibold text-[18px]">
+              Bàn phím cơ Rainbow Gear K205
+            </h2>
+            <div className="products__group flex">
+              <span className="products__title text-[16px]">Phân loại</span>
+              <span className="products__colons mx-1">:</span>
+              <span className="products__description text-[16px]">
+                Bàn phím cơ
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="relative">
+          <div className="absolute bottom-0 right-0">
+            <span className="products__description ml-[-100px] text-red-500 font-bold text-[16px]">
+              800000 đ
+            </span>
+          </div>
+        </div>
+      </div>
+      <hr className="w-[550px] ml-[72px] bg-black rounded-t-[50px]" />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-[32px] ml-[72px] w-[545px] h-[45px]">
+        <div className="flex items-center justify-between w-[450px] ml-[15px] text-[16px]">
+          <b>Tổng tiền</b>
+        </div>
+        <div className="relative">
+          <div className="absolute bottom-0 right-0">
+            <span className="products__description mb-[8px] ml-[-100px] text-red-500 font-bold text-[20px]">
+              1600000 đ
+            </span>
+          </div>
+        </div>
+      </div>
+      <hr className="w-[550px] ml-[72px] bg-black rounded-t-[50px]" />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ml-[47px]">
+        <div className="p-6 mt-[64px]">
+          <b className="text-[20px]">Địa chỉ nhận hàng</b>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="space-y-4 mt-[16px]"
+          >
             <div className="flex space-x-4">
               <div className="flex-1">
-                <label className="block text-sm font-medium mb-1">Tên:</label>
+                <label className="block text-[16px] font-medium mb-1">
+                  Họ và tên:
+                </label>
                 <Controller
                   name="firstname"
                   control={control}
@@ -104,7 +188,7 @@ const OrderPage = () => {
                     <input
                       {...field}
                       type="text"
-                      className={`block w-full p-2 border rounded-md ${
+                      className={`block w-[546px] h-[39px] p-2 border rounded-md ${
                         errors.firstname ? "border-red-500" : "border-gray-300"
                       }`}
                       placeholder="Mời bạn nhập tên"
@@ -117,7 +201,7 @@ const OrderPage = () => {
                   </p>
                 )}
               </div>
-              <div className="flex-1">
+              {/* <div className="flex-1">
                 <label className="block text-sm font-medium mb-1">Họ:</label>
                 <Controller
                   name="lastname"
@@ -138,9 +222,9 @@ const OrderPage = () => {
                     {errors.lastname.message}
                   </p>
                 )}
-              </div>
+              </div> */}
             </div>
-            <div>
+            {/* <div>
               <label className="block text-sm font-medium mb-1">
                 Thành Phố:
               </label>
@@ -166,9 +250,11 @@ const OrderPage = () => {
                   {errors.city.message}
                 </p>
               )}
-            </div>
+            </div> */}
             <div>
-              <label className="block text-sm font-medium mb-1">Địa Chỉ:</label>
+              <label className="block text-[16px] font-medium mb-1">
+                Địa Chỉ:
+              </label>
               <Controller
                 name="address"
                 control={control}
@@ -176,7 +262,7 @@ const OrderPage = () => {
                   <input
                     {...field}
                     type="text"
-                    className={`block w-full p-2 border rounded-md ${
+                    className={`block w-[546px] h-[39px] p-2 border rounded-md ${
                       errors.address ? "border-red-500" : "border-gray-300"
                     }`}
                     placeholder="Mời bạn nhập địa chỉ"
@@ -190,7 +276,7 @@ const OrderPage = () => {
               )}
             </div>
             <div>
-              <label className="block text-sm font-medium mb-1">
+              <label className="block text-[16px] font-medium mb-1">
                 Số điện thoại:
               </label>
               <Controller
@@ -200,7 +286,7 @@ const OrderPage = () => {
                   <input
                     {...field}
                     type="text"
-                    className={`block w-full p-2 border rounded-md ${
+                    className={`block w-[546px] h-[39px] p-2 border rounded-md ${
                       errors.phone ? "border-red-500" : "border-gray-300"
                     }`}
                     placeholder="Mời bạn nhập số điện thoại"
@@ -213,7 +299,7 @@ const OrderPage = () => {
                 </p>
               )}
             </div>
-            <div>
+            {/* <div>
               <label className="block text-sm font-medium mb-1">Email:</label>
               <Controller
                 name="email"
@@ -234,74 +320,90 @@ const OrderPage = () => {
                   {errors.email.message}
                 </p>
               )}
+            </div> */}
+            <div className="flex space-x-4 ml-[3px]">
+              <fieldset className="w-[261px] mt-[32px]">
+                <legend className="block text-[20px] font-medium mb-[12px] ml-[-2px]">
+                  Phương thức thanh toán:
+                </legend>
+                <div className="flex flex-col space-y-2 ml-[-10px]">
+                  <label className="flex items-center p-2 w-[261px] h-[39px]">
+                    <input
+                      type="radio"
+                      name="paymentMethod"
+                      className="peer sr-only"
+                    />
+                    <span className="text-[16px] peer-checked:bg-[#254753] peer-checked:text-white p-2 rounded-lg w-[261px] h-[39px]">
+                      Thanh toán COD
+                    </span>
+                  </label>
+                  <label className="flex items-center p-2 w-[261px] h-[39px]">
+                    <input
+                      type="radio"
+                      name="paymentMethod"
+                      className="peer sr-only"
+                    />
+                    <span className="text-[16px] peer-checked:bg-[#254753] peer-checked:text-white p-2 rounded-lg w-[261px] h-[39px]">
+                      Chuyển khoản
+                    </span>
+                  </label>
+                  <label className="flex items-center p-2 w-[261px] h-[39px]">
+                    <input
+                      type="radio"
+                      name="paymentMethod"
+                      className="peer sr-only"
+                    />
+                    <span className="text-[16px] peer-checked:bg-[#254753] peer-checked:text-white p-2 rounded-lg w-[261px] h-[39px]">
+                      Trả góp
+                    </span>
+                  </label>
+                </div>
+              </fieldset>
+              <fieldset className="w-[261px] mt-[32px]">
+                <legend className="block text-[20px] font-medium mb-[12px] ml-[15px]">
+                  Phương thức vận chuyển:
+                </legend>
+                <div className="flex flex-col space-y-2 ml-[10px]">
+                  <label className="flex items-center p-2 w-[261px] h-[39px]">
+                    <input
+                      type="radio"
+                      name="shippingMethod"
+                      className="peer sr-only"
+                    />
+                    <span className="text-[16px] peer-checked:bg-[#254753] peer-checked:text-white p-2 rounded-lg w-[261px] h-[39px]">
+                      Nhanh
+                    </span>
+                  </label>
+                  <label className="flex items-center p-2 w-[261px] h-[39px]">
+                    <input
+                      type="radio"
+                      name="shippingMethod"
+                      className="peer sr-only"
+                    />
+                    <span className="text-[16px] peer-checked:bg-[#254753] peer-checked:text-white p-2 rounded-lg w-[261px] h-[39px]">
+                      Thông thường
+                    </span>
+                  </label>
+                  <label className="flex items-center p-2 w-[261px] h-[39px]">
+                    <input
+                      type="radio"
+                      name="shippingMethod"
+                      className="peer sr-only"
+                    />
+                    <span className="text-[16px] peer-checked:bg-[#254753] peer-checked:text-white p-2 rounded-lg w-[261px] h-[39px]">
+                      Hỏa tốc
+                    </span>
+                  </label>
+                </div>
+              </fieldset>
             </div>
-            <fieldset>
-              <legend className="block text-sm font-medium mb-1">
-                Phương thức thanh toán:
-              </legend>
-              <div className="flex flex-col space-y-2">
-                <Controller
-                  name="paymentMethod"
-                  control={control}
-                  render={({ field }) => (
-                    <>
-                      <label className="flex items-center">
-                        <input
-                          {...field}
-                          type="radio"
-                          value="Direct Bank Transfer"
-                          className="mr-2"
-                        />
-                        Chuyển khoản ngân hàng
-                      </label>
-                    </>
-                  )}
-                />
-                {errors.paymentMethod && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.paymentMethod.message}
-                  </p>
-                )}
-              </div>
-            </fieldset>
             <button
               type="submit"
-              className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+              className="bg-[#254753] text-[16px] text-white py-2 px-4 rounded-md hover:bg-gray-600 w-[546px] h-[39px]"
             >
-              Xác nhận đơn hàng
+              THANH TOÁN NGAY
             </button>
           </form>
-        </div>
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h3 className="text-lg font-bold mb-4">Chi Tiết Đơn Hàng</h3>
-          <div className="overflow-x-auto">
-            <table className="min-w-full bg-white border border-gray-200">
-              {/* Render order details here */}
-            </table>
-          </div>
-          <div className="mt-4 text-center">
-            <img
-              // src={qrImage}
-              alt="Ảnh QR"
-              className="custom-img mb-4 mx-auto"
-            />
-            <style>{`
-              .custom-img {
-                width: 250px; /* Bạn có thể điều chỉnh kích thước này */
-                height: 300px;
-              }
-            `}</style>
-            <p className="text-black-500 mb-4">
-              Hiện tại Sói Gear chưa có phương thức thanh toán trực tiếp, chỉ
-              gửi hàng sau khi nhận đủ tiền, quý khách vui lòng chuyển khoản vào
-              QR ở trên. Trân trọng.
-            </p>
-            <p className="text-red-500 font-bold mb-4 mt-3">
-              Lưu ý: chuyển khoản vui lòng ghi nội dung: Số điện thoại + Họ tên
-              khách hàng, trường hợp thiếu nội dung, Sói Gear sẽ không xử lý đơn
-              hàng.
-            </p>
-          </div>
         </div>
       </div>
     </div>

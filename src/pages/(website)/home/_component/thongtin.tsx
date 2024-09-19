@@ -7,7 +7,7 @@ const AboutPage: React.FC = () => {
       <div className="container6">
         <Test/>
         <div className="container mx-auto p-8">
-          <div className="bg-white p-6 rounded-lg shadow-md">
+          <div className="bg-white p-6 rounded-lg">
             <h1 className="text text-4xl font-bold mb-8 text-indigo-600">
               Về Chúng Tôi
             </h1>
@@ -19,8 +19,8 @@ const AboutPage: React.FC = () => {
                   alt="logo"
                 />
               </div>
-              <div className="space-y-6 w-1/2">
-                <section>
+              <div className="space-y-6 w-[390px]">
+                <section className="ml-[-50px] mt-[30px]">
                   <h2 className="text text-2xl font-semibold mb-4 text-gray-800">
                     Giới Thiệu
                   </h2>
@@ -46,7 +46,7 @@ const AboutPage: React.FC = () => {
                 </p>
               </section> */}
 
-              <section>
+              <section className="ml-[-50px] mt-[60px]">
                 <h2 className="text text-2xl font-semibold mb-4 text-gray-800 text-center">
                   Giá Trị Cốt Lõi
                 </h2>
@@ -129,9 +129,10 @@ const AboutPage: React.FC = () => {
       <style>{`
         .container6 {
           background-color: #ffffff;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
-          width: 1200px;
-          margin-left: 160px;
+          // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+          width: 1116px;
+          margin-left: 200px;
+          margin-top: 20px;
         }
         .img {
           width: 540px;
