@@ -19,7 +19,7 @@ const CategoryDetail = () => {
             return data;
         },
     });
-    if (isLoading) return <div>Loading...</div>;
+    if (isLoading) return <div></div>;
     return (
       <>
         <Test />

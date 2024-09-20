@@ -1,3 +1,5 @@
+import { ShopImg2 } from "@/components/icons";
+
 const Blog = () => {
   const rainbowTextStyle = {
     animation: "rainbowText 5s infinite",
@@ -28,13 +30,13 @@ const Blog = () => {
                         <div className="post-image">
                           <a href="">
                             <img
-                              src="https://bizweb.dktcdn.net/thumb/large/100/438/322/articles/image-20240326105315.jpg?v=1721031601520"
+                              src={ShopImg2}
                               alt=""
                               className="post__thumbnail"
                               style={{
                                 width: "17.838vw",
                                 borderRadius: "10px",
-                                height: "37.127vh",
+                                height: "auto",
                               }}
                             />
                           </a>
@@ -68,13 +70,13 @@ const Blog = () => {
                           <div className="">
                             <a href="">
                               <img
-                                src="https://bizweb.dktcdn.net/thumb/1024x1024/100/466/510/products/be2228c2-d837-4650-9f16-7172d03af70f-1711789449802.jpg?v=1711794186290"
+                                src={ShopImg2}
                                 alt=""
                                 className=""
                                 style={{
                                   width: "8.463vw",
                                   borderRadius: "10px",
-                                  height: "17.615vh",
+                                  height: "auto",
                                 }}
                               />
                             </a>
@@ -101,13 +103,13 @@ const Blog = () => {
                           <div className="post-image">
                             <a href="">
                               <img
-                                src="https://bizweb.dktcdn.net/thumb/large/100/438/322/articles/image-20240326105315.jpg?v=1721031601520"
+                                src={ShopImg2}
                                 alt=""
                                 className="post__thumbnail"
                                 style={{
                                   width: "8.463vw",
                                   borderRadius: "10px",
-                                  height: "17.615vh",
+                                  height: "auto",
                                 }}
                               />
                             </a>
@@ -180,7 +182,7 @@ const Blog = () => {
               //   margin-left: px
               // }
                 .post__readmore{
-                 margin-left: 9.765625vw;
+                 margin-left: 8.765625vw;
                 }
       `}</style>
     </>

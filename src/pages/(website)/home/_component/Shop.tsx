@@ -23,22 +23,34 @@ const Shop = () => {
             <div className="section-body">
               <div className="shops grid grid-cols-4">
                 <div className="shop-item">
-                  <a href="#" className="shop__link">
+                  <a
+                    href="/detail/66ed1aca9481433e8a2c2ab7"
+                    className="shop__link"
+                  >
                     <img src={ShopImg1} alt="" className="shop__image" />
                   </a>
                 </div>
                 <div className="shop-item">
-                  <a href="#" className="shop__link">
+                  <a
+                    href="/detail/66ed1b199481433e8a2c2ad3"
+                    className="shop__link"
+                  >
                     <img src={ShopImg2} alt="" className="shop__image" />
                   </a>
                 </div>
                 <div className="shop-item">
-                  <a href="#" className="shop__link">
+                  <a
+                    href="/detail/66ed1b759481433e8a2c2afd"
+                    className="shop__link"
+                  >
                     <img src={ShopImg3} alt="" className="shop__image" />
                   </a>
                 </div>
                 <div className="shop-item">
-                  <a href="#" className="shop__link">
+                  <a
+                    href="/detail/66ed1bc79481433e8a2c2b0b"
+                    className="shop__link"
+                  >
                     <img src={ShopImg4} alt="" className="shop__image" />
                   </a>
                 </div>

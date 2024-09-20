@@ -56,13 +56,14 @@ const ContactPage: React.FC = () => {
 
   return (
     <>
-      <div className="container-5">
+      <div className="container-5 rounded-lg">
         <Test />
-        <div className="container mx-auto p-8 shadow-md mt-5 mb-5">
-          <h1 className="text-4xl font-bold mb-8 text-indigo-600">Liên Hệ</h1>
+        <div className="container mx-auto p-8 mt-5 mb-5">
+          <h1 className="text-4xl font-bold mb-8 mt-[-17px]">LIÊN HỆ</h1>
+          <hr className="hr" />
 
           {/* Google Map */}
-          <div className="w-full mb-8">
+          <div className="w-full mb-8 mt-[35px]">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7447.727851395522!2d105.747262!3d21.03813!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313455e940879933%3A0xcf10b34e9f1a03df!2zVHLGsOG7nW5nIENhbyDEkeG6s25nIEZQVCBQb2x5dGVjaG5pYw!5e0!3m2!1sen!2sus!4v1722291695252!5m2!1sen!2sus"
               width="100%"
@@ -83,7 +84,7 @@ const ContactPage: React.FC = () => {
                 <div className="ml-[47px]">
                   <input
                     type="text"
-                    className={`mt-1 block w-full px-4 py-2 border w-[444px] h-[55px] ${
+                    className={`btn mt-1 block px-4 py-2 border w-[400px] h-[55px] ${
                       errors.name ? "border-red-500" : "border-gray-300"
                     } bg-[black] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
                     placeholder="Nhập họ và tên"
@@ -100,7 +101,7 @@ const ContactPage: React.FC = () => {
                   <div className="flex-1">
                     <input
                       type="email"
-                      className={`block w-[211px] px-4 py-2 border h-[55px] ${
+                      className={`btn1 block w-[195px] px-4 py-2 border h-[55px] ${
                         errors.email ? "border-red-500" : "border-gray-300"
                       } bg-[black] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
                       placeholder="Nhập email"
@@ -116,7 +117,7 @@ const ContactPage: React.FC = () => {
                   <div className="flex-1">
                     <input
                       type="tel"
-                      className={`block w-[211px] px-4 py-2 border h-[55px] ${
+                      className={`btn1 block w-[195px] px-4 py-2 border h-[55px] ${
                         errors.phone ? "border-red-500" : "border-gray-300"
                       } bg-[black] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
                       placeholder="Nhập số điện thoại"
@@ -132,7 +133,7 @@ const ContactPage: React.FC = () => {
 
                 <div className="ml-[47px]">
                   <textarea
-                    className={`mt-1 block w-full px-4 py-2 border ${
+                    className={`btn mt-1 block px-4 py-2 border ${
                       errors.message ? "border-red-500" : "border-gray-300"
                     } w-[444px] h-[55px] bg-[black] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
                     placeholder="Nhập lời nhắn"
@@ -146,7 +147,7 @@ const ContactPage: React.FC = () => {
                 </div>
 
                 <div className="ml-[47px] ">
-                  <button className="flex items-center justify-center w-[444px] h-[55px] bg-white hover:bg-blue-200 text-black font-semibold rounded-md shadow-sm">
+                  <button className="btn flex items-center justify-center w-[444px] h-[55px] bg-white hover:bg-blue-200 text-black font-semibold rounded-md shadow-sm">
                     Gửi lời nhắn
                   </button>
                 </div>
@@ -190,11 +191,34 @@ const ContactPage: React.FC = () => {
         </div>
       </div>
       <style>{`
-      .container-5{
-        background-color:#FFFFFF;
-        width: 1116px;
-        margin-left: 196px;
-      }
+      .container-5 {
+    background-color: #ffffff;
+    width: 80%; /* Sử dụng đơn vị % để tự động điều chỉnh kích thước */
+    max-width: 1116px; /* Đặt kích thước tối đa */
+    margin: 20px auto; /* Canh giữa phần tử và tạo khoảng cách trên/dưới */
+    padding: 20px; /* Thêm padding để nội dung không sát biên */
+}
+
+@media screen and (max-width: 768px) {
+    .container-5 {
+        width: 90%; /* Khi màn hình nhỏ, tăng chiều rộng lên 90% */
+        margin-left: 10px; /* Điều chỉnh margin cho thiết bị nhỏ */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container-5 {
+        width: 100%; /* Chiều rộng 100% cho màn hình nhỏ hơn */
+        margin-left: 0; /* Margin bằng 0 để tiết kiệm không gian */
+    }
+}
+
+.btn{
+    max-width:396px;
+}
+    .btn1{
+    max-width:195px;
+}
         .form{
         background-color: #111827;
           width: 506px;
@@ -224,6 +248,13 @@ const ContactPage: React.FC = () => {
                  color:black;
                  text-align: center;
                 }
+                 .hr {
+                    width: 100%;
+                    height: 1.5px;
+                    border: none;
+                    background-color: black;
+                    margin: 20px 0px;
+                  }
       `}</style>
     </>
   );

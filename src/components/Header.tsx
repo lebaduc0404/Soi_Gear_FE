@@ -38,7 +38,7 @@ const Header = () => {
   const cleanedUserId = userId?.replace(/^"|"$/g, "");
 
   // console.log(cleanedUserId);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   // Fetch dữ liệu user theo userId
   const fetchUserData = async () => {
@@ -51,8 +51,6 @@ const Header = () => {
       }
     } catch (error) {
       console.error("Error fetching user data:", error);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -71,7 +69,7 @@ const Header = () => {
     window.location.reload();
   };
 
-  if (loading) return <div>Loading...</div>;
+  // if (loading) return <div>Loading...</div>;
 
   // const handleCloseModal = () => {
   //   setIsModalOpen(false);

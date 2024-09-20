@@ -93,7 +93,12 @@ const Carousel = () => {
   gap: 10vw; /* Khoảng cách giữa các phần tử */
   flex-direction: row;
 }
-
+.carousel-container div {
+  transition: transform 0.3s ease-in-out; /* Thêm hiệu ứng chuyển tiếp mượt mà */
+}
+  .carousel-container div:hover {
+  transform: scale(1.1); /* Phóng to lên 10% khi hover */
+}
 .carousel-item {
   display: flex;
   flex-direction: column;

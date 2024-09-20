@@ -47,11 +47,11 @@ const HeaderTest = () => {
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] lg:w-[300px]">
                 <ListItem key={"all"} title={"Tất cả sản phẩm"} href="/shop" />
                 {data?.map((category: any) => (
-                  <ListItem
-                    key={category._id}
-                    title={category.name}
-                    href={`/categories/${category._id}`}
-                  />
+                    <ListItem
+                      key={category._id}
+                      title={category.name}
+                      href={`/categories/${category._id}`}
+                    />
                 ))}
               </ul>
             </NavigationMenuContent>

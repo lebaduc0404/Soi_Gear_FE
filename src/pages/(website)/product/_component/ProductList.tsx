@@ -17,7 +17,7 @@ const ProductList = ({ featured, data }: ProductListProps) => {
   const [user] = useLocalStorage("user", {});
   const userId = user?.user?._id;
   const queryClient = useQueryClient();
-  const { data: products, isLoading } = ProductQuery();
+  const { data: products } = ProductQuery();
 
   //  const getGuestId = () => {
   //    // Xác định tên của cookie mà chúng ta cần tìm
@@ -145,7 +145,7 @@ const ProductList = ({ featured, data }: ProductListProps) => {
     setCurrentPage(page);
   };
 
-  if (isLoading) return <div>Loading...</div>;
+  // if (isLoading) return <div>Loading...</div>;
 
   const Modal = ({
     image,
@@ -228,7 +228,7 @@ const ProductList = ({ featured, data }: ProductListProps) => {
                   <span className="product-sale">{product?.discount}%</span>
                 ) : null}
               </div>
-              <div className="product-info">
+              <div className="product-info h-[15.718vh]">
                 <p className="product__name1">
                   <Link to={""} className="product__link">
                     {product.name}
@@ -255,6 +255,7 @@ const ProductList = ({ featured, data }: ProductListProps) => {
                   )}
                 </div>
               </div>
+
               <div className="product-actions">
                 <div className="product-action__quickview1">
                   <Link to={`/detail/${product._id}`} className="">
@@ -275,19 +276,6 @@ const ProductList = ({ featured, data }: ProductListProps) => {
                   >
                     Thêm vào giỏ
                   </button>
-                </div>
-                <div className="product-actions-more">
-                  <span className="product-action__share">
-                    {/* <img src="/src/assets/icons/icon-share.svg" alt="" /> */}
-                    Chia sẻ
-                  </span>
-                  <span className="product-action__compare">
-                    {/* <img src="/src/assets/icons/icon-compare.svg" alt="" /> */}
-                  </span>
-                  <span className="product-action__like">
-                    {/* <img src="/src/assets/icons/icon-heart.svg" alt="" /> */}
-                    Thích
-                  </span>
                 </div>
               </div>
             </div>
@@ -318,15 +306,35 @@ const ProductList = ({ featured, data }: ProductListProps) => {
 }
 
 .product-item {
-  width: 12.369vw; /* Tỉ lệ theo chiều rộng viewport */
-  height: 37.669vh; /* Tỉ lệ theo chiều cao viewport */
+  width: 12.369vw; /* Điều chỉnh theo chiều rộng viewport */
+  height: 37.669vh; /* Điều chỉnh theo chiều cao viewport */
   margin-left: 0.651vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Đảm bảo khoảng cách đều giữa các phần tử */
+}
+
+.product-item1 {
+  position: relative;
 }
 
 .product-actions {
-  width: 12.369vw; /* Điều chỉnh chiều rộng theo viewport */
-  height: 37.669vh; /* Điều chỉnh chiều cao theo viewport */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Optional overlay */
+  z-index: 1;
+  opacity: 0; /* Hidden initially */
+  transition: opacity 0.3s ease;
 }
+
 
 .product-action__quickview1 {
   width: 9.765vw;
@@ -387,41 +395,48 @@ const ProductList = ({ featured, data }: ProductListProps) => {
 .pagination-button:hover {
   background: #ccc;
 }
-  @media (max-width: 1024px) {
-  .product-item {
-    width: 20vw;
-    height: 30vh;
-  }
+//   @media (max-width: 1024px) {
+//   .product-item1 {
+//     width: 20vw;
+//     height: auto; /* Cho phép chiều cao tự điều chỉnh */
+//     min-height: 30vh; /* Chiều cao tối thiểu dựa trên viewport */
+//   }
 
-  .product__thumbnail {
-    width: 20vw;
-    height: 15vh;
-  }
-}
+//   .product__thumbnail {
+//     width: 100%; /* Chiếm toàn bộ chiều rộng */
+//     height: 15vh;
+//     object-fit: cover; /* Đảm bảo hình ảnh bao phủ phần khung */
+//   }
+// }
 
-@media (max-width: 768px) {
-  .product-item {
-    width: 25vw;
-    height: 35vh;
-  }
+// @media (max-width: 768px) {
+//   .product-item1 {
+//     width: 25vw;
+//     height: auto; /* Cho phép chiều cao tự điều chỉnh */
+//     min-height: 35vh;
+//   }
 
-  .product__thumbnail {
-    width: 25vw;
-    height: 20vh;
-  }
-}
+//   .product__thumbnail {
+//     width: 100%; /* Chiếm toàn bộ chiều rộng */
+//     height: 20vh;
+//     object-fit: cover;
+//   }
+// }
 
-@media (max-width: 480px) {
-  .product-item {
-    width: 40vw;
-    height: 50vh;
-  }
+// @media (max-width: 480px) {
+//   .product-item1 {
+//     width: 40vw;
+//     height: auto;
+//     min-height: 50vh;
+//   }
 
-  .product__thumbnail {
-    width: 40vw;
-    height: 25vh;
-  }
-}
+//   .product__thumbnail {
+//     width: 100%;
+//     height: 25vh;
+//     object-fit: cover;
+//   }
+// }
+
 
 .hidden-period {
   visibility: hidden;

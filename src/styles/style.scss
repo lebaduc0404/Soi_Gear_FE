@@ -329,17 +329,6 @@ img {
         text-decoration: none;
     }
 
-    &-actions-more {
-        display: flex;
-        width: 90%;
-        justify-content: space-evenly;
-        & > span {
-            display: flex;
-            align-items: center;
-            font-weight: 500;
-        }
-    }
-
     &-action__share > img {
         padding-right: 2px;
     }

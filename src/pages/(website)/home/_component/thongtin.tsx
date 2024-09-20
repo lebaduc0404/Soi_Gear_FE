@@ -1,23 +1,21 @@
+import { Logo } from "@/components/icons";
 import Test from "@/pages/test/test";
 import React from "react";
 
 const AboutPage: React.FC = () => {
   return (
     <>
-      <div className="container6">
-        <Test/>
+      <div className="container6 rounded-lg">
+        <Test />
         <div className="container mx-auto p-8">
-          <div className="bg-white p-6 rounded-lg">
-            <h1 className="text text-4xl font-bold mb-8 text-indigo-600">
-              Về Chúng Tôi
+          <div className="bg-white p-6 rounded-lg ml-[-10px]">
+            <h1 className="text text-4xl font-bold mb-8 mt-[-17px] ml-[-12px] text-indigo-600">
+              VỀ CHÚNG TÔI
             </h1>
             <hr className="hr" />
             <div className="ab flex items-start space-x-6">
               <div className="img">
-                <img
-                  src="../../../../../src/components/icons/logo.webp"
-                  alt="logo"
-                />
+                <img src={Logo} alt="logo" />
               </div>
               <div className="space-y-6 w-[390px]">
                 <section className="ml-[-50px] mt-[30px]">
@@ -52,11 +50,7 @@ const AboutPage: React.FC = () => {
                 </h2>
                 <div className="carousel-wrapper flex justify-between items-center space-x-6">
                   <div className="carousel-item text-center">
-                    <img
-                      src="../../../../../src/components/icons/logo.webp"
-                      alt="Chất lượng"
-                      className="mx-auto"
-                    />
+                    <img src={Logo} alt="Chất lượng" className="mx-auto" />
                     <div className="text2 carousel-caption mt-2 text-lg">
                       Chất lượng
                     </div>
@@ -65,11 +59,7 @@ const AboutPage: React.FC = () => {
                     </p>
                   </div>
                   <div className="carousel-item text-center">
-                    <img
-                      src="../../../../../src/components/icons/logo.webp"
-                      alt="Uy tín"
-                      className="mx-auto"
-                    />
+                    <img src={Logo} alt="Uy tín" className="mx-auto" />
                     <div className="text2 carousel-caption mt-2 text-lg">
                       Uy tín
                     </div>
@@ -78,11 +68,7 @@ const AboutPage: React.FC = () => {
                     </p>
                   </div>
                   <div className="carousel-item text-center">
-                    <img
-                      src="../../../../../src/components/icons/logo.webp"
-                      alt="Khách hàng"
-                      className="mx-auto"
-                    />
+                    <img src={Logo} alt="Khách hàng" className="mx-auto" />
                     <div className="text2 carousel-caption mt-2 text-lg">
                       Khách hàng
                     </div>
@@ -91,11 +77,7 @@ const AboutPage: React.FC = () => {
                     </p>
                   </div>
                   <div className="carousel-item text-center">
-                    <img
-                      src="../../../../../src/components/icons/logo.webp"
-                      alt="Đổi mới"
-                      className="mx-auto"
-                    />
+                    <img src={Logo} alt="Đổi mới" className="mx-auto" />
                     <div className="text2 carousel-caption mt-2 text-lg">
                       Đổi mới
                     </div>
@@ -129,11 +111,25 @@ const AboutPage: React.FC = () => {
       <style>{`
         .container6 {
           background-color: #ffffff;
-          // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
-          width: 1116px;
-          margin-left: 200px;
-          margin-top: 20px;
-        }
+    width: 80%; /* Sử dụng đơn vị % để tự động điều chỉnh kích thước */
+    max-width: 1116px; /* Đặt kích thước tối đa */
+    margin: 20px auto; /* Canh giữa phần tử và tạo khoảng cách trên/dưới */
+    padding: 20px; /* Thêm padding để nội dung không sát biên */
+}
+
+@media screen and (max-width: 768px) {
+    .container-6 {
+        width: 90%; /* Khi màn hình nhỏ, tăng chiều rộng lên 90% */
+        margin-left: 10px; /* Điều chỉnh margin cho thiết bị nhỏ */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container-6 {
+        width: 100%; /* Chiều rộng 100% cho màn hình nhỏ hơn */
+        margin-left: 0; /* Margin bằng 0 để tiết kiệm không gian */
+    }
+}
         .img {
           width: 540px;
           height: 212px;
@@ -157,7 +153,7 @@ const AboutPage: React.FC = () => {
             display: flex;
             gap: 45px;
             flex-direction: row;
-            margin-left: 40px
+            margin-left: 40px;
           }
 
           .carousel-item {
@@ -199,12 +195,14 @@ const AboutPage: React.FC = () => {
                   font-size: 20px
                 }
                   .hr {
-                    width: 100%;
-                    height: 1.5px;
-                    border: none;
-                    background-color: black;
-                    margin: 20px 0px;
-                  }
+          width: 1030px;
+          height: 2.0px;
+          border: none;
+          background-color: black;
+          margin-left: -10px;
+          margin-bottom: 30px;
+          margin-top: -5px;
+        }
 
       `}</style>
     </>
