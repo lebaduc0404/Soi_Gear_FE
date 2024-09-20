@@ -50,7 +50,7 @@ const ProfilePage = () => {
     window.location.reload();
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div></div>;
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">

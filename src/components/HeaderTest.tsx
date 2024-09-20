@@ -24,6 +24,19 @@ const HeaderTest = () => {
     },
   });
 
+  const [menuOpen, setMenuOpen] = React.useState(false);
+
+  const handleMenuToggle = () => {
+    setMenuOpen((prev) => !prev);
+  };
+
+  const handleCategorySelect = () => {
+    setMenuOpen(false);
+    setTimeout(() => {
+      setMenuOpen(true);
+    }, 500);
+  };
+
   return (
     <>
       <NavigationMenu className="">
@@ -40,21 +53,32 @@ const HeaderTest = () => {
             </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="font-semibold text-sm p-3 uppercase text-[15px]">
+            <NavigationMenuTrigger
+              className="font-semibold text-sm p-3 uppercase text-[15px]"
+              onClick={handleMenuToggle} // Toggle menu on click
+            >
               Danh Mục
             </NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] lg:w-[300px]">
-                <ListItem key={"all"} title={"Tất cả sản phẩm"} href="/shop" />
-                {data?.map((category: any) => (
+            {menuOpen && ( // Render the menu if it's open
+              <NavigationMenuContent>
+                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] lg:w-[300px]">
+                  <ListItem
+                    key={"all"}
+                    title={"Tất cả sản phẩm"}
+                    href="/shop"
+                    onClick={handleCategorySelect}
+                  />
+                  {data?.map((category: any) => (
                     <ListItem
                       key={category._id}
                       title={category.name}
                       href={`/categories/${category._id}`}
+                      onClick={handleCategorySelect}
                     />
-                ))}
-              </ul>
-            </NavigationMenuContent>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            )}
           </NavigationMenuItem>
           <NavigationMenuItem>
             <Link
