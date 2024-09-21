@@ -14,6 +14,14 @@ const Header = () => {
   const navigate = useNavigate();
   // const { user, isSignedIn } = useUser(); // Lấy thông tin người dùng từ Clerk
   const userId = localStorage.getItem("userId"); // Ví dụ lấy từ localStorage
+
+  // if (userId === null) {
+  //   localStorage.removeItem("userId");
+  //   console.log("User ID is null or invalid, removed from localStorage.");
+  // } else {
+  //   console.log("User ID:", userId);
+  // }
+  
   // const [user, setUser] = useState<IUsers | null>(null);
   // const cleanedUserId = userId?.replace(/^"|"$/g, "");
 
@@ -101,7 +109,7 @@ const Header = () => {
             </button>
           </div>
           <div className="relative group">
-            {!userId || userId === null ? (
+            {!userId ? (
               <Link to="/auth-user" className="p-2">
                 <img src={UserIcon} alt="User" className="h-8" />
               </Link>

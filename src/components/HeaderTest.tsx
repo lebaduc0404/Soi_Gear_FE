@@ -24,7 +24,7 @@ const HeaderTest = () => {
     },
   });
 
-  const [menuOpen, setMenuOpen] = React.useState(false);
+  const [menuOpen, setMenuOpen] = React.useState(true);
 
   const handleMenuToggle = () => {
     setMenuOpen((prev) => !prev);
@@ -55,11 +55,11 @@ const HeaderTest = () => {
           <NavigationMenuItem>
             <NavigationMenuTrigger
               className="font-semibold text-sm p-3 uppercase text-[15px]"
-              onClick={handleMenuToggle} // Toggle menu on click
+              onClick={handleMenuToggle}
             >
               Danh Mục
             </NavigationMenuTrigger>
-            {menuOpen && ( // Render the menu if it's open
+            {menuOpen && (
               <NavigationMenuContent>
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] lg:w-[300px]">
                   <ListItem
