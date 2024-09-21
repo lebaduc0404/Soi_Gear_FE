@@ -69,7 +69,7 @@ const ForgotPassword = () => {
     return (
       <>
         <Form {...form}>
-          <div className="space-y-8 w-[546px] h-[auto] bg-white p-[20px] ml-[347px]">
+          <div className="space-y-8 w-[546px] h-[auto] bg-white p-[20px] ml-[20vw]">
             <form
               onSubmit={form.handleSubmit(onSubmit)}
               className="space-y-8 ml-[-20px]"
@@ -108,7 +108,8 @@ const ForgotPassword = () => {
 
               <Button
                 type="submit"
-                className="w-[356px] h-[56px] ml-[95px] text-[20px]">
+                className="w-[356px] h-[56px] ml-[95px] text-[20px]"
+              >
                 Gửi yêu cầu đặt lại mật khẩu
               </Button>
             </form>

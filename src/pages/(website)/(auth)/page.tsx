@@ -26,7 +26,7 @@ const AuthPage = () => {
       defaultValue="signin"
       className="w-[80%] container"
     >
-      <TabsList className="grid w-full grid-cols-3">
+      <TabsList className="grid w-[74.935vw] grid-cols-3">
         <TabsTrigger value="signin">Đăng nhập</TabsTrigger>
         <TabsTrigger value="signup">Đăng ký</TabsTrigger>
         <TabsTrigger value="forgot">Quên mật khẩu</TabsTrigger>

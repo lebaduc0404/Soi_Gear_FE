@@ -19,81 +19,6 @@ const ProductList = ({ featured, data }: ProductListProps) => {
   const queryClient = useQueryClient();
   const { data: products } = ProductQuery();
 
-  //  const getGuestId = () => {
-  //    // Xác định tên của cookie mà chúng ta cần tìm
-  //    const name = "guestId=";
-
-  //    // Giải mã và chia chuỗi document.cookie thành mảng các cookie riêng lẻ
-  //    const decodedCookie = decodeURIComponent(document.cookie);
-  //    const cookieArray = decodedCookie.split(";");
-
-  //    // Lặp qua từng cookie trong mảng
-  //    for (let i = 0; i < cookieArray.length; i++) {
-  //      let cookie = cookieArray[i];
-
-  //      // Loại bỏ các khoảng trắng ở đầu chuỗi cookie
-  //      while (cookie.charAt(0) === " ") {
-  //        cookie = cookie.substring(1);
-  //      }
-
-  //      // Kiểm tra xem cookie có bắt đầu bằng tên chúng ta đang tìm không
-  //      if (cookie.indexOf(name) === 0) {
-  //        // Trả về giá trị của cookie, phần sau dấu "="
-  //        return cookie.substring(name.length, cookie.length);
-  //      }
-  //    }
-
-  //    // Nếu không tìm thấy cookie, trả về chuỗi rỗng
-  //    return "";
-  //  };
-
-  //   const { mutate } = useMutation({
-  //     mutationFn: async ({
-  //       productId,
-  //       quantity,
-  //     }: {
-  //       productId: string | number;
-  //       quantity: number;
-  //     }) => {
-  //       // Construct payload with either userId or guestId
-  //       const payload: {
-  //         userId?: string;
-  //         guestId?: string;
-  //         productId: string | number;
-  //         quantity: number;
-  //       } = {
-  //         productId,
-  //         quantity,
-  //       };
-
-  //       if (userId) {
-  //         payload.userId = userId;
-  //       } else {
-  //         payload.userId = getGuestId();
-  //       }
-  // console.log(payload);
-
-  //       const { data } = await instance.post(`/carts/add-to-cart`, payload);
-  //       return data;
-  //     },
-  //     onSuccess: () => {
-  //       toast({
-  //         title: "Thêm vào giỏ hàng thành công!",
-  //         variant: "success",
-  //       });
-  //       queryClient.invalidateQueries({
-  //         queryKey: ["CART", userId || "guest"],
-  //       });
-  //     },
-  //     onError: (error) => {
-  //       toast({
-  //         title: "Đã xảy ra lỗi khi thêm vào giỏ hàng!",
-  //         description: error.message,
-  //         // variant: "error",
-  //       });
-  //     },
-  //   });
-
   const { mutate } = useMutation({
     mutationFn: async ({
       productId,
@@ -259,14 +184,14 @@ const ProductList = ({ featured, data }: ProductListProps) => {
               <div className="product-actions">
                 <div className="product-action__quickview1">
                   <Link to={`/detail/${product._id}`} className="">
-                    <button className="product-action__quickview1">
+                    <button className="product-action__quickview1 border border-2 border-white-300">
                       Xem chi tiết
                     </button>
                   </Link>
                 </div>
                 <div className="product-action__quickview1">
                   <button
-                    className="product-action__addtocart"
+                    className="product-action__quickview1 bg-red-500"
                     onClick={() =>
                       mutate({
                         productId: product._id as any,
@@ -338,10 +263,10 @@ const ProductList = ({ featured, data }: ProductListProps) => {
 
 .product-action__quickview1 {
   width: 9.765vw;
+  height: 4.065vh;
   text-align: center;
-  background-color: white;
-  color: rgb(241, 196, 142);
-  border-radius: 15px;
+  // background-color: white;
+  color: white;
 }
 
 .product__thumbnail {
@@ -395,48 +320,6 @@ const ProductList = ({ featured, data }: ProductListProps) => {
 .pagination-button:hover {
   background: #ccc;
 }
-//   @media (max-width: 1024px) {
-//   .product-item1 {
-//     width: 20vw;
-//     height: auto; /* Cho phép chiều cao tự điều chỉnh */
-//     min-height: 30vh; /* Chiều cao tối thiểu dựa trên viewport */
-//   }
-
-//   .product__thumbnail {
-//     width: 100%; /* Chiếm toàn bộ chiều rộng */
-//     height: 15vh;
-//     object-fit: cover; /* Đảm bảo hình ảnh bao phủ phần khung */
-//   }
-// }
-
-// @media (max-width: 768px) {
-//   .product-item1 {
-//     width: 25vw;
-//     height: auto; /* Cho phép chiều cao tự điều chỉnh */
-//     min-height: 35vh;
-//   }
-
-//   .product__thumbnail {
-//     width: 100%; /* Chiếm toàn bộ chiều rộng */
-//     height: 20vh;
-//     object-fit: cover;
-//   }
-// }
-
-// @media (max-width: 480px) {
-//   .product-item1 {
-//     width: 40vw;
-//     height: auto;
-//     min-height: 50vh;
-//   }
-
-//   .product__thumbnail {
-//     width: 100%;
-//     height: 25vh;
-//     object-fit: cover;
-//   }
-// }
-
 
 .hidden-period {
   visibility: hidden;

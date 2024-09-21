@@ -15,6 +15,7 @@ const ProfilePage = () => {
   const userId = localStorage.getItem("userId"); // Ví dụ lấy từ localStorage
   // console.log(userId);
   const cleanedUserId = userId?.replace(/^"|"$/g, "");
+  
 
   // console.log(cleanedUserId);
   const [loading, setLoading] = useState(true);

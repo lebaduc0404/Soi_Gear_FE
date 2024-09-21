@@ -88,7 +88,7 @@ const SignUp: React.FC<SignUpProps> = ({ onSignUpSuccess }) => {
 
   return (
     <Form {...form}>
-      <div className="space-y-8 w-[546px] h-[835px] bg-white p-[20px] ml-[347px]">
+      <div className="space-y-8 w-[546px] h-[835px] bg-white p-[20px] ml-[20vw]">
         <form
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-8 ml-[-20px]"

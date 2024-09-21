@@ -80,13 +80,17 @@ const SignIn = () => {
         <TabsTrigger value="forgot">Quên mật khẩu</TabsTrigger>
       </TabsList> */}
       <Form {...form}>
-        <div className="space-y-8 w-[546px] h-[675px] bg-white p-[20px] ml-[347px]">
+        <div className="space-y-8 w-[546px] h-[675px] bg-white p-[20px] ml-[20vw]">
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="space-y-8 ml-[-20px]"
           >
             <div className="">
-              <img className="w-[200px] h-[81px] ml-[172px]" src={Logo} alt="" />
+              <img
+                className="w-[200px] h-[81px] ml-[172px]"
+                src={Logo}
+                alt=""
+              />
               <h1 className="font-bold mt-[24px] ml-[218px] mb-[10px] text-[20px]">
                 ĐĂNG NHẬP
               </h1>
