@@ -8,8 +8,6 @@ import axios from "axios";
 
 const schema = yup.object().shape({
   firstname: yup.string().required("Họ là bắt buộc"),
-  lastname: yup.string().required("Tên là bắt buộc"),
-  city: yup.string().required("Thành phố là bắt buộc"),
   address: yup.string().required("Địa chỉ là bắt buộc"),
   phone: yup
     .string()
@@ -17,6 +15,7 @@ const schema = yup.object().shape({
     .matches(/^[0-9]{10}$/, "Số điện thoại không hợp lệ"),
   email: yup.string().required("Email là bắt buộc").email("Email không hợp lệ"),
   paymentMethod: yup.string().required("Phương thức thanh toán là bắt buộc"),
+  shippingMethod: yup.string().required("Phương thức vận chuyển là bắt buộc"),
 });
 
 const OrderPage = () => {
@@ -27,134 +26,85 @@ const OrderPage = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-// const { clearCart } = useCart();
-  const { isLoading, isError, clearCart } = useCart();
+  // console.log(errors);
+
+  const { data, total } = useCart();
+  
+  // const { clearCart } = useCart();
+  const { clearCart } = useCart();
   const navigate = useNavigate();
 
- const FORM_URL = `https://docs.google.com/forms/d/e/1FAIpQLScB_y56a0i9BAg7jsRMO-uU8_MLsZeV8KwF-8rxNg8la9LmjA/formResponse`;
-
+  const FORM_URL = `https://docs.google.com/forms/d/e/1FAIpQLScB_y56a0i9BAg7jsRMO-uU8_MLsZeV8KwF-8rxNg8la9LmjA/formResponse`;
   const onSubmit = async (data: any) => {
-    // const form = document.createElement("form");
-    // form.action =
-    //   "https://docs.google.com/forms/d/e/1FAIpQLScB_y56a0i9BAg7jsRMO-uU8_MLsZeV8KwF-8rxNg8la9LmjA/formResponse";
-    // form.method = "POST";
-    // form.target = "_self";
+    // console.log("ổn");
+    // console.log("Form Data:", data);
+    try {
+      const formData = new URLSearchParams();
+      formData.append("entry.379756864", data.firstname);
+      formData.append("entry.613105581", data.address);
+      formData.append("entry.1496446561", data.phone);
+      formData.append("entry.911633766", data.email);
+      formData.append("entry.126886844", data.paymentMethod);
+      formData.append("entry.1310817025", data.shippingMethod);
 
-    // // Tạo input và thêm vào form
-    // form.innerHTML = `
-    //   <input type="hidden" name="entry.379756864" value="${data.firstname}">
-    //   <input type="hidden" name="entry.613105581" value="${data.lastname}">
-    //   <input type="hidden" name="entry.1496446561" value="${data.city}">
-    //   <input type="hidden" name="entry.126886844" value="${data.address}">
-    //   <input type="hidden" name="entry.1310817025" value="${data.phone}">
-    //   <input type="hidden" name="entry.2014948123" value="${data.email}">
-    //   <input type="hidden" name="entry.480433912" value="${data.paymentMethod}">
-    // `;
+      await axios.post(FORM_URL, formData);
 
-    // // Submit form
-    // document.body.appendChild(form);
-    // form.submit();
+      alert("");
+    } catch (error) {
+      alert("Cảm ơn bạn đã đặt hàng, chúng tôi sẽ sớm liên hệ lại bạn.");
+      await clearCart();
+    } finally {
+      navigate("/ordersucess");
+    }
+  };
 
-    // // Xóa giỏ hàng và chuyển hướng sau khi gửi thành công
-    //   await clearCart();
-    //   navigate("/ordersucess");
-     try {
-       const formData = new URLSearchParams();
-       formData.append("entry.379756864", data.firstname);
-       formData.append("entry.613105581", data.lastname);
-       formData.append("entry.1496446561", data.city);
-       formData.append("entry.126886844", data.address);
-       formData.append("entry.1310817025", data.phone);
-       formData.append("entry.2014948123", data.email);
-       formData.append("entry.480433912", data.paymentMethod);
-
-       await axios.post(FORM_URL, formData);
-
-       alert("");
-     } catch (error) {
-       alert("Cảm ơn bạn đã đặt hàng, chúng tôi sẽ sớm liên hệ lại bạn.");
-       await clearCart();
-     } finally {
-       navigate("/ordersucess");
-     }
-  }
-
-  if (isLoading)
-    return <div className="container text-center">Đang tải...</div>;
-  if (isError)
-    return (
-      <h2 className="container text-center">
-        Bạn chưa thêm sản phẩm nào vào giỏ hàng!
-      </h2>
-    );
+  // if (isLoading)
+  //   if (isError)
+  //     // return <div className="container text-center">Đang tải...</div>;
+  //     return (
+  //       <h2 className="container text-center">
+  //         Bạn chưa thêm sản phẩm nào vào giỏ hàng!
+  //       </h2>
+  //     );
 
   return (
     <div className="p-6 max-w-7xl w-[736px] mt-[15px] mx-auto bg-white">
       <h2 className="text-[24px] font-bold mb-[5px] ml-[80px]">THANH TOÁN</h2>
       <hr className="w-[550px] mb-[32px] h-[1.2px] ml-[72px] bg-black rounded-t-[50px]" />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ml-[72px] w-[545px] h-[124px]">
-        <div className="flex items-center justify-between w-[450px] ml-[15px]">
-          <div>
-            <img
-              className="w-[140px] h-[100px] rounded-[4px]"
-              src="https://seve7.vn/wp-content/uploads/2023/06/3-7.jpg"
-              alt="Product Image"
-            />
-          </div>
+      {data?.products.map((product: any, index: number) => (
+        <div
+          key={index}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 ml-[72px] w-[545px] h-[124px]"
+        >
+          <div className="flex items-center justify-between w-[450px] ml-[15px]">
+            <div>
+              <img
+                className="w-[140px] h-[100px] rounded-[4px]"
+                src={product.image}
+                alt="Product Image"
+              />
+            </div>
 
-          <div className="ml-4 flex-1">
-            <h2 className="font-semibold text-[18px]">
-              Bàn phím cơ Rainbow Gear K205
-            </h2>
-            <div className="products__group flex">
-              <span className="products__title text-[16px]">Phân loại</span>
-              <span className="products__colons mx-1">:</span>
-              <span className="products__description text-[16px]">
-                Bàn phím cơ
+            <div className="ml-4 flex-1">
+              <h2 className="font-semibold text-[18px]">{product.name}</h2>
+              <div className="products__group flex">
+                <span className="products__title text-[16px]">Số lượng</span>
+                <span className="products__colons mx-1">:</span>
+                <span className="products__description text-[16px]">
+                  {product.quantity}
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className="relative">
+            <div className="absolute bottom-0 right-0">
+              <span className="products__description ml-[-100px] text-red-500 font-bold text-[16px]">
+                {product.price} đ
               </span>
             </div>
           </div>
         </div>
-        <div className="relative">
-          <div className="absolute bottom-0 right-0">
-            <span className="products__description ml-[-100px] text-red-500 font-bold text-[16px]">
-              800000 đ
-            </span>
-          </div>
-        </div>
-      </div>
-      <hr className="w-[550px] ml-[72px] bg-black rounded-t-[50px]" />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ml-[72px] w-[545px] h-[124px]">
-        <div className="flex items-center justify-between w-[450px] ml-[15px]">
-          <div>
-            <img
-              className="w-[140px] h-[100px] rounded-[4px]"
-              src="https://seve7.vn/wp-content/uploads/2023/06/3-7.jpg"
-              alt="Product Image"
-            />
-          </div>
-
-          <div className="ml-4 flex-1">
-            <h2 className="font-semibold text-[18px]">
-              Bàn phím cơ Rainbow Gear K205
-            </h2>
-            <div className="products__group flex">
-              <span className="products__title text-[16px]">Phân loại</span>
-              <span className="products__colons mx-1">:</span>
-              <span className="products__description text-[16px]">
-                Bàn phím cơ
-              </span>
-            </div>
-          </div>
-        </div>
-        <div className="relative">
-          <div className="absolute bottom-0 right-0">
-            <span className="products__description ml-[-100px] text-red-500 font-bold text-[16px]">
-              800000 đ
-            </span>
-          </div>
-        </div>
-      </div>
+      ))}
       <hr className="w-[550px] ml-[72px] bg-black rounded-t-[50px]" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-[32px] ml-[72px] w-[545px] h-[45px]">
         <div className="flex items-center justify-between w-[450px] ml-[15px] text-[16px]">
@@ -163,7 +113,7 @@ const OrderPage = () => {
         <div className="relative">
           <div className="absolute bottom-0 right-0">
             <span className="products__description mb-[8px] ml-[-100px] text-red-500 font-bold text-[20px]">
-              1600000 đ
+              {total()} đ
             </span>
           </div>
         </div>
@@ -201,56 +151,7 @@ const OrderPage = () => {
                   </p>
                 )}
               </div>
-              {/* <div className="flex-1">
-                <label className="block text-sm font-medium mb-1">Họ:</label>
-                <Controller
-                  name="lastname"
-                  control={control}
-                  render={({ field }) => (
-                    <input
-                      {...field}
-                      type="text"
-                      className={`block w-full p-2 border rounded-md ${
-                        errors.lastname ? "border-red-500" : "border-gray-300"
-                      }`}
-                      placeholder="Mời bạn nhập họ"
-                    />
-                  )}
-                />
-                {errors.lastname && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.lastname.message}
-                  </p>
-                )}
-              </div> */}
             </div>
-            {/* <div>
-              <label className="block text-sm font-medium mb-1">
-                Thành Phố:
-              </label>
-              <Controller
-                name="city"
-                control={control}
-                render={({ field }) => (
-                  <select
-                    {...field}
-                    className={`block w-full p-2 border rounded-md ${
-                      errors.city ? "border-red-500" : "border-gray-300"
-                    }`}
-                  >
-                    <option value="">Chọn thành phố</option>
-                    <option value="Hà Nội">Hà Nội</option>
-                    <option value="TP. Hồ Chí Minh">TP. Hồ Chí Minh</option>
-                    <option value="Khác">Khác</option>
-                  </select>
-                )}
-              />
-              {errors.city && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.city.message}
-                </p>
-              )}
-            </div> */}
             <div>
               <label className="block text-[16px] font-medium mb-1">
                 Địa Chỉ:
@@ -299,7 +200,7 @@ const OrderPage = () => {
                 </p>
               )}
             </div>
-            {/* <div>
+            <div>
               <label className="block text-sm font-medium mb-1">Email:</label>
               <Controller
                 name="email"
@@ -308,7 +209,7 @@ const OrderPage = () => {
                   <input
                     {...field}
                     type="email"
-                    className={`block w-full p-2 border rounded-md ${
+                    className={`block w-[546px] h-[39px] p-2 border rounded-md ${
                       errors.email ? "border-red-500" : "border-gray-300"
                     }`}
                     placeholder="Mời bạn nhập email"
@@ -320,83 +221,109 @@ const OrderPage = () => {
                   {errors.email.message}
                 </p>
               )}
-            </div> */}
+            </div>
             <div className="flex space-x-4 ml-[3px]">
               <fieldset className="w-[261px] mt-[32px]">
                 <legend className="block text-[20px] font-medium mb-[12px] ml-[-2px]">
                   Phương thức thanh toán:
                 </legend>
-                <div className="flex flex-col space-y-2 ml-[-10px]">
-                  <label className="flex items-center p-2 w-[261px] h-[39px]">
-                    <input
-                      type="radio"
-                      name="paymentMethod"
-                      className="peer sr-only"
-                    />
-                    <span className="text-[16px] peer-checked:bg-[#254753] peer-checked:text-white p-2 rounded-lg w-[261px] h-[39px]">
-                      Thanh toán COD
-                    </span>
-                  </label>
-                  <label className="flex items-center p-2 w-[261px] h-[39px]">
-                    <input
-                      type="radio"
-                      name="paymentMethod"
-                      className="peer sr-only"
-                    />
-                    <span className="text-[16px] peer-checked:bg-[#254753] peer-checked:text-white p-2 rounded-lg w-[261px] h-[39px]">
-                      Chuyển khoản
-                    </span>
-                  </label>
-                  <label className="flex items-center p-2 w-[261px] h-[39px]">
-                    <input
-                      type="radio"
-                      name="paymentMethod"
-                      className="peer sr-only"
-                    />
-                    <span className="text-[16px] peer-checked:bg-[#254753] peer-checked:text-white p-2 rounded-lg w-[261px] h-[39px]">
-                      Trả góp
-                    </span>
-                  </label>
-                </div>
+                <Controller
+                  name="paymentMethod"
+                  control={control}
+                  render={({ field }) => (
+                    <div>
+                      <label className="w-[261px] flex items-center p-2 has-[:checked]:bg-[#254753] has-[:checked]:text-white rounded-[10px] h-[39px]">
+                        <input
+                          {...field}
+                          type="radio"
+                          className="checked:border-indigo-500"
+                          value="COD"
+                          checked={field.value === "COD"}
+                          onChange={() => field.onChange("COD")}
+                        />
+                        <span className="text-[16px] p-2 rounded-lg w-[200px] h-[39px]">
+                          Thanh toán COD
+                        </span>
+                      </label>
+                      <label className="w-[261px] flex items-center p-2 has-[:checked]:bg-[#254753] has-[:checked]:text-white rounded-[10px] h-[39px]">
+                        <input
+                          {...field}
+                          type="radio"
+                          value="Transfer"
+                          checked={field.value === "Transfer"}
+                          onChange={() => field.onChange("Transfer")}
+                        />
+                        <span className="text-[16px] p-2 rounded-lg w-[200px] h-[39px]">
+                          Chuyển khoản
+                        </span>
+                      </label>
+                      <label className="w-[261px] flex items-center p-2 has-[:checked]:bg-[#254753] has-[:checked]:text-white rounded-[10px] h-[39px]">
+                        <input
+                          {...field}
+                          type="radio"
+                          value="Installment"
+                          checked={field.value === "Installment"}
+                          onChange={() => field.onChange("Installment")}
+                        />
+                        <span className="text-[16px] p-2 rounded-lg w-[200px] h-[39px]">
+                          Trả góp
+                        </span>
+                      </label>
+                    </div>
+                  )}
+                />
               </fieldset>
               <fieldset className="w-[261px] mt-[32px]">
-                <legend className="block text-[20px] font-medium mb-[12px] ml-[15px]">
+                <legend className="block text-[20px] font-medium mb-[12px] ml-[-2px]">
                   Phương thức vận chuyển:
                 </legend>
-                <div className="flex flex-col space-y-2 ml-[10px]">
-                  <label className="flex items-center p-2 w-[261px] h-[39px]">
-                    <input
-                      type="radio"
-                      name="shippingMethod"
-                      className="peer sr-only"
-                    />
-                    <span className="text-[16px] peer-checked:bg-[#254753] peer-checked:text-white p-2 rounded-lg w-[261px] h-[39px]">
-                      Nhanh
-                    </span>
-                  </label>
-                  <label className="flex items-center p-2 w-[261px] h-[39px]">
-                    <input
-                      type="radio"
-                      name="shippingMethod"
-                      className="peer sr-only"
-                    />
-                    <span className="text-[16px] peer-checked:bg-[#254753] peer-checked:text-white p-2 rounded-lg w-[261px] h-[39px]">
-                      Thông thường
-                    </span>
-                  </label>
-                  <label className="flex items-center p-2 w-[261px] h-[39px]">
-                    <input
-                      type="radio"
-                      name="shippingMethod"
-                      className="peer sr-only"
-                    />
-                    <span className="text-[16px] peer-checked:bg-[#254753] peer-checked:text-white p-2 rounded-lg w-[261px] h-[39px]">
-                      Hỏa tốc
-                    </span>
-                  </label>
-                </div>
+                <Controller
+                  name="shippingMethod"
+                  control={control}
+                  render={({ field }) => (
+                    <div>
+                      <label className="w-[261px] flex items-center p-2 has-[:checked]:bg-[#254753] has-[:checked]:text-white rounded-[10px] h-[39px]">
+                        <input
+                          {...field}
+                          type="radio"
+                          value="Fast"
+                          checked={field.value === "Fast"}
+                          onChange={() => field.onChange("Fast")}
+                        />
+                        <span className="text-[16px] p-2 rounded-lg w-[200px] h-[39px]">
+                          Nhanh
+                        </span>
+                      </label>
+                      <label className="w-[261px] flex items-center p-2 has-[:checked]:bg-[#254753] has-[:checked]:text-white rounded-[10px] h-[39px]">
+                        <input
+                          {...field}
+                          type="radio"
+                          value="Normal"
+                          checked={field.value === "Normal"}
+                          onChange={() => field.onChange("Normal")}
+                        />
+                        <span className="text-[16px] p-2 rounded-lg w-[200px] h-[39px]">
+                          Thông thường
+                        </span>
+                      </label>
+                      <label className="w-[261px] flex items-center p-2 has-[:checked]:bg-[#254753] has-[:checked]:text-white rounded-[10px] h-[39px]">
+                        <input
+                          {...field}
+                          type="radio"
+                          value="Express"
+                          checked={field.value === "Express"}
+                          onChange={() => field.onChange("Express")}
+                        />
+                        <span className="text-[16px] p-2 rounded-lg w-[200px] h-[39px]">
+                          Hỏa tốc
+                        </span>
+                      </label>
+                    </div>
+                  )}
+                />
               </fieldset>
             </div>
+
             <button
               type="submit"
               className="bg-[#254753] text-[16px] text-white py-2 px-4 rounded-md hover:bg-gray-600 w-[546px] h-[39px]"

@@ -25,7 +25,7 @@ const CartPage = () => {
     );
 
   const hasProducts = data?.products.length > 0;
-
+  
   const handleBuyNowClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (!hasProducts) {
       e.preventDefault();
