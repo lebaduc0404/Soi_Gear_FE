@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import instance from "@/config/axios";
 import Test from "@/pages/test/test";
 import { GrFormNext } from "react-icons/gr";
-import { CiStar } from "react-icons/ci";
+// import { CiStar } from "react-icons/ci";
 
 const ProductDetail = () => {
   const { id } = useParams();
