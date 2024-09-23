@@ -13,7 +13,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { TbArrowBackUp } from "react-icons/tb";
-import RelatedProduct from "../product/_component/RelatedProduct";
+// import RelatedProduct from "../product/_component/RelatedProduct";
 // import RelatedProduct from "../product/_component/RelatedProduct";
 
 const CartPage = () => {
