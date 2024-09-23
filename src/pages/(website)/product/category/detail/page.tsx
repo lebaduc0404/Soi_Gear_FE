@@ -6,6 +6,7 @@ import Banner from "@/pages/(website)/home/_component/Banner";
 import Filter from "../../_component/Filter";
 import instance from "@/config/axios";
 import Test from "@/pages/test/test";
+import { GrFormNext } from "react-icons/gr";
 
 const CategoryDetail = () => {
     const { id } = useParams();
@@ -28,9 +29,9 @@ const CategoryDetail = () => {
               <div className="filters-choose mt-[-43px]">
                 <div className="filters-choose__action">
                   <span className="filters__text text-[15px]">Trang Chủ</span>
-                  <img src="/src/assets/icons/next.svg" alt="" />
+                  <GrFormNext className="w-[25px] h-[25px]" />
                   <span className="filters__text text-[15px]">Danh mục</span>
-                  <img src="/src/assets/icons/next.svg" alt="" />
+                  <GrFormNext className="w-[25px] h-[25px]" />
                 </div>
 
                 <div className="filters-show">
@@ -43,7 +44,9 @@ const CategoryDetail = () => {
           </div>
         </section>
         <Test />
-        <Banner />
+        <div className="mt-[-39px]">
+          <Banner />
+        </div>
         <Filter />
         <section className="news">
           <div className="container-3 flex justify-center items-center}">

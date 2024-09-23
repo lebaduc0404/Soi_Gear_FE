@@ -13,6 +13,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { TbArrowBackUp } from "react-icons/tb";
+import { GrFormNext } from "react-icons/gr";
 // import RelatedProduct from "../product/_component/RelatedProduct";
 // import RelatedProduct from "../product/_component/RelatedProduct";
 
@@ -45,7 +46,7 @@ const CartPage = () => {
               <div className="filters-choose mt-[-43px]">
                 <div className="filters-choose__action">
                   <span className="filters__text text-[15px]">Trang Chủ</span>
-                  <img src="/src/assets/icons/next.svg" alt="" />
+                  <GrFormNext className="w-[25px] h-[25px]"/>
                 </div>
 
                 <div className="filters-show">
@@ -57,7 +58,7 @@ const CartPage = () => {
             </div>
           </div>
         </section>
-        <div className="container mx-auto p-8 mt-[-50px] mb-5 flex ml-[-48px]">
+        <div className="container mx-auto p-8 mt-[-69px] mb-5 flex ml-[-48px]">
           <div className="bg-white h-[auto]">
             <div className="ml-[15px]">
               <h1 className="text-4xl font-bold mb-8 mt-[20px]">GIỎ HÀNG</h1>

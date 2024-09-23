@@ -7,6 +7,7 @@ import ProductList from "./_component/ProductList";
 import { useEffect, useState } from "react";
 import { ICategory } from "@/common/types/categories";
 import instance from "@/config/axios";
+import { GrFormNext } from "react-icons/gr";
 // import Categories from "./_component/CategoryList";
 
 const ShopPage = () => {
@@ -33,9 +34,9 @@ const ShopPage = () => {
               <div className="filters-choose mt-[-43px]">
                 <div className="filters-choose__action">
                   <span className="filters__text text-[15px]">Trang Chủ</span>
-                  <img src="/src/assets/icons/next.svg" alt="" />
+                  <GrFormNext className="w-[25px] h-[25px]" />
                   <span className="filters__text text-[15px]">Danh mục</span>
-                  <img src="/src/assets/icons/next.svg" alt="" />
+                  <GrFormNext className="w-[25px] h-[25px]" />
                 </div>
 
                 <div className="filters-show">
@@ -48,7 +49,9 @@ const ShopPage = () => {
           </div>
         </section>
         <Test />
-        <Banner />
+        <div className="mt-[-39px]">
+          <Banner />
+        </div>
         <Filter />
         {/* <Categories /> */}
         <section className="shop">
