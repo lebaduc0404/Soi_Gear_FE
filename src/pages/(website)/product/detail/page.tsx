@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import instance from "@/config/axios";
 import Test from "@/pages/test/test";
 import { GrFormNext } from "react-icons/gr";
+import { CiStar } from "react-icons/ci";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -26,6 +27,9 @@ const ProductDetail = () => {
       setGalleries(data.gallery);
     }
   }, [data]);
+
+  const star = "/src/assets/icons/star.svg";
+  const star1 = "/src/assets/icons/star-half.svg";
 
   const increaseQuantity = () => {
     setQuantity((quantity) => quantity + 1);
@@ -119,11 +123,11 @@ const ProductDetail = () => {
                 </div>
                 <div className="products-info__judge">
                   <div className="products__star">
-                    <img src="/src/assets/icons/star.svg" alt="" />
-                    <img src="/src/assets/icons/star.svg" alt="" />
-                    <img src="/src/assets/icons/star.svg" alt="" />
-                    <img src="/src/assets/icons/star.svg" alt="" />
-                    <img src="/src/assets/icons/star-half.svg" alt="" />
+                    <img src={star} alt="" />
+                    <img src={star} alt="" />
+                    <img src={star} alt="" />
+                    <img src={star} alt="" />
+                    <img src={star1} alt="" />
                   </div>
                   <div className="products__review">
                     <span>Sản phẩm có đánh giá tốt</span>
