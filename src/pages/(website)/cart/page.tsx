@@ -79,7 +79,7 @@ const CartPage = () => {
                       />
                     </div>
                     <div className="ml-[16px]">
-                      <div className="text-[21px] font-sans w-[200px] whitespace-nowrap text-sm text-gray-900">
+                      <div className="text-[19px] font-sans w-[200px] whitespace-nowrap text-sm text-gray-900">
                         {product.name}
                       </div>
                       <div className="text-[18px] font-medium whitespace-nowrap text-sm text-gray-500 mt-[58px]">
