@@ -8,6 +8,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import instance from "@/config/axios";
 import Test from "@/pages/test/test";
+import { GrFormNext } from "react-icons/gr";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -75,9 +76,9 @@ const ProductDetail = () => {
               <div className="filters-choose mt-[-43px]">
                 <div className="filters-choose__action">
                   <span className="filters__text text-[15px]">Trang Chủ</span>
-                  <img src="/src/assets/icons/next.svg" alt="" />
+                  <GrFormNext className="w-[25px] h-[25px]" />
                   <span className="filters__text text-[15px]">Sản Phẩm</span>
-                  <img src="/src/assets/icons/next.svg" alt="" />
+                  <GrFormNext className="w-[25px] h-[25px]" />
                 </div>
 
                 <div className="filters-show">

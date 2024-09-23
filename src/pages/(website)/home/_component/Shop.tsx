@@ -1,4 +1,6 @@
 import { ShopImg1, ShopImg2, ShopImg3, ShopImg4 } from "@/components/icons";
+import { Link } from "react-router-dom";
+// import instance from "@/config/axios";
 
 const Shop = () => {
   const rainbowTextStyle = {
@@ -23,36 +25,36 @@ const Shop = () => {
             <div className="section-body">
               <div className="shops grid grid-cols-4">
                 <div className="shop-item">
-                  <a
-                    href="/detail/66ed1aca9481433e8a2c2ab7"
+                  <Link
+                    to="/detail/66ed1aca9481433e8a2c2ab7"
                     className="shop__link"
                   >
                     <img src={ShopImg1} alt="" className="shop__image" />
-                  </a>
+                  </Link>
                 </div>
                 <div className="shop-item">
-                  <a
-                    href="/detail/66ed1b199481433e8a2c2ad3"
+                  <Link
+                    to="/detail/66ed1b199481433e8a2c2ad3"
                     className="shop__link"
                   >
                     <img src={ShopImg2} alt="" className="shop__image" />
-                  </a>
+                  </Link>
                 </div>
                 <div className="shop-item">
-                  <a
-                    href="/detail/66ed1b759481433e8a2c2afd"
+                  <Link
+                    to="/detail/66ed1b759481433e8a2c2afd"
                     className="shop__link"
                   >
                     <img src={ShopImg3} alt="" className="shop__image" />
-                  </a>
+                  </Link>
                 </div>
                 <div className="shop-item">
-                  <a
-                    href="/detail/66ed1bc79481433e8a2c2b0b"
+                  <Link
+                    to="/detail/66ed1bc79481433e8a2c2b0b"
                     className="shop__link"
                   >
                     <img src={ShopImg4} alt="" className="shop__image" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
