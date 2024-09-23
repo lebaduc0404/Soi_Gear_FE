@@ -1,12 +1,13 @@
 import { useState } from "react";
 import ProductQuery from "@/common/hooks/ProductQuery";
-import { useLocalStorage } from "@/common/hooks/useStorage";
+// import { useLocalStorage } from "@/common/hooks/useStorage";
 import { IProduct } from "@/common/types/product";
-import { toast } from "@/components/ui/use-toast";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+// import { toast } from "@/components/ui/use-toast";
+// import { useMutation, useQueryClient } from "@tanstack/react-query";
 // import axios from "axios";
 import { Link } from "react-router-dom";
-import instance from "@/config/axios";
+// import instance from "@/config/axios";
+import { LuPackageSearch } from "react-icons/lu";
 
 type ProductListProps = {
   featured?: boolean;
@@ -14,36 +15,36 @@ type ProductListProps = {
 };
 
 const ProductList = ({ featured, data }: ProductListProps) => {
-  const [user] = useLocalStorage("user", {});
-  const userId = user?.user?._id;
-  const queryClient = useQueryClient();
+  // const [user] = useLocalStorage("user", {});
+  // const userId = user?.user?._id;
+  // const queryClient = useQueryClient();
   const { data: products } = ProductQuery();
 
-  const { mutate } = useMutation({
-    mutationFn: async ({
-      productId,
-      quantity,
-    }: {
-      productId: string | number;
-      quantity: number;
-    }) => {
-      const { data } = await instance.post(`/carts/add-to-cart`, {
-        userId,
-        productId,
-        quantity,
-      });
-      return data;
-    },
-    onSuccess: () => {
-      toast({
-        title: "Thêm vào giỏ hàng thành công!",
-        variant: "success",
-      });
-      queryClient.invalidateQueries({
-        queryKey: ["CART", userId],
-      });
-    },
-  });
+  // const { mutate } = useMutation({
+  //   mutationFn: async ({
+  //     productId,
+  //     quantity,
+  //   }: {
+  //     productId: string | number;
+  //     quantity: number;
+  //   }) => {
+  //     const { data } = await instance.post(`/carts/add-to-cart`, {
+  //       userId,
+  //       productId,
+  //       quantity,
+  //     });
+  //     return data;
+  //   },
+  //   onSuccess: () => {
+  //     toast({
+  //       title: "Thêm vào giỏ hàng thành công!",
+  //       variant: "success",
+  //     });
+  //     queryClient.invalidateQueries({
+  //       queryKey: ["CART", userId],
+  //     });
+  //   },
+  // });
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -180,9 +181,9 @@ const ProductList = ({ featured, data }: ProductListProps) => {
                   )}
                 </div>
               </div>
-
-              <div className="product-actions">
-                <div className="product-action__quickview1">
+              <Link to={`/detail/${product._id}`} className="">
+                <div className="product-actions">
+                  {/* <div className="product-action__quickview1">
                   <Link to={`/detail/${product._id}`} className="">
                     <button className="product-action__quickview1 border border-2 border-white-300">
                       Xem chi tiết
@@ -201,8 +202,14 @@ const ProductList = ({ featured, data }: ProductListProps) => {
                   >
                     Thêm vào giỏ
                   </button>
+                </div> */}
+
+                  <div>
+                    <LuPackageSearch className="w-[50px] h-[50px] ml-[5px]" />
+                    <span className="text-[10px]">Tìm hiểu thêm</span>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
         </div>

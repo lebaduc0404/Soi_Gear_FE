@@ -143,7 +143,7 @@ const useCart = () => {
   return {
     data,
     mutate,
-    clearCart, // Trả về clearCart
+    clearCart,
     total,
     ...restQuery,
   };

@@ -27,6 +27,26 @@ const ShopPage = () => {
   },[])
     return (
       <>
+        <section className="bg-white filters w-[72.65625vw] h-[40px] ml-[13.151vw]">
+          <div className="container">
+            <div className="filters-around">
+              <div className="filters-choose mt-[-43px]">
+                <div className="filters-choose__action">
+                  <span className="filters__text text-[15px]">Trang Chủ</span>
+                  <img src="/src/assets/icons/next.svg" alt="" />
+                  <span className="filters__text text-[15px]">Danh mục</span>
+                  <img src="/src/assets/icons/next.svg" alt="" />
+                </div>
+
+                <div className="filters-show">
+                  <span className="filters-show__text text-[15px]">
+                    Tất cả sản phẩm
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <Test />
         <Banner />
         <Filter />

@@ -3,6 +3,7 @@ import instance from "@/config/axios";
 import { useQuery } from "@tanstack/react-query";
 // import axios from "axios";
 import { Link } from "react-router-dom";
+import { LuPackageSearch } from "react-icons/lu";
 
 const RelatedProduct = ({ id }: { id: string | number }) => {
   const { data: products, isLoading } = useQuery({
@@ -32,7 +33,8 @@ const RelatedProduct = ({ id }: { id: string | number }) => {
                 <Link to={""} className="product__link">
                   {product.name}
                 </Link>
-              </h3><br />
+              </h3>
+              <br />
               {/* <a href="" className="product__category1">
                 {product.category.name}
               </a> */}
@@ -52,30 +54,14 @@ const RelatedProduct = ({ id }: { id: string | number }) => {
                 )}
               </div>
             </div>
-            <div className="product-actions">
-              <Link
-                to={`/detail/${product._id}`}
-                className="product-action__quickview1"
-              >
-                Xem chi tiết
-              </Link>
-              <button className="product-action__addtocart">
-                Thêm vào giỏ
-              </button>
-              <div className="product-actions-more">
-                <span className="product-action__share">
-                  <img src="/src/assets/icons/icon-share.svg" alt="" />
-                  Chia sẻ
-                </span>
-                <span className="product-action__compare">
-                  <img src="/src/assets/icons/icon-compare.svg" alt="" />
-                </span>
-                <span className="product-action__like">
-                  <img src="/src/assets/icons/icon-heart.svg" alt="" />
-                  Thích
-                </span>
+            <Link to={`/detail/${product._id}`} className="">
+              <div className="product-actions">
+                <div>
+                  <LuPackageSearch className="w-[50px] h-[50px] ml-[5px]" />
+                  <span className="text-[10px]">Tìm hiểu thêm</span>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
         ))}
       </div>

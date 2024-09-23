@@ -68,8 +68,8 @@ const ProductDetail = () => {
   return (
     <>
       <Test />
-      <div className="btn_0">
-        <section className="filters w-[1116px] h-[40px] ml-[30px]">
+      <div className="btn_0 ml-[20px]">
+        <section className="bg-white filters w-[1116px] mt-[-40px] h-[40px]">
           <div className="container">
             <div className="filters-around">
               <div className="filters-choose mt-[-43px]">
@@ -90,7 +90,7 @@ const ProductDetail = () => {
           </div>
         </section>
         <section className="products">
-          <div className="container">
+          <div className="">
             <div className="products-around w-[1116px] h-[468px] mt-[-30px] bg-white rounded-[10px]">
               <div className="products-img mt-[18px] ml-[38px]">
                 <div className="products-img__thumbnail">
@@ -193,7 +193,7 @@ const ProductDetail = () => {
         </section>
         <hr className="hr" />
         <section className="description">
-          <div className="container">
+          <div className="">
             <div className="description-header-container w-[1116px]">
               <div className="description-header w-[736px] h-[560px] mt-[24px] bg-white rounded-[10px]">
                 <div className="ml-[40px]">
@@ -264,7 +264,7 @@ const ProductDetail = () => {
         </section>
         <hr className="hr" />
         <section className="product">
-          <div className="container_01 w-[1116px] h-[430px] bg-white mt-[24px] ml-[30px] rounded-[10px]">
+          <div className="container_01 w-[1116px] h-[430px] bg-white mt-[24px] rounded-[10px]">
             <div className="container">
               <div className="section-heading w-[100%] ml-[-5px]">
                 <h2 className="section-heading__title text-[24px]">
@@ -278,9 +278,25 @@ const ProductDetail = () => {
         <hr className="hr" />
       </div>
       <style>{`
-.btn_0{
-  width: 1116px;
-  margin-left: 162px;
+.btn_0 {
+    width: 100%;
+    max-width: 1116px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .btn_0 {
+        width: 90%; /* Khi màn hình nhỏ, tăng chiều rộng lên 90% */
+        margin-left: 10px; /* Điều chỉnh margin cho thiết bị nhỏ */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .btn_0 {
+        width: 100%; /* Chiều rộng 100% cho màn hình nhỏ hơn */
+        margin-left: 0; /* Margin bằng 0 để tiết kiệm không gian */
+    }
 }
 .products-img {
   display: flex;
