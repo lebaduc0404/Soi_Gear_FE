@@ -10,6 +10,8 @@ import instance from "@/config/axios";
 import Test from "@/pages/test/test";
 import { GrFormNext } from "react-icons/gr";
 // import { CiStar } from "react-icons/ci";
+import { FaStar } from "react-icons/fa6";
+import { FaStarHalf } from "react-icons/fa6";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -28,8 +30,8 @@ const ProductDetail = () => {
     }
   }, [data]);
 
-  const star = "/src/assets/icons/star.svg";
-  const star1 = "/src/assets/icons/star-half.svg";
+  // const star = "/src/assets/icons/star.svg";
+  // const star1 = "/src/assets/icons/star-half.svg";
 
   const increaseQuantity = () => {
     setQuantity((quantity) => quantity + 1);
@@ -123,11 +125,11 @@ const ProductDetail = () => {
                 </div>
                 <div className="products-info__judge">
                   <div className="products__star">
-                    <img src={star} alt="" />
-                    <img src={star} alt="" />
-                    <img src={star} alt="" />
-                    <img src={star} alt="" />
-                    <img src={star1} alt="" />
+                    <FaStar className="text-yellow-300" />
+                    <FaStar className="text-yellow-300" />
+                    <FaStar className="text-yellow-300" />
+                    <FaStar className="text-yellow-300" />
+                    <FaStarHalf className="text-yellow-300" />
                   </div>
                   <div className="products__review">
                     <span>Sản phẩm có đánh giá tốt</span>
