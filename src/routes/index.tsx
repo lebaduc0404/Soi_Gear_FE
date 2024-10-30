@@ -28,6 +28,7 @@ import ForgotPassword from "@/pages/(website)/(auth)/_component/Forgot";
 import PrivateRoute from "./PrivateRoute";
 import Test from "@/pages/test/test";
 import SignIn from "@/pages/(website)/(auth)/_component/SignIn";
+import Example from "@/pages/test/test2";
 // import SignUp from "@/pages/(website)/(auth)/_component/SignUp";
 
 const Router = () => {
@@ -53,6 +54,7 @@ const Router = () => {
           <Route path="profile" element={<ProfilePage />} />
           <Route path="test" element={<TestDetail />} />
           <Route path="test1" element={<Test />} />
+          <Route path="test2" element={<Example />} />
           <Route path="*" element={<NotFound />} />
         </Route>
 

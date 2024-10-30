@@ -27,39 +27,6 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-// const productSchema = Joi.object({
-//     name: Joi.string().required().messages({
-//         "any.required": "Tên sản phẩm không được để trống",
-//         "string.empty": "Tên sản phẩm không được để trống",
-//     }),
-//     price: Joi.number().required().messages({
-//         "any.required": "Giá sản phẩm không được để trống",
-//         "number.base": "Giá sản phẩm phải là số",
-//     }),
-//     category: Joi.string().required().messages({
-//         "any.required": "Danh mục sản phẩm không được để trống",
-//         "string.empty": "Danh mục sản phẩm không được để trống",
-//     }),
-//     image: Joi.string().messages({
-//         "string.empty": "Ảnh sản phẩm không được để trống",
-//     }),
-//     gallery: Joi.array().items(Joi.string()).messages({
-//         "array.base": "Gallery phải là mảng",
-//     }),
-//     description: Joi.string().messages({
-//         "string.empty": "Mô tả sản phẩm không được để trống",
-//     }),
-//     discount: Joi.number().messages({
-//         "number.base": "Giảm giá sản phẩm phải là số",
-//     }),
-//     featured: Joi.boolean().messages({
-//         "boolean.base": "Trường này phải là boolean",
-//     }),
-//     countInStock: Joi.number().messages({
-//         "number.base": "Số lượng sản phẩm phải là số",
-//     }),
-// });
-
 const ProductEditPage = () => {
     const nav = useNavigate();
     const { id } = useParams();

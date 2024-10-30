@@ -3,6 +3,7 @@ import { useLocation, Link } from "react-router-dom";
 // import axios from "axios";
 import instance from "@/config/axios";
 import Test from "@/pages/test/test";
+import { LuPackageSearch } from "react-icons/lu";
 
 interface Product {
   _id: string;
@@ -58,7 +59,7 @@ const SearchPage: React.FC = () => {
 
   return (
     <>
-      <Test/>
+      <Test />
       <div className="container mx-auto px-4 py-6">
         <h1 className="text-2xl font-bold text-gray-900 mb-6">
           Kết quả tìm kiếm cho: "{query}"
@@ -95,16 +96,16 @@ const SearchPage: React.FC = () => {
         {results.length === 0 && !loading && !error && (
           <p className="text-gray-500">No products found.</p>
         )}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-5 gap-x-[0.11vw] gap-y-[4.336vh] w-[100%]">
           {results.map((product) => (
             <div
               key={product._id}
-              className="relative group bg-white shadow-lg rounded-lg overflow-hidden"
+              className="relative group bg-white  max-w-[14.369vw] w-[100%] h-[42.999vh] shadow-lg rounded-lg overflow-hidden"
             >
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                className="w-[14.369vw] h-[21.815vh] object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out"
                 onClick={() => {
                   setSelectedImage(product.image);
                   setIsModalOpen(true);
@@ -115,15 +116,15 @@ const SearchPage: React.FC = () => {
                   {product.discount}%
                 </span>
               )}
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50">
-                <Link
-                  to={`/detail/${product._id}`}
-                  className="bg-blue-500 text-white px-4 py-2 rounded-lg mb-2 hover:bg-blue-600"
-                >
-                  Xem chi tiết
-                </Link>
-              </div>
-              <div className="p-4">
+              <Link to={`/detail/${product._id}`} className="">
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50">
+                  <div>
+                    <LuPackageSearch className="w-[50px] h-[50px] ml-[5px]" />
+                    <span className="text-[10px]">Tìm hiểu thêm</span>
+                  </div>
+                </div>
+              </Link>
+              <div className="p-4 h-[15.718vh]">
                 <h2 className="text-xl font-semibold mb-2">
                   <Link
                     to={`/detail/${product._id}`}
